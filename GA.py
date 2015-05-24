@@ -13,7 +13,6 @@ import  math
 import individual
 import batch_drive
 #from datashape.coretypes import String
-
 import numpy as np
 
 class RunGA():
@@ -135,7 +134,7 @@ class gax(RunGA):
     def returnFittest(self):
         for i in range(len(self.fitArray)):
             print "i am here"
-
+            leader=np.empty
             if leader == np.empty:
                 leader = i
                 print leader
