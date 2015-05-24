@@ -20,6 +20,7 @@ class RunGA():
     def __init__(self,rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path):
 
         self.nr_processes = nr_processes
+        self.currentIteration=0
 
 
         pass
@@ -54,7 +55,7 @@ class gax(RunGA):
        # self.current_iteration = self.current_iteration + 1
        # if self.current_iteration >= self.max_iterations:
        #     self.stop_reached = True
-        print("dfg")
-        self.nr_processes = self.nr_processes+1
-        print ""+str(self.nr_processes)
-        print batch_drive.evaluation(["1","2","3","4", "5", "6", "7", "8", "9"], 6)
+        print "nb of processes: "+str(self.nr_processes)
+        print "iteration:        "+str(self.currentIteration)
+        print batch_drive.evaluation(["1","2","3","4", "5", "6", "7", "8", "9"], (self.nr_processes-self.nr_processes)+self.currentIteration)
+        self.currentIteration=self.currentIteration+1

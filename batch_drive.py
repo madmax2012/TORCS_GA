@@ -55,7 +55,7 @@ def main():
     run_id = "1"
 
     # set max threads for evaluation
-    nr_processes = 8
+    nr_processes = 4
     fullpath = os.path.abspath(".")
     optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath)
     optimizer.run()
