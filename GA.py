@@ -67,8 +67,8 @@ class gax(RunGA):
 
 
 
-       # print self.fitfun(["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"], (self.nr_processes-self.nr_processes)+self.currentIteration)
-       # map(self.fitfun, )
+        print self.fitfun(self.car1, (self.nr_processes-self.nr_processes)+self.currentIteration)
+
         ba = [["87.7387897084","0.200804630457","4.20105212553","0.650334796388","12.5515800035","0.250865270024","0.937916693503","14.0768882757","0.612841339211"],["300","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
         foos = [self.car1,ba[1],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
         bars = [1,2,3]
@@ -82,7 +82,7 @@ class gax(RunGA):
          #   print self.cars[i]
              pass
         print self.car1.parameters
-        map(maptest, foos)
+       # map(maptest, foos)
 
 
 
