@@ -91,7 +91,7 @@ class gax(RunGA):
                         self.parent1=self.randomParentCandidate
 
         '''
-        self.printPop()
+        #self.printPop()
         print "collecting now"
         #print "value0: "+str(self.cars[0].values[0])
 
@@ -121,7 +121,7 @@ class gax(RunGA):
             self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
 
     def printFitnessArray(self):
-        if self.fitArra y== []:
+        if self.fitArray == []:
             print "No fitness values collected, yet"
         else:
             for i in range(len(self.fitArray)):
