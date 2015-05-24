@@ -50,7 +50,7 @@ def main():
     popsize = 4
     sp = 2
     mut = 1./rep_length
-    cross = 0.8
+    cross = 1.0
     maxgen = 1
     run_id = "1"
 

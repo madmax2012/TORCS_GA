@@ -54,14 +54,14 @@ class gax(RunGA):
 
 
     def step(self):
-        tempArray = []
+        self.tempArray = []
         self.getFitnessValues()
         print "printing all fitnesses"
         self.printFitnessArray()
         print "\n\n"
         self.returnFittest()
         print "fittest at: "+str(self.returnFittest())
-        print "it's values: "+str(self.printFittestValues())
+        print "it's values: "+str(self.returnFittestValues())
 
 
         '''keep for parallel function
@@ -75,25 +75,42 @@ class gax(RunGA):
 
         map(maptest, foos)
 
-
+'''
         for replacer in range (len(self.cars)):
             self.parent1 = np.empty
             self.parent2 = np.empty
             self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
             if  replacer < self.numberOfElites: ##keep the elites
-                self.tempArray.append(self.population[self.returnBestIndividualPOS()])
+                self.tempArray.append(self.cars[self.returnFittest()])
                 pass
             else:
                 for i in range(0,self.tournamentSize):##select parents in tournament
-                    self.randomParentCandidate = self.population[random.randint(0, len(self.population)-1)]
+                    self.randomPos = random.randint(0, len(self.cars)-1)
+                    self.randomParentCandidate = self.fitArray[self.randomPos]
                     if self.parent1==np.empty:
-                        self.parent1=self.randomParentCandidate
-                        self.parent2=self.parent1
-                    elif (self.getCityFitness(self.city_coordinates, self.parent1.position)) > (self.getCityFitness(self.city_coordinates, self.randomParentCandidate.position)):
-                        self.parent2=self.parent1
-                        self.parent1=self.randomParentCandidate
+                        self.parent1=self.randomPos
+                        #self.parent2=self.parent1
+                        #print "our first parents are"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
+                    elif self.fitArray[self.randomPos] < self.fitArray[self.parent1]:
+                        if self.fitArray[self.randomPos] == -1:
+                            print "-1 is no legit parent"
+                        else:
+                            #print "tm: "+str(self.fitArray[self.randomPos])+"  is smaller than  "+str(self.fitArray[self.parent1])+""
+                            #self.parent2=self.parent1
+                            self.parent1=self.randomPos
+                    self.randomPos = random.randint(0, len(self.cars)-1)
+                    if self.parent2==np.empty:
+                        self.parent2=self.randomPos
+                    elif self.fitArray[self.randomPos] < self.fitArray[self.parent2]:
+                        if self.fitArray[self.randomPos] == -1:
+                            print "-1 is no legit parent"
+                        else:
+                            self.parent2=self.randomPos
 
-'''
+
+                print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
+
+
         #self.printPop()
         print "collecting now"
         #print "value0: "+str(self.cars[0].values[0])
@@ -154,12 +171,12 @@ class gax(RunGA):
                 if self.fitArray[i] == -1:
                     pass
                 else:
-                    print str(self.fitArray[i])+" is smaller than "+str(self.fitArray[leader])
+                    #print str(self.fitArray[i])+" is smaller than "+str(self.fitArray[leader])
                     leader = i
         return leader
 
-    def printFittestValues(self):
-        print self.cars[self.returnFittest()].getParameters()
+    def returnFittestValues(self):
+        return self.cars[self.returnFittest()].getParameters()
 
 
 
