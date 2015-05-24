@@ -63,7 +63,6 @@ class gax(RunGA):
        # print  "Driver:"+str(self.driver)
 
 
-
        # print self.fitfun(["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"], (self.nr_processes-self.nr_processes)+self.currentIteration)
        # map(self.fitfun, )
        # ba = [["87.7387897084","0.200804630457","4.20105212553","0.650334796388","12.5515800035","0.250865270024","0.937916693503","14.0768882757","0.612841339211"],["300","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
@@ -71,7 +70,7 @@ class gax(RunGA):
        # bars = [1,2,3]
 
         def maptest(foo):
-            print foo
+           # print foo
             self.fitfun(foo, (self.nr_processes-self.nr_processes)+self.currentIteration)
 
         for i in range (len(self.cars)):
