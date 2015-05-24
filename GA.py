@@ -25,9 +25,12 @@ class RunGA():
         self.maxIterations=maxgen
         self.popsize=popsize
         self.cars = []
+        self.car1 = individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1))
+        '''
         for i in range(self.popsize):
             self.driver = "\""+str(random.uniform(0,200))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,100))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\""
             self.cars.append(self.driver)
+        '''
 
     def step(self):
         pass
@@ -63,21 +66,23 @@ class gax(RunGA):
        # print  "Driver:"+str(self.driver)
 
 
+
        # print self.fitfun(["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"], (self.nr_processes-self.nr_processes)+self.currentIteration)
        # map(self.fitfun, )
-       # ba = [["87.7387897084","0.200804630457","4.20105212553","0.650334796388","12.5515800035","0.250865270024","0.937916693503","14.0768882757","0.612841339211"],["300","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
-       # foos = [ba[0],ba[1],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
-       # bars = [1,2,3]
+        ba = [["87.7387897084","0.200804630457","4.20105212553","0.650334796388","12.5515800035","0.250865270024","0.937916693503","14.0768882757","0.612841339211"],["300","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
+        foos = [self.car1,ba[1],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
+        bars = [1,2,3]
 
         def maptest(foo):
-           # print foo
+            print foo
             self.fitfun(foo, (self.nr_processes-self.nr_processes)+self.currentIteration)
+
 
         for i in range (len(self.cars)):
          #   print self.cars[i]
-         pass
-
-        map(maptest, self.cars)
+             pass
+        print self.car1.parameters
+        map(maptest, foos)
 
 
 
