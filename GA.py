@@ -24,20 +24,16 @@ class RunGA():
         self.fitfun =fitfun
         self.maxIterations=maxgen
         self.popsize=popsize
-        self.population = []
-        bla = ["200","0.05","10","0.10","50","0.01","0.01","5", "0.2"]
-        self.driver = "[\""+str(random.uniform(0,200))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,100))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\"]"
-
-
-        pass
+        self.cars = []
+        for i in range(self.popsize):
+            self.driver = "[\""+str(random.uniform(0,200))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,100))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\"]"
+            self.cars.append(self.driver)
 
     def step(self):
         pass
 
     def stop(self):
         pass
-
-
 
     def run(self):
         while True:
@@ -75,9 +71,14 @@ class gax(RunGA):
         bars = [1,2,3]
 
         def maptest(foo):
+            print foo
             self.fitfun(foo, (self.nr_processes-self.nr_processes)+self.currentIteration)
 
-        map(maptest, foos)
+        for i in range (len(self.cars)):
+         #   print self.cars[i]
+         pass
+
+        map(maptest, self.cars)
 
 
 
