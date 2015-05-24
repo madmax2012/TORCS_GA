@@ -127,6 +127,10 @@ class gax(RunGA):
             #self.printPop()
             #print "value0: "+str(self.cars[0].values[0])
 
+
+        print "fittest at: "+str(self.returnFittest())
+        print "it's values: "+str(self.returnFittestValues())
+
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
             print "stop"
