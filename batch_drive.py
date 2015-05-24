@@ -4,7 +4,7 @@ import os
 import subprocess
 import glob
 import xml.etree.ElementTree as ET
-import ga
+import GA
 import signal
 import time
 
@@ -57,7 +57,7 @@ def main():
     # set max threads for evaluation
     nr_processes = 8
     fullpath = os.path.abspath(".")
-    optimizer = ga.GA(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath)
+    optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath)
     optimizer.run()
 
 if __name__ == "__main__":
