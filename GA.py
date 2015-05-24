@@ -29,6 +29,7 @@ class RunGA():
             self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
         self.tournamentSize=sp
         self.crossoverChance = cross
+        self.debug=0
 
     def step(self):
         pass
@@ -85,10 +86,10 @@ class gax(RunGA):
                 pass
             else:
                 for i in range(0,self.tournamentSize):##select parents in tournament
-                    self.randomPos = random.randint(0, len(self.cars)-1)
+                    self.randomPos = random.randint(0, len(self.fitArray)-1)
                     while(self.fitArray[self.randomPos] == -1):
                         print "-1.. get a new one"
-                        self.randomPos = random.randint(0, len(self.cars)-1)
+                        self.randomPos = random.randint(0, len(self.fitArray)-1)
                     if self.parent1==np.empty:
                         self.parent1=self.randomPos
                         #self.parent2=self.parent1
@@ -100,10 +101,10 @@ class gax(RunGA):
                             #print "tm: "+str(self.fitArray[self.randomPos])+"  is smaller than  "+str(self.fitArray[self.parent1])+""
                             #self.parent2=self.parent1
                             self.parent1=self.randomPos
-                    self.randomPos = random.randint(0, len(self.cars)-1)
+                    self.randomPos = random.randint(0, len(self.fitArray)-1)
                     while(self.fitArray[self.randomPos] == -1):
                         print "-1.. get a new one"
-                        self.randomPos = random.randint(0, len(self.cars)-1)
+                        self.randomPos = random.randint(0, len(self.fitArray)-1)
                     if self.parent2==np.empty:
                         self.parent2=self.randomPos
                     elif self.fitArray[self.randomPos] < self.fitArray[self.parent2]:
@@ -115,7 +116,9 @@ class gax(RunGA):
 
                 print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
 
-
+        ###crossover
+        print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
+        print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
         #self.printPop()
         print "collecting now"
         #print "value0: "+str(self.cars[0].values[0])
@@ -142,8 +145,7 @@ class gax(RunGA):
 
     def getFitnessValues(self):
         self.fitArray = []
-        debug = 0
-        if debug == 1:
+        if self.debug == 1:
              self.fitArray.append(550.0)
              self.fitArray.append(500.0)
              self.fitArray.append(123.0)
@@ -171,7 +173,6 @@ class gax(RunGA):
             #print "i am here"
             if leader == np.empty:
                 leader = i
-                print "leader is 0 :"+str(leader)
             elif self.fitArray[i]<self.fitArray[leader]:
                 if self.fitArray[i] == -1:
                     pass
