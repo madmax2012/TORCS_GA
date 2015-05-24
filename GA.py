@@ -26,7 +26,7 @@ class RunGA():
         self.popsize=popsize
         self.cars = []
         for i in range(self.popsize):
-            self.driver = "[\""+str(random.uniform(0,200))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,100))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\"]"
+            self.driver = "\""+str(random.uniform(0,200))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,100))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\""
             self.cars.append(self.driver)
 
     def step(self):
