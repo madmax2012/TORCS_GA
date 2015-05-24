@@ -29,7 +29,7 @@ class RunGA():
             self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
         self.tournamentSize=sp
         self.crossoverChance = cross
-        self.debug=0
+        self.debug=1
 
     def step(self):
         pass
@@ -78,7 +78,6 @@ class gax(RunGA):
 
 '''
         for replacer in range (len(self.cars)):
-            print replacer
            # self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
            # if  replacer < self.numberOfElites: ##keep the elites
            #     self.tempArray.append(self.cars[self.returnFittest()])
@@ -116,29 +115,31 @@ class gax(RunGA):
                         pass
                     else:
                         self.parent2=self.randomPos
-            print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
+            #print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
 
 
             ### "crossover"
             #print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
             #print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
             self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8] )
-            print "child 1 is:"+str(self.tempArray[replacer].getParameters())
+            #print "child 1 is:"+str(self.tempArray[replacer].getParameters())
             #self.printPop()
             #print "value0: "+str(self.cars[0].values[0])
 
-
+        for i in range(len(self.cars)):
+            self.cars[i] = self.tempArray[i]
         print "fittest at: "+str(self.returnFittest())
         print "it's values: "+str(self.returnFittestValues())
 
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
-            print "stop"
             self.stop_reached = True
 
 
 
 
+##fittest at: 12
+##it's values: ['190.277074091', '0.362349985495', '9.02742820427', '0.285502127651', '55.2049926684', '0.844332584546', '0.0843421917131', '6.82010070771', '0.966949879827']
 
 
 
