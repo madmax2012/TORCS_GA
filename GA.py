@@ -72,7 +72,7 @@ class gax(RunGA):
 
         map(maptest, foos)
 
-        '''
+
         for replacer in range (len(self.population)):
             self.parent1 = np.empty
             self.parent2 = np.empty
@@ -90,7 +90,7 @@ class gax(RunGA):
                         self.parent2=self.parent1
                         self.parent1=self.randomParentCandidate
 
-
+        '''
         self.printPop()
         print "collecting now"
         #print "value0: "+str(self.cars[0].values[0])
