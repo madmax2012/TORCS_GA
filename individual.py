@@ -20,3 +20,5 @@ class individual(object):
         p6 = p6
         p7 = p7
         p8 = p8
+    def getParameters(self):
+        return self.parameters
