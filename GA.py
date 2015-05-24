@@ -57,4 +57,4 @@ class gax(RunGA):
         print("dfg")
         self.nr_processes = self.nr_processes+1
         print ""+str(self.nr_processes)
-        batch_drive.evaluation(["1","2","3","4", "5", "6", "7", "8", "9"], 6)
+        print batch_drive.evaluation(["1","2","3","4", "5", "6", "7", "8", "9"], 6)
