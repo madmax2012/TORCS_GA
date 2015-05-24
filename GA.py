@@ -59,8 +59,10 @@ class gax(RunGA):
         self.getFitnessValues()
         print "printing all fitnesses"
         self.printFitnessArray()
-        print "fittest at: "+str(self.returnFittest())
-        print "it's values: "+str(self.printFittestValues())
+        #self.returnFittest()
+
+ #       print "fittest at: "+str(self.returnFittest())
+  #      print "it's values: "+str(self.printFittestValues())
 
 
         '''keep for parallel function
@@ -130,12 +132,12 @@ class gax(RunGA):
                 print self.fitArray[i]
 
     def returnFittest(self):
-        leader =99999
-        if self.fitArray == []:
-            self.getFitnessValues()
         for i in range(len(self.fitArray)):
-            if leader == 99999:
+            print "i am here"
+
+            if leader == np.empty:
                 leader = i
+                print leader
             elif self.fitArray[i]<self.fitArray[leader]:
                 if self.fitArray[i] == -1:
                     pass
