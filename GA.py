@@ -121,7 +121,7 @@ class gax(RunGA):
             self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
 
     def printFitnessArray(self):
-        if self.fitArray== []:
+        if self.fitArra y== []:
             print "No fitness values collected, yet"
         else:
             for i in range(len(self.fitArray)):
@@ -129,13 +129,13 @@ class gax(RunGA):
 
     def returnFittest(self):
         leader =99999
-        if self.fitArray== []:
+        if self.fitArray == []:
             self.getFitnessValues()
         for i in range(len(self.fitArray)):
             if leader == 99999:
                 leader = i
             elif i<leader:
-                leader =0
+                leader = i
         return leader
 
     def printFittestValues(self):
