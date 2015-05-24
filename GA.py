@@ -25,12 +25,8 @@ class RunGA():
         self.maxIterations=maxgen
         self.popsize=popsize
         self.cars = []
-        self.car1 = individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1))
-        '''
         for i in range(self.popsize):
-            self.driver = "\""+str(random.uniform(0,200))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,100))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,1))+"\","+"\""+str(random.uniform(0,20))+"\","+"\""+str(random.uniform(0,1))+"\""
-            self.cars.append(self.driver)
-        '''
+            self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
 
     def step(self):
         pass
@@ -66,10 +62,10 @@ class gax(RunGA):
        # print  "Driver:"+str(self.driver)
 
 
-        print self.fitfun(self.car1.getParameters(), 2)
+#        print self.fitfun(self.car1.getParameters(), 2)
 
         ba = [["87.7387897084","0.200804630457","4.20105212553","0.650334796388","12.5515800035","0.250865270024","0.937916693503","14.0768882757","0.612841339211"],["300","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
-        foos = [self.car1,ba[1],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
+        foos = [self.cars[0].getParameters(),ba[1],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
         bars = [1,2,3]
 
         def maptest(foo):
@@ -80,8 +76,7 @@ class gax(RunGA):
         for i in range (len(self.cars)):
          #   print self.cars[i]
              pass
-        print self.car1.parameters
-       # map(maptest, foos)
+        map(maptest, foos)
 
 
 
