@@ -86,7 +86,9 @@ class gax(RunGA):
             else:
                 for i in range(0,self.tournamentSize):##select parents in tournament
                     self.randomPos = random.randint(0, len(self.cars)-1)
-                    self.randomParentCandidate = self.fitArray[self.randomPos]
+                    while(self.fitArray[self.randomPos] == -1):
+                        print "-1.. get a new one"
+                        self.randomPos = random.randint(0, len(self.cars)-1)
                     if self.parent1==np.empty:
                         self.parent1=self.randomPos
                         #self.parent2=self.parent1
@@ -99,6 +101,9 @@ class gax(RunGA):
                             #self.parent2=self.parent1
                             self.parent1=self.randomPos
                     self.randomPos = random.randint(0, len(self.cars)-1)
+                    while(self.fitArray[self.randomPos] == -1):
+                        print "-1.. get a new one"
+                        self.randomPos = random.randint(0, len(self.cars)-1)
                     if self.parent2==np.empty:
                         self.parent2=self.randomPos
                     elif self.fitArray[self.randomPos] < self.fitArray[self.parent2]:
