@@ -61,7 +61,7 @@ class gax(RunGA):
         print "\n\n"
         self.returnFittest()
         print "fittest at: "+str(self.returnFittest())
-  #      print "it's values: "+str(self.printFittestValues())
+        print "it's values: "+str(self.printFittestValues())
 
 
         '''keep for parallel function
@@ -120,8 +120,21 @@ class gax(RunGA):
 
     def getFitnessValues(self):
         self.fitArray = []
-        for i in range(len(self.cars)):
-            self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
+        debug = 0
+        if debug == 1:
+             self.fitArray.append(550.0)
+             self.fitArray.append(500.0)
+             self.fitArray.append(123.0)
+             self.fitArray.append(144.0)
+             self.fitArray.append(132.0)
+             self.fitArray.append(234.0)
+             self.fitArray.append(432.0)
+             self.fitArray.append(265.0)
+             self.fitArray.append(199.0)
+             self.fitArray.append(333.0)
+        else:
+            for i in range(len(self.cars)):
+                self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
 
     def printFitnessArray(self):
         if self.fitArray == []:
@@ -131,12 +144,12 @@ class gax(RunGA):
                 print self.fitArray[i]
 
     def returnFittest(self):
+        leader=np.empty
         for i in range(len(self.fitArray)):
-            print "i am here"
-            leader=np.empty
+            #print "i am here"
             if leader == np.empty:
                 leader = i
-                print leader
+                print "leader is 0 :"+str(leader)
             elif self.fitArray[i]<self.fitArray[leader]:
                 if self.fitArray[i] == -1:
                     pass
