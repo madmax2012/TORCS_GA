@@ -76,7 +76,7 @@ class gax(RunGA):
         for i in range (len(self.cars)):
              print self.cars[i].getParameters()
              pass
-        #map(maptest, foos)
+        map(maptest, foos)
 
 
 
