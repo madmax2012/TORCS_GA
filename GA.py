@@ -57,5 +57,13 @@ class gax(RunGA):
        #     self.stop_reached = True
         print "nb of processes: "+str(self.nr_processes)
         print "iteration:        "+str(self.currentIteration)
+
+
+
+
         print batch_drive.evaluation(["1","2","3","4", "5", "6", "7", "8", "9"], (self.nr_processes-self.nr_processes)+self.currentIteration)
+
+
+
+
         self.currentIteration=self.currentIteration+1
