@@ -22,6 +22,7 @@ class RunGA():
         self.nr_processes = nr_processes
         self.currentIteration=0
         self.fitfun =fitfun
+        self.maxIterations=maxgen
 
 
         pass
@@ -68,3 +69,5 @@ class gax(RunGA):
 
 
         self.currentIteration=self.currentIteration+1
+        if self.current_iteration >= self.max_iterations:
+            self.stop_reached = True
