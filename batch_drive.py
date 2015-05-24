@@ -26,7 +26,7 @@ def evaluation(parameters, ind):
     server.kill()
 
     # Gather data and parse
-    result_file = "/home/alex/.torcs/results/"+ str(port[1]) +"/*.xml"
+    result_file = "/home/max/.torcs/results/"+ str(port[1]) +"/*.xml"
     newest = max(glob.iglob(result_file), key = os.path.getctime)
     tree = ET.parse(newest)
     root = tree.getroot()
