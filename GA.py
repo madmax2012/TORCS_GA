@@ -85,7 +85,7 @@ class gax(RunGA):
            #     pass
            # else:
             for i in range(0,self.tournamentSize):##select parents in tournament
-                print "TMMMMMMMMMMMMMMMMM"
+               # print "TMMMMMMMMMMMMMMMMM"
                 self.parent1 = np.empty
                 self.parent2 = np.empty
                 self.randomPos = random.randint(0, len(self.fitArray)-1)
@@ -119,11 +119,9 @@ class gax(RunGA):
             print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
 
 
-            print "crossover"
-            print self.parent1
-            print self.parent2
-            print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
-            print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
+            ### "crossover"
+            #print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
+            #print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
             self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8] )
             print "child 1 is:"+str(self.tempArray[replacer].getParameters())
             #self.printPop()
