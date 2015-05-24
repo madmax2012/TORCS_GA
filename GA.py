@@ -69,5 +69,5 @@ class gax(RunGA):
 
 
         self.currentIteration=self.currentIteration+1
-        if self.current_iteration >= self.max_iterations:
+        if self.currentIteration >= self.maxIterations:
             self.stop_reached = True
