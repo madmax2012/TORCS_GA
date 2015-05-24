@@ -137,9 +137,10 @@ class gax(RunGA):
             if leader == 99999:
                 leader = i
             elif self.fitArray[i]<self.fitArray[leader]:
-                if i == -1:
+                if self.fitArray[i] == -1:
                     pass
                 else:
+                    print str(self.fitArray[i])+" is smaller than "+str(self.fitArray[leader])
                     leader = i
         return leader
 

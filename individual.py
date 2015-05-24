@@ -2,6 +2,7 @@ __author__ = 'max'
 class individual(object):
     def __init__(self,p0, p1, p2, p3, p4, p5, p6, p7, p8):
         self.parameters =[]
+        self.values = []
         self.parameters.append(''+str(p0)+'')
         self.parameters.append(""+str(p1)+"")
         self.parameters.append(""+str(p2)+"")
@@ -11,7 +12,6 @@ class individual(object):
         self.parameters.append(""+str(p6)+"")
         self.parameters.append(""+str(p7)+"")
         self.parameters.append(""+str(p8)+"")
-        self.values = []
         self.values.append(p0)
         self.values.append(p1)
         self.values.append(p2)
@@ -21,14 +21,5 @@ class individual(object):
         self.values.append(p6)
         self.values.append(p7)
         self.values.append(p8)
-        p0 = p0
-        p1 = p1
-        p2 = p2
-        p3 = p3
-        p4 = p4
-        p5 = p5
-        p6 = p6
-        p7 = p7
-        p8 = p8
     def getParameters(self):
         return self.parameters
