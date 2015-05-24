@@ -28,6 +28,8 @@ class RunGA():
         self.fitArray = []
         for i in range(self.popsize):
             self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
+        self.tournamentSize=sp
+        self.crossoverChance = cross
 
     def step(self):
         pass
@@ -73,7 +75,7 @@ class gax(RunGA):
         map(maptest, foos)
 
 
-        for replacer in range (len(self.population)):
+        for replacer in range (len(self.cars)):
             self.parent1 = np.empty
             self.parent2 = np.empty
             self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
@@ -90,7 +92,7 @@ class gax(RunGA):
                         self.parent2=self.parent1
                         self.parent1=self.randomParentCandidate
 
-        '''
+'''
         #self.printPop()
         print "collecting now"
         #print "value0: "+str(self.cars[0].values[0])
@@ -134,8 +136,11 @@ class gax(RunGA):
         for i in range(len(self.fitArray)):
             if leader == 99999:
                 leader = i
-            elif i<leader:
-                leader = i
+            elif self.fitArray[i]<self.fitArray[leader]:
+                if i == -1:
+                    pass
+                else:
+                    leader = i
         return leader
 
     def printFittestValues(self):
