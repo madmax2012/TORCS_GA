@@ -11,6 +11,16 @@ class individual(object):
         self.parameters.append(""+str(p6)+"")
         self.parameters.append(""+str(p7)+"")
         self.parameters.append(""+str(p8)+"")
+        self.values = []
+        self.values.append(p0)
+        self.values.append(p1)
+        self.values.append(p2)
+        self.values.append(p3)
+        self.values.append(p4)
+        self.values.append(p5)
+        self.values.append(p6)
+        self.values.append(p7)
+        self.values.append(p8)
         p0 = p0
         p1 = p1
         p2 = p2

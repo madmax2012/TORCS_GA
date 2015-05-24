@@ -53,19 +53,17 @@ class gax(RunGA):
 
 
     def step(self):
-        # Simple stopping condition
-       # self.current_iteration = self.current_iteration + 1
-       # if self.current_iteration >= self.max_iterations:
-       #     self.stop_reached = True
-        #print "nb of processes: "+str(self.nr_processes)
-        #print "iteration:        "+str(self.currentIteration)
+        tempArray = []
+        self.getFitnessValues()
+        print "printing all fitnesses"
+        self.printFitnessArray()
+        print "fittest at: "+str(self.returnFittest())
+        print "it's values: "+str(self.printFittestValues())
 
 
         '''keep for parallel function
         foos = [self.cars[0].getParameters(),["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
         bars = [1,2,3]
-
-
         def maptest(foo):
             #print foo
             print"\n\n\n"
@@ -75,18 +73,34 @@ class gax(RunGA):
         map(maptest, foos)
 
         '''
+        for replacer in range (len(self.population)):
+            self.parent1 = np.empty
+            self.parent2 = np.empty
+            self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
+            if  replacer < self.numberOfElites: ##keep the elites
+                self.tempArray.append(self.population[self.returnBestIndividualPOS()])
+                pass
+            else:
+                for i in range(0,self.tournamentSize):##select parents in tournament
+                    self.randomParentCandidate = self.population[random.randint(0, len(self.population)-1)]
+                    if self.parent1==np.empty:
+                        self.parent1=self.randomParentCandidate
+                        self.parent2=self.parent1
+                    elif (self.getCityFitness(self.city_coordinates, self.parent1.position)) > (self.getCityFitness(self.city_coordinates, self.randomParentCandidate.position)):
+                        self.parent2=self.parent1
+                        self.parent1=self.randomParentCandidate
 
-        ##get all fitnesses
 
-
-        self.printFitnessArray()
+        self.printPop()
         print "collecting now"
-        self.getFitnessValues()
+        #print "value0: "+str(self.cars[0].values[0])
 
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
             print "stop"
             self.stop_reached = True
+
+
 
 
 
@@ -112,5 +126,20 @@ class gax(RunGA):
         else:
             for i in range(len(self.fitArray)):
                 print self.fitArray[i]
+
+    def returnFittest(self):
+        leader =99999
+        if self.fitArray== []:
+            self.getFitnessValues()
+        for i in range(len(self.fitArray)):
+            if leader == 99999:
+                leader = i
+            elif i<leader:
+                leader =0
+        return leader
+
+    def printFittestValues(self):
+        print self.cars[self.returnFittest()].getParameters()
+
 
 
