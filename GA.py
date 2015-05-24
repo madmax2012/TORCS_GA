@@ -62,7 +62,7 @@ class gax(RunGA):
 
 
 
-        print self.fitfun(["1","2","3","4", "5", "6", "7", "8", "9"], (self.nr_processes-self.nr_processes)+self.currentIteration)
+        print self.fitfun(["1.0","1.0","1.0","1.0","1.0","1.0","1.0","1.0", "1.0"], (self.nr_processes-self.nr_processes)+self.currentIteration)
 
 
 
