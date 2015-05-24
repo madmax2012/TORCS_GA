@@ -21,6 +21,7 @@ class RunGA():
 
         self.nr_processes = nr_processes
         self.currentIteration=0
+        self.fitfun =fitfun
 
 
         pass
@@ -61,7 +62,7 @@ class gax(RunGA):
 
 
 
-        print batch_drive.evaluation(["1","2","3","4", "5", "6", "7", "8", "9"], (self.nr_processes-self.nr_processes)+self.currentIteration)
+        print self.fitfun(["1","2","3","4", "5", "6", "7", "8", "9"], (self.nr_processes-self.nr_processes)+self.currentIteration)
 
 
 
