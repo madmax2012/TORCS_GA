@@ -63,11 +63,24 @@ class gax(RunGA):
 
 
 
-        print self.fitfun(["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"], (self.nr_processes-self.nr_processes)+self.currentIteration)
+       # print self.fitfun(["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"], (self.nr_processes-self.nr_processes)+self.currentIteration)
+       # map(self.fitfun, )
+        ba = [["200","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["300","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
+        foos = [ba[0],ba[1],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
+        bars = [1,2,3]
 
+        def maptest(foo):
+            self.fitfun(foo, (self.nr_processes-self.nr_processes)+self.currentIteration)
+
+        map(maptest, foos)
 
 
 
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
+            print "stop"
             self.stop_reached = True
+
+        def stop(self):
+            return self.stop_reached
+            pass
