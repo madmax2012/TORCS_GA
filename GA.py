@@ -59,7 +59,8 @@ class gax(RunGA):
         self.getFitnessValues()
         print "printing all fitnesses"
         self.printFitnessArray()
-        #self.returnFittest()
+        print "\n\n"
+        self.returnFittest()
 
  #       print "fittest at: "+str(self.returnFittest())
   #      print "it's values: "+str(self.printFittestValues())
