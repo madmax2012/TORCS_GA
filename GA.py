@@ -237,12 +237,8 @@ end
             #print "i am here"
             if leader == np.empty:
                 leader = i
-            elif self.fitArray[i]<self.fitArray[leader]:
-                if self.fitArray[i] == -1:
-                    pass
-                else:
-                    #print str(self.fitArray[i])+" is smaller than "+str(self.fitArray[leader])
-                    leader = i
+            elif (self.fitArray[i]<self.fitArray[leader]) and not -1:
+                leader = i
         return leader
 
     def returnFittestValues(self):
