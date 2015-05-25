@@ -234,12 +234,12 @@ end
         leader=1000
         for i in range(len(self.fitArray)):
             #print "i am here"
-            print self.fitArray[i]
+          #  print self.fitArray[i]
             if leader == 1000:
                 leader = i
             elif self.fitArray[i] < self.fitArray[leader]:
                 if self.fitArray[i] != -1:
-                    print "ladder"
+                   # print "ladder"
                     leader = i
            # else:
            #     print "error"+str(self.fitArray[i])+" not smaller "+str(self.fitArray[leader])
