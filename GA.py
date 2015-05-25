@@ -181,26 +181,25 @@ class gax(RunGA):
                  pass
 
     def getFitnessValues(self):
-        self.fitArray = []
+        self.fitArray =  [i for i in range(len(self.cars))]
         if self.debug == 1:
-             self.fitArray.append(550.0)
-             self.fitArray.append(500.0)
-             self.fitArray.append(123.0)
-             self.fitArray.append(144.0)
-             self.fitArray.append(132.0)
-             self.fitArray.append(234.0)
-             self.fitArray.append(432.0)
-             self.fitArray.append(265.0)
-             self.fitArray.append(199.0)
-             self.fitArray.append(333.0)
+             self.fitArray[0] = 550.0
+             self.fitArray[1] = 500.0
+             self.fitArray[2] = 123.0
+             self.fitArray[3] = 144.0
+             self.fitArray[4] = 132.0
+             self.fitArray[5] = 234.0
+             self.fitArray[6] = 432.0
+             self.fitArray[7] = 265.0
+             self.fitArray[8] = 199.0
+             self.fitArray[9] = 333.0
         else:
-
            for i in range(len(self.cars)):
-               self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
+               self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
 
 
         '''
-        from joblib import Parallel, delayed
+from joblib import Parallel, delayed
 import multiprocessing
 
 # what are your inputs, and what operation do you want to
@@ -232,13 +231,18 @@ end
                 print self.fitArray[i]
 
     def returnFittest(self):
-        leader=np.empty
+        leader=1000
         for i in range(len(self.fitArray)):
             #print "i am here"
-            if leader == np.empty:
+            print self.fitArray[i]
+            if leader == 1000:
                 leader = i
-            elif (self.fitArray[i]<self.fitArray[leader]) and not -1:
-                leader = i
+            elif self.fitArray[i] < self.fitArray[leader]:
+                if self.fitArray[i] != -1:
+                    print "ladder"
+                    leader = i
+           # else:
+           #     print "error"+str(self.fitArray[i])+" not smaller "+str(self.fitArray[leader])
         return leader
 
     def returnFittestValues(self):
