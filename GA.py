@@ -32,7 +32,7 @@ class RunGA():
             self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
         self.tournamentSize=sp
         self.crossoverChance = cross
-        self.debug=1
+        self.debug=0
         self.mutationChance = mut
 
     def step(self):
