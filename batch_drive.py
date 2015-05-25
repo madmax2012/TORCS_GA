@@ -51,7 +51,7 @@ def main():
     sp = 2
     mut = 1./rep_length
     cross = 1.0
-    maxgen = 1
+    maxgen = 50
     run_id = "1"
 
     # set max threads for evaluation
