@@ -11,7 +11,10 @@ import glob
 import matplotlib.pyplot as plt
 import  math
 import individual
-import batch_drive
+import pprocess
+from joblib import Parallel, delayed
+import multiprocessing
+
 #from datashape.coretypes import String
 import numpy as np
 
@@ -30,6 +33,7 @@ class RunGA():
         self.tournamentSize=sp
         self.crossoverChance = cross
         self.debug=1
+        self.mutationChance = mut
 
     def step(self):
         pass
@@ -125,11 +129,27 @@ class gax(RunGA):
             #print "child 1 is:"+str(self.tempArray[replacer].getParameters())
             #self.printPop()
             #print "value0: "+str(self.cars[0].values[0])
-
+        #write fittest back
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
+
+        for i in range(len(self.cars)):
+            for gene in range(9):
+                if (random.uniform(0, 1) <= self.mutationChance):
+                   #print "gene "+str(gene)+" is: "+str(self.cars[i].values[gene])
+                   #print "param "+str(gene)+" is: "+str(self.cars[i].parameters[gene])
+                   muval = self.cars[i].values[gene] * random.uniform(-0.1,0.1)
+                   self.cars[i].values[gene] = self.cars[i].values[gene] + muval
+                   self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
+                   #print "now gene "+str(gene)+" is: "+str(self.cars[i].values[gene])
+                   #print "now param "+str(gene)+" is: "+str(self.cars[i].parameters[gene])
+                   pass
+
+        print"\n\n\n"
         print "fittest at: "+str(self.returnFittest())
+        print self.returnFittestFitness()
         print "it's values: "+str(self.returnFittestValues())
+        print"\n\n\n"
 
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
@@ -166,8 +186,35 @@ class gax(RunGA):
              self.fitArray.append(199.0)
              self.fitArray.append(333.0)
         else:
-            for i in range(len(self.cars)):
-                self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
+
+           for i in range(len(self.cars)):
+               self.fitArray.append(self.fitfun(self.cars[i].getParameters(), 2))
+
+
+        '''
+        from joblib import Parallel, delayed
+import multiprocessing
+
+# what are your inputs, and what operation do you want to
+# perform on each input. For example...
+inputs = range(10)
+def processInput(i):
+    return i * i
+
+num_cores = multiprocessing.cpu_count()
+
+results = Parallel(n_jobs=num_cores)(delayed(processInput)(i) for i in inputs)
+
+
+
+
+
+for i in inputs
+    results[i] = processInput(i)
+end
+// now do something with results
+
+'''
 
     def printFitnessArray(self):
         if self.fitArray == []:
@@ -193,5 +240,6 @@ class gax(RunGA):
     def returnFittestValues(self):
         return self.cars[self.returnFittest()].getParameters()
 
-
+    def returnFittestFitness(self):
+        return self.fitArray[self.returnFittest()]
 
