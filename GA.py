@@ -133,7 +133,9 @@ class gax(RunGA):
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
 
-        for i in range(len(self.cars)):
+        self.cars[0] = self.cars[self.returnFittest()]
+
+        for i in range(1, len(self.cars)):
             for gene in range(9):
                 if (random.uniform(0, 1) <= self.mutationChance):
                    #print "gene "+str(gene)+" is: "+str(self.cars[i].values[gene])
