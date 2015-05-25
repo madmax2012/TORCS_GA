@@ -11,9 +11,9 @@ import glob
 import matplotlib.pyplot as plt
 import  math
 import individual
-import pprocess
-from joblib import Parallel, delayed
-import multiprocessing
+#import pprocess
+#from joblib import Parallel, delayed
+#import multiprocessing
 
 #from datashape.coretypes import String
 import numpy as np
@@ -150,6 +150,12 @@ class gax(RunGA):
         print self.returnFittestFitness()
         print "it's values: "+str(self.returnFittestValues())
         print"\n\n\n"
+
+        f = open("test.txt","a") #opens file with name of "test.txt"
+        f.write("fittest at: "+str(self.returnFittest())+"\n")
+        f.write(str(self.returnFittestFitness())+"\n")
+        f.write("it's values: "+str(self.returnFittestValues())+"\n")
+        f.close
 
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
