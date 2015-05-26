@@ -52,7 +52,7 @@ def main():
     mut = 1./rep_length
     cross = 0.9
     maxgen = 150
-    onlyThebest = 0
+    onlyThebest = 1
     run_id = "1"
     #debug =0
 
