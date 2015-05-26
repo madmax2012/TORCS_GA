@@ -8,11 +8,18 @@ import logging
 import operator
 import shutil
 import glob
+#import matplotlib.pyplot as plt
 import  math
 import individual
+#import pprocess
+#from joblib import Parallel, delayed
+#import multiprocessing
+
+#from datashape.coretypes import String
+#import numpy as np
 
 class RunGA():
-    def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path, onlyThebest):
+    def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path):
 
         self.nr_processes = nr_processes
         self.currentIteration=0
@@ -21,16 +28,8 @@ class RunGA():
         self.popsize=popsize
         self.cars = []
         self.fitArray = []
-        self.onlyTheBest = onlyThebest
-        if self.onlyTheBest == 0:
-            for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
-
-        if self.onlyTheBest == 1:
-            print "runing the best three agents"
-            self.cars.append(individual.individual('177.252500534', '0.192081339496', '13.8485509463', '0.174913216207', '43.6777054637', '0.739736950556', '0.606430928903', '1.37505237389', '0.392079630538'))
-            self.cars.append(individual.individual('182.982132289', '0.480256960754', '17.871674573', '0.19948437725', '81.026873882', '0.368079019305', '0.774779060289', '7.9373501551', '0.165187675688'))
-            self.cars.append(individual.individual('162.013620623', '0.0689187178712', '23.4453697172', '0.302216184698', '42.9518949117', '0.339221849058', '0.852102375975', '19.535787977', '0.149008993859'))
+        for i in range(self.popsize):
+            self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
         self.tournamentSize=sp
         self.crossoverChance = cross
         self.debug=0
@@ -61,6 +60,26 @@ class gax(RunGA):
     def step(self):
         self.tempArray = [i for i in range(len(self.cars))]
         self.getFitnessValues()
+   #     print "printing all fitnesses"
+    #    self.printFitnessArray()
+    #    print "\n\n"
+    #    self.returnFittest()
+     #   print "fittest at: "+str(self.returnFittest())
+  #      print "it's values: "+str(self.returnFittestValues())
+
+
+        '''keep for parallel function
+        foos = [self.cars[0].getParameters(),["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"],["100","0.05","10","0.10","50","0.01","0.01","5", "0.2"]]
+        bars = [1,2,3]
+        def maptest(foo):
+            #print foo
+            print"\n\n\n"
+            print self.fitfun(foo, (self.nr_processes-self.nr_processes)+self.currentIteration)
+            print"\n\n\n"
+
+        map(maptest, foos)
+
+'''
         for replacer in range (len(self.cars)):
             self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
             #print self.numberOfElites
@@ -103,6 +122,8 @@ class gax(RunGA):
                         else:
                             self.parent2=self.randomPos
                 #print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
+
+
                 ### "crossover"
                 #print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
                 #print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
@@ -131,7 +152,8 @@ class gax(RunGA):
         print "it's values:  "+str(self.returnFittestValues())
         print "fitnessarray: "+str(self.fitArray)
         print"\n\n"
-        f = open("test.txt","a")
+
+        f = open("test.txt","a") #opens file with name of "test.txt"
         f.write("generation:   "+str(self.currentIteration)+"\n")
         f.write("fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())+"\n")
         f.write("it's values:  "+str(self.returnFittestValues())+"\n")
@@ -141,6 +163,13 @@ class gax(RunGA):
         self.currentIteration=self.currentIteration+1
         if self.currentIteration >= self.maxIterations:
             self.stop_reached = True
+
+
+
+
+##fittest at: 12
+##it's values: ['190.277074091', '0.362349985495', '9.02742820427', '0.285502127651', '55.2049926684', '0.844332584546', '0.0843421917131', '6.82010070771', '0.966949879827']
+
 
 
     def stop(self):
@@ -153,6 +182,7 @@ class gax(RunGA):
                  pass
 
     def getFitnessValues(self):
+        #print "making fitness"
         self.fitArray =  [i for i in range(len(self.cars))]
         if self.debug == 1:
              for i in range(len(self.fitArray)):
@@ -160,6 +190,32 @@ class gax(RunGA):
         else:
            for i in range(len(self.cars)):
                self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
+
+    def commented(self):
+        '''
+from joblib import Parallel, delayed
+import multiprocessing
+
+# what are your inputs, and what operation do you want to
+# perform on each input. For example...
+inputs = range(10)
+def processInput(i):
+    return i * i
+
+num_cores = multiprocessing.cpu_count()
+
+results = Parallel(n_jobs=num_cores)(delayed(processInput)(i) for i in inputs)
+
+
+
+
+
+for i in inputs
+    results[i] = processInput(i)
+end
+// now do something with results
+
+'''
 
     def printFitnessArray(self):
         if self.fitArray == []:
@@ -171,11 +227,16 @@ class gax(RunGA):
     def returnFittest(self):
         leader=1000
         for i in range(len(self.fitArray)):
+            #print "i am here"
+          #  print self.fitArray[i]
             if leader == 1000:
                 leader = i
             elif self.fitArray[i] < self.fitArray[leader]:
                 if self.fitArray[i] != -1:
                     leader = i
+
+           # else:
+           #     print "error"+str(self.fitArray[i])+" not smaller "+str(self.fitArray[leader])
         return leader
 
     def returnFittestValues(self):
@@ -183,4 +244,3 @@ class gax(RunGA):
 
     def returnFittestFitness(self):
         return self.fitArray[self.returnFittest()]
-
