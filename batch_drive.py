@@ -54,6 +54,7 @@ def main():
     maxgen = 150
     onlyThebest = 0
     run_id = "1"
+    #debug =0
 
     # set max threads for evaluation
     nr_processes = 8
