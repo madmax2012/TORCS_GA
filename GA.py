@@ -12,7 +12,7 @@ import  math
 import individual
 
 class RunGA():
-    def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path):
+    def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path, onlyThebest):
 
         self.nr_processes = nr_processes
         self.currentIteration=0
@@ -21,8 +21,7 @@ class RunGA():
         self.popsize=popsize
         self.cars = []
         self.fitArray = []
-        self.onlyTheBest = 1
-
+        self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
                 self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))

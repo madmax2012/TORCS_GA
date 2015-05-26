@@ -52,12 +52,13 @@ def main():
     mut = 1./rep_length
     cross = 0.9
     maxgen = 150
+    onlyThebest = 0
     run_id = "1"
 
     # set max threads for evaluation
     nr_processes = 8
     fullpath = os.path.abspath(".")
-    optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath)
+    optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath, onlyThebest=onlyThebest)
     optimizer.run()
 
 if __name__ == "__main__":
