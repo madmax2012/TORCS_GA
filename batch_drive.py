@@ -47,11 +47,11 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize = 15
+    popsize = 12
     sp = 2
     mut = 1./rep_length
-    cross = 1.0
-    maxgen = 50
+    cross = 0.9
+    maxgen = 150
     run_id = "1"
 
     # set max threads for evaluation

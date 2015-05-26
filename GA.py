@@ -8,7 +8,7 @@ import logging
 import operator
 import shutil
 import glob
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import  math
 import individual
 #import pprocess
@@ -16,7 +16,7 @@ import individual
 #import multiprocessing
 
 #from datashape.coretypes import String
-import numpy as np
+#import numpy as np
 
 class RunGA():
     def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path):
@@ -54,7 +54,6 @@ class RunGA():
 class gax(RunGA):
     def __init__(self, *args, **kwargs):
         RunGA.__init__(self, *args,**kwargs)
-        print ""+str(self.nr_processes)
         self.stop_reached = False
 
 
@@ -82,60 +81,61 @@ class gax(RunGA):
 
 '''
         for replacer in range (len(self.cars)):
-           # self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
-           # if  replacer < self.numberOfElites: ##keep the elites
-           #     self.tempArray.append(self.cars[self.returnFittest()])
-           #     pass
-           # else:
-            for i in range(0,self.tournamentSize):##select parents in tournament
-               # print "TMMMMMMMMMMMMMMMMM"
-                self.parent1 = np.empty
-                self.parent2 = np.empty
-                self.randomPos = random.randint(0, len(self.fitArray)-1)
-                while(self.fitArray[self.randomPos] == -1):
-                    #print "-1.. get a new one"
+            self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
+            #print self.numberOfElites
+            if  replacer < self.numberOfElites: ##keep the elites
+                #self.tempArray.append(self.cars[self.returnFittest()])
+                # print self.cars[self.returnFittest()].getParameters()
+                self.tempArray[replacer] = self.cars[self.returnFittest()]
+                pass
+            else:
+                for i in range(0,self.tournamentSize):##select parents in tournament
+                   # print "TMMMMMMMMMMMMMMMMM"
+                    self.parent1 = 9999999
+                    self.parent2 = 9999999
                     self.randomPos = random.randint(0, len(self.fitArray)-1)
-                if self.parent1==np.empty:
-                    self.parent1=self.randomPos
-                    #self.parent2=self.parent1
-                    #print "our first parents are"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
-                elif self.fitArray[self.randomPos] < self.fitArray[self.parent1]:
-                    if self.fitArray[self.randomPos] == -1:
-                        #print "-1 is no legit parent"
-                        pass
-                    else:
-                        #print "tm: "+str(self.fitArray[self.randomPos])+"  is smaller than  "+str(self.fitArray[self.parent1])+""
-                        #self.parent2=self.parent1
+                    while(self.fitArray[self.randomPos] == -1):
+                        #print "-1.. get a new one"
+                        self.randomPos = random.randint(0, len(self.fitArray)-1)
+                    if self.parent1==9999999:
                         self.parent1=self.randomPos
-                self.randomPos = random.randint(0, len(self.fitArray)-1)
-                while(self.fitArray[self.randomPos] == -1):
-                   # print "-1.. get a new one"
+                        #self.parent2=self.parent1
+                        #print "our first parents are"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
+                    elif self.fitArray[self.randomPos] < self.fitArray[self.parent1]:
+                        if self.fitArray[self.randomPos] == -1:
+                            #print "-1 is no legit parent"
+                            pass
+                        else:
+                            #print "tm: "+str(self.fitArray[self.randomPos])+"  is smaller than  "+str(self.fitArray[self.parent1])+""
+                            #self.parent2=self.parent1
+                            self.parent1=self.randomPos
                     self.randomPos = random.randint(0, len(self.fitArray)-1)
-                if self.parent2==np.empty:
-                    self.parent2=self.randomPos
-                elif self.fitArray[self.randomPos] < self.fitArray[self.parent2]:
-                    if self.fitArray[self.randomPos] == -1:
-                       # print "-1 is no legit parent"
-                        pass
-                    else:
+                    while(self.fitArray[self.randomPos] == -1):
+                       # print "-1.. get a new one"
+                        self.randomPos = random.randint(0, len(self.fitArray)-1)
+                    if self.parent2==9999999:
                         self.parent2=self.randomPos
-            #print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
+                    elif self.fitArray[self.randomPos] < self.fitArray[self.parent2]:
+                        if self.fitArray[self.randomPos] == -1:
+                           # print "-1 is no legit parent"
+                            pass
+                        else:
+                            self.parent2=self.randomPos
+                #print "now our parents are:"+str(self.fitArray[self.parent1])+"  and  "+str(self.fitArray[self.parent2])+""
 
 
-            ### "crossover"
-            #print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
-            #print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
-            self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8] )
-            #print "child 1 is:"+str(self.tempArray[replacer].getParameters())
-            #self.printPop()
-            #print "value0: "+str(self.cars[0].values[0])
+                ### "crossover"
+                #print "parent1: "+str(self.cars[self.parent1].getParameters())+" has the fitness value "+str(self.fitArray[self.parent1])+""
+                #print "parent2: "+str(self.cars[self.parent2].getParameters())+" has the fitness value "+str(self.fitArray[self.parent2])+""
+                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8] )
+                #print "child 1 is:"+str(self.tempArray[replacer].getParameters())
+                #self.printPop()
+                #print "value0: "+str(self.cars[0].values[0])
         #write fittest back
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
 
-        self.cars[0] = self.cars[self.returnFittest()]
-
-        for i in range(1, len(self.cars)):
+        for i in range(self.numberOfElites, len(self.cars)):
             for gene in range(9):
                 if (random.uniform(0, 1) <= self.mutationChance):
                    #print "gene "+str(gene)+" is: "+str(self.cars[i].values[gene])
@@ -147,16 +147,17 @@ class gax(RunGA):
                    #print "now param "+str(gene)+" is: "+str(self.cars[i].parameters[gene])
                    pass
 
-        print"\n\n\n"
-        print "fittest at: "+str(self.returnFittest())
-        print self.returnFittestFitness()
-        print "it's values: "+str(self.returnFittestValues())
-        print"\n\n\n"
+        print "generation:   "+str(self.currentIteration)
+        print "fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())
+        print "it's values:  "+str(self.returnFittestValues())
+        print "fitnessarray: "+str(self.fitArray)
+        print"\n\n"
 
         f = open("test.txt","a") #opens file with name of "test.txt"
-        f.write("fittest at: "+str(self.returnFittest())+"\n")
-        f.write(str(self.returnFittestFitness())+"\n")
-        f.write("it's values: "+str(self.returnFittestValues())+"\n")
+        f.write("generation:   "+str(self.currentIteration)+"\n")
+        f.write("fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())+"\n")
+        f.write("it's values:  "+str(self.returnFittestValues())+"\n")
+        f.write("fitnessarray: "+str(self.fitArray)+"\n")
         f.close
 
         self.currentIteration=self.currentIteration+1
@@ -181,23 +182,16 @@ class gax(RunGA):
                  pass
 
     def getFitnessValues(self):
+        #print "making fitness"
         self.fitArray =  [i for i in range(len(self.cars))]
         if self.debug == 1:
-             self.fitArray[0] = 550.0
-             self.fitArray[1] = 500.0
-             self.fitArray[2] = 123.0
-             self.fitArray[3] = 144.0
-             self.fitArray[4] = 132.0
-             self.fitArray[5] = 234.0
-             self.fitArray[6] = 432.0
-             self.fitArray[7] = 265.0
-             self.fitArray[8] = 199.0
-             self.fitArray[9] = 333.0
+             for i in range(len(self.fitArray)):
+                 self.fitArray[i]= random.uniform(50,500)
         else:
            for i in range(len(self.cars)):
                self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
 
-
+    def commented(self):
         '''
 from joblib import Parallel, delayed
 import multiprocessing
@@ -239,8 +233,8 @@ end
                 leader = i
             elif self.fitArray[i] < self.fitArray[leader]:
                 if self.fitArray[i] != -1:
-                   # print "ladder"
                     leader = i
+
            # else:
            #     print "error"+str(self.fitArray[i])+" not smaller "+str(self.fitArray[leader])
         return leader
