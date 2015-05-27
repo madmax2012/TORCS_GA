@@ -212,9 +212,7 @@ class gax(RunGA):
              for i in range(len(self.fitArray)):
                  self.fitArray[i]= random.uniform(50,500)
         else:
-           for i in range(len(self.cars)):
-              # self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
-              print "evalute_out"+str(self.evaluate())
+            print "evalute_out"+str(self.evaluate())
 
 
 
@@ -254,10 +252,8 @@ class gax(RunGA):
 
         times = []
         batches = len(self.cars)/nproc+1
-        print batches
         batch_ranges = range(batches)
         for batch in batch_ranges:
-            print "batch"+str(batch)
             if batch is not batch_ranges[-1]:
                 indivs = [a_+(nproc*batch) for a_ in range(nproc)]
             else:
@@ -267,16 +263,9 @@ class gax(RunGA):
             parallel_function = results.manage(pprocess.MakeReusable(self.fitfun))
             [parallel_function(self.cars[ind].phenotype, (ind-nproc*batch)) for ind in indivs];
             times.extend(results[0:nproc])
-        print "otof"
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
-            print "times:"+str(times[ind])
             return times
-            #if times[ind] < 1:
-             #   self.cars[ind].fitness = 0
-            #else:
-            #    self.cars[ind].fitness = 1./ (1. + times[ind])
-            #self.cars[ind].raw_fitness = times[ind]
         return times
 
