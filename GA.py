@@ -212,7 +212,7 @@ class gax(RunGA):
              for i in range(len(self.fitArray)):
                  self.fitArray[i]= random.uniform(50,500)
         else:
-            self.fitArray = str(self.evaluate())
+            self.fitArray = self.evaluate()
 
 
 
