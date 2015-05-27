@@ -252,6 +252,7 @@ class gax(RunGA):
 
         times = []
         batches = len(self.cars)/nproc+1
+        print batches
         batch_ranges = range(batches)
         for batch in batch_ranges:
             if batch is not batch_ranges[-1]:
