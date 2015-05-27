@@ -251,7 +251,7 @@ class gax(RunGA):
         nproc = self.nr_processes
 
         times = []
-        batches = len(self.cars)/nproc+1
+        batches = len(self.cars)/nproc
         print batches
         batch_ranges = range(batches)
         for batch in batch_ranges:
