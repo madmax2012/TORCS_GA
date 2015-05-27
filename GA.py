@@ -20,7 +20,7 @@ import individual
 #import numpy as np
 
 class RunGA():
-    def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path, onlyThebest):
+    def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path, onlyThebest, runval):
 
         self.nr_processes = nr_processes
         self.currentIteration=0
@@ -43,6 +43,7 @@ class RunGA():
         self.crossoverChance = cross
         self.debug=0
         self.mutationChance = mut
+        self.runval=runval
 
     def step(self):
         pass
@@ -164,11 +165,13 @@ class gax(RunGA):
         print "fitnessarray: "+str(self.fitArray)
         print"\n\n"
 
-        f = open("output.txt"+str(os.path.getctime),"a") #opens file with name of "test.txt"
-        f.write("generation:   "+str(self.currentIteration)+"; ")
-        f.write("fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())+"; ")
-        f.write("it's values:  "+str(self.returnFittestValues())+"; ")
-        f.write("fitnessarray: "+str(self.fitArray)+"; \n")
+        if self.currentIteration >= self.maxIterations:
+            f.write(("run "+str(self.runval)+" starts here"))
+        f = open("output.csv"+str(self.runval),"a") #opens file with name of "test.txt"
+        f.write("generation;   "+str(self.currentIteration)+"; ")
+        f.write("fittest at;   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())+"; ")
+        f.write("it's values;  "+str(self.returnFittestValues())+"; ")
+        f.write("fitnessarray; "+str(self.fitArray)+"; \n")
         if self.currentIteration >= self.maxIterations:
             f.write(("the end:\n\n\n\n\n"))
         f.close
