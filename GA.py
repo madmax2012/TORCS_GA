@@ -212,7 +212,7 @@ class gax(RunGA):
         else:
            for i in range(len(self.cars)):
               # self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
-            self.fitArray[i] = self.evaluate()
+              self.evaluate()
 
 
 
@@ -267,8 +267,8 @@ class gax(RunGA):
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
             if times[ind] < 1:
-                self.cars[ind].fitness = 0
+                self.fitArray[ind] = 0
             else:
-                self.cars[ind].fitness = 1./ (1. + times[ind])
-            self.cars[ind].raw_fitness = times[ind]
+                self.fitArray[ind] = 1./ (1. + times[ind])
+            self.fitArray[ind] = times[ind]
 
