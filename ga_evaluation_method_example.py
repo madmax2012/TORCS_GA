@@ -20,9 +20,11 @@ def evaluate(self):
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
-            if times[ind] < 1:
-                self.cars[ind].fitness = 0
-
-            else:
-                self.cars[ind].fitness = 1./ (1. + times[ind])
-            self.cars[ind].raw_fitness = times[ind]
+            return times[ind]
+            #
+            #if times[ind] < 1:
+            #    self.cars[ind].fitness = 0
+#
+#            else:
+#                self.cars[ind].fitness = 1./ (1. + times[ind])
+#            self.cars[ind].raw_fitness = times[ind]
