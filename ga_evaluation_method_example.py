@@ -20,6 +20,7 @@ def evaluate(self):
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
+            print times[ind]
             return times[ind]
             #
             #if times[ind] < 1:
