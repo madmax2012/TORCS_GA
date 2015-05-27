@@ -68,7 +68,9 @@ class gax(RunGA):
 
     def step(self):
         self.tempArray = [i for i in range(len(self.cars))]
+        print "before"
         self.getFitnessValues()
+        print "after"
    #     print "printing all fitnesses"
     #    self.printFitnessArray()
     #    print "\n\n"
@@ -251,7 +253,7 @@ class gax(RunGA):
         nproc = self.nr_processes
 
         times = []
-        batches = len(self.cars)/nproc
+        batches = len(self.cars)/nproc+1
         print batches
         batch_ranges = range(batches)
         for batch in batch_ranges:
