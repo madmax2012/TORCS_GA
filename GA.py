@@ -212,7 +212,7 @@ class gax(RunGA):
         else:
            for i in range(len(self.cars)):
               # self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
-              self.fitArray[i] = self.evaluate()
+              print "evalute_out"+str(self.evaluate())
 
 
 
