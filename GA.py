@@ -171,8 +171,8 @@ class gax(RunGA):
             f.write(("run "+str(self.runval)+" starts here\n"))
         f.write("generation;   "+str(self.currentIteration)+"; ")
         f.write("it's values;  "+str(self.returnFittestValues())+"; ")
-        f.write("fitnessarray; "+str(self.fitArray)+"; \n")
-        f.write("fittest at;   "+str(self.returnFittest())+";  its fitness; "+str(self.returnFittestFitness())+"; ")
+        f.write("fitnessarray; "+str(self.fitArray)+"; ")
+        f.write("fittest at;   "+str(self.returnFittest())+";  its fitness; "+str(self.returnFittestFitness())+";\n ")
         if self.currentIteration >= self.maxIterations:
             f.write(("the end:\n\n\n\n\n"))
         f.close
