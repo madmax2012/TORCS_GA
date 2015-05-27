@@ -269,6 +269,7 @@ class gax(RunGA):
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
+            print "times:"+str(times[ind])
             return times[ind]
             #if times[ind] < 1:
              #   self.cars[ind].fitness = 0
