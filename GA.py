@@ -177,8 +177,21 @@ class gax(RunGA):
 
 ##fittest at: 12
 ##it's values: ['190.277074091', '0.362349985495', '9.02742820427', '0.285502127651', '55.2049926684', '0.844332584546', '0.0843421917131', '6.82010070771', '0.966949879827']
+    def selection_crossover(self):
 
+        pass
 
+    def mutation01(self):
+        for i in range(self.numberOfElites, len(self.cars)):
+            for gene in range(9):
+                if (random.uniform(0, 1) <= self.mutationChance):
+                    muval = self.cars[i].values[gene] * random.uniform(-0.1,0.1)
+                    self.cars[i].values[gene] = self.cars[i].values[gene] + muval
+                    self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
+
+    def copyToNewGeneration(self):
+        for i in range(len(self.cars)):
+            self.cars[i] = self.tempArray[i]
 
     def stop(self):
         return self.stop_reached
