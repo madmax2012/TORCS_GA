@@ -210,33 +210,10 @@ class gax(RunGA):
                  self.fitArray[i]= random.uniform(50,500)
         else:
            for i in range(len(self.cars)):
-               self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
-
-    def commented(self):
-        '''
-from joblib import Parallel, delayed
-import multiprocessing
-
-# what are your inputs, and what operation do you want to
-# perform on each input. For example...
-inputs = range(10)
-def processInput(i):
-    return i * i
-
-num_cores = multiprocessing.cpu_count()
-
-results = Parallel(n_jobs=num_cores)(delayed(processInput)(i) for i in inputs)
+              # self.fitArray[i] = self.fitfun(self.cars[i].getParameters(), 2)
+            self.fitArray[i] = self.evaluate()
 
 
-
-
-
-for i in inputs
-    results[i] = processInput(i)
-end
-// now do something with results
-
-'''
 
     def printFitnessArray(self):
         if self.fitArray == []:
@@ -265,3 +242,32 @@ end
 
     def returnFittestFitness(self):
         return self.fitArray[self.returnFittest()]
+
+    def evaluate(self):
+        for ind in range(len(self.cars)):
+            self.cars[ind].express()
+
+        nproc = self.nr_processes
+
+        times = []
+        batches = len(self.cars)/nproc+1
+        batch_ranges = range(batches)
+        for batch in batch_ranges:
+            if batch is not batch_ranges[-1]:
+                indivs = [a_+(nproc*batch) for a_ in range(nproc)]
+            else:
+                indivs = [a_+(nproc*batch) for a_ in range(len(self.cars)%nproc)]
+            # Start parallel evaluation
+            results = pprocess.Map(limit=nproc, reuse=1)
+            parallel_function = results.manage(pprocess.MakeReusable(self.fitfun))
+            [parallel_function(self.cars[ind].phenotype, (ind-nproc*batch)) for ind in indivs];
+            times.extend(results[0:nproc])
+
+        for ind in range(len(self.cars)):
+            times[ind] = float(times[ind])
+            if times[ind] < 1:
+                self.cars[ind].fitness = 0
+            else:
+                self.cars[ind].fitness = 1./ (1. + times[ind])
+            self.cars[ind].raw_fitness = times[ind]
+
