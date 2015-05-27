@@ -51,7 +51,7 @@ def main():
     sp = 2
     mut = 1./rep_length
     cross = 0.9
-    maxgen = 1
+    maxgen = 0
     onlyThebest = 0
     run_id = "1"
     #debug =0
