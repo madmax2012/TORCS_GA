@@ -164,11 +164,13 @@ class gax(RunGA):
         print "fitnessarray: "+str(self.fitArray)
         print"\n\n"
 
-        f = open("test.txt","a") #opens file with name of "test.txt"
-        f.write("generation:   "+str(self.currentIteration)+"\n")
-        f.write("fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())+"\n")
-        f.write("it's values:  "+str(self.returnFittestValues())+"\n")
-        f.write("fitnessarray: "+str(self.fitArray)+"\n")
+        f = open("output.txt"+str(os.path.getctime),"a") #opens file with name of "test.txt"
+        f.write("generation:   "+str(self.currentIteration)+"; ")
+        f.write("fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())+"; ")
+        f.write("it's values:  "+str(self.returnFittestValues())+"; ")
+        f.write("fitnessarray: "+str(self.fitArray)+"; \n")
+        if self.currentIteration >= self.maxIterations:
+            f.write(("the end:\n\n\n\n\n"))
         f.close
 
         self.currentIteration=self.currentIteration+1
