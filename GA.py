@@ -265,6 +265,7 @@ class gax(RunGA):
             parallel_function = results.manage(pprocess.MakeReusable(self.fitfun))
             [parallel_function(self.cars[ind].phenotype, (ind-nproc*batch)) for ind in indivs];
             times.extend(results[0:nproc])
+        print "otof"
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
