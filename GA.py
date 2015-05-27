@@ -255,6 +255,7 @@ class gax(RunGA):
         print batches
         batch_ranges = range(batches)
         for batch in batch_ranges:
+            print "batch"+str(batch)
             if batch is not batch_ranges[-1]:
                 indivs = [a_+(nproc*batch) for a_ in range(nproc)]
             else:
