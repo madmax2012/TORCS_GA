@@ -181,8 +181,9 @@ class gax(RunGA):
             #print "i am here"
           #  print self.fitArray[i]
             if leader == 1000:
-                leader = i
-            elif self.fitArray[i] < self.fitArray[leader]:
+                 if self.fitArray[i] != -1:
+                    leader = i
+            elif (self.fitArray[i] < self.fitArray[leader]) and leader!=1000:
                 if self.fitArray[i] != -1:
                     leader = i
         return leader
