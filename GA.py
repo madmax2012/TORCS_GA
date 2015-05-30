@@ -102,10 +102,14 @@ class gax(RunGA):
         for i in range(self.numberOfElites, len(self.cars)):
             for gene in range(9):
                 if (random.uniform(0, 1) <= self.mutationChance):
-                   muval = self.cars[i].values[gene] * random.uniform(-0.1,0.1)
-                   self.cars[i].values[gene] = self.cars[i].values[gene] + muval
-                   self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
-                   pass
+                    muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)
+
+                    if (random.uniform(0,1) <= 0.5):
+                       print "smaller"
+                       muval = muval*-1
+                    self.cars[i].values[gene] = self.cars[i].values[gene] + muval
+                    self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
+                    pass
 
         print "generation:   "+str(self.currentIteration)
         print "fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())
