@@ -27,7 +27,7 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
+                self.cars.append(individual.individual(random.uniform(0,310), random.uniform(0,0.5), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
 
         if self.onlyTheBest == 1:
             print "runing the best three agents"
