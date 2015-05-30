@@ -205,7 +205,7 @@ class gax(RunGA):
                 self.invalid = self.invalid+1
             elif self.fitArray[i]!=-1:
                 total = total + self.fitArray[i]
-        avg = total/len(self.fitArray)
+        avg = total/(len(self.fitArray)-self.invalid)
         return avg
 
     def evaluate(self):
