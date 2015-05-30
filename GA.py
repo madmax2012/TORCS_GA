@@ -116,6 +116,7 @@ class gax(RunGA):
         print "it's values:  "+str(self.returnFittestValues())
         print "pop avg fitn: "+str(self.returnAvgFitness())
         print "fitnessarray: "+str(self.fitArray)
+        print "number of invalids: "+str(self.invalid)
         print"\n\n"
 
 
@@ -198,8 +199,12 @@ class gax(RunGA):
 
     def returnAvgFitness(self):
         total = 0
+        self.invalid =0
         for i in range(len(self.fitArray)):
-            total = total + self.fitArray[i]
+            if self.fitArray[i]==-1:
+                self.invalid = self.invalid+1
+            elif self.fitArray[i]!=-1:
+                total = total + self.fitArray[i]
         avg = total/len(self.fitArray)
         return avg
 
