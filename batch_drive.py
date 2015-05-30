@@ -47,8 +47,8 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize = 30
-    sp = 2
+    popsize = 20
+    sp = 3
     mut = 1./rep_length
     cross = 0.95
     maxgen = 50
