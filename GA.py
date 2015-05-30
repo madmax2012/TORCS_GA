@@ -120,11 +120,11 @@ class gax(RunGA):
         print"\n\n"
 
 
-        f = open("output.csv","a") #opens file with name of "test.txt"
+        f = open("bigrun.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("run "+str(self.runval)+" starts here\n"))
         f.write("generation;   "+str(self.currentIteration)+"; ")
-        f.write("it's values;  "+str(self.returnFittestValues())+"; ")
+        f.write("it's values;  "+str(self.returnFittestValues())+"; number of invalids;"+str(self.invalid)+" ; ")
         f.write("fitnessarray; "+str(self.fitArray)+"; ")
         f.write("pop avg fitn; "+str(self.returnAvgFitness())+"; ")
         f.write("fittest at;   "+str(self.returnFittest())+";  its fitness; "+str(self.returnFittestFitness())+";\n ")
