@@ -36,7 +36,7 @@ class RunGA():
             #self.cars.append(individual.individual('162.013620623', '0.0689187178712', '23.4453697172', '0.302216184698', '42.9518949117', '0.339221849058', '0.852102375975', '19.535787977', '0.149008993859'))
         self.tournamentSize=sp
         self.crossoverChance = cross
-        self.debug=0
+        self.debug=1
         self.mutationChance = mut
         self.runval=runval
 
@@ -95,7 +95,8 @@ class gax(RunGA):
                             pass
                         else:
                             self.parent2=self.randomPos
-                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8] )
+                #self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8] )
+                self.tempArray[replacer]=individual.individual(((self.cars[self.parent1].values[0]+self.cars[self.parent2].values[0])/2),((self.cars[self.parent1].values[1]+self.cars[self.parent2].values[1])/2), ((self.cars[self.parent1].values[2]+self.cars[self.parent2].values[2])/2), ((self.cars[self.parent1].values[3]+self.cars[self.parent2].values[3])/2), ((self.cars[self.parent1].values[4]+self.cars[self.parent2].values[4])/2), ((self.cars[self.parent1].values[5]+self.cars[self.parent2].values[5])/2), ((self.cars[self.parent1].values[6]+self.cars[self.parent2].values[6])/2), ((self.cars[self.parent1].values[7]+self.cars[self.parent2].values[7])/2), ((self.cars[self.parent1].values[8]+self.cars[self.parent2].values[8])/2) )
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
 
@@ -105,7 +106,6 @@ class gax(RunGA):
                     muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)
 
                     if (random.uniform(0,1) <= 0.5):
-                       print "smaller"
                        muval = muval*-1
                     self.cars[i].values[gene] = self.cars[i].values[gene] + muval
                     self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
@@ -114,6 +114,7 @@ class gax(RunGA):
         print "generation:   "+str(self.currentIteration)
         print "fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())
         print "it's values:  "+str(self.returnFittestValues())
+        print "pop avg fitn: "+str(self.returnAvgFitness())
         print "fitnessarray: "+str(self.fitArray)
         print"\n\n"
 
@@ -124,6 +125,7 @@ class gax(RunGA):
         f.write("generation;   "+str(self.currentIteration)+"; ")
         f.write("it's values;  "+str(self.returnFittestValues())+"; ")
         f.write("fitnessarray; "+str(self.fitArray)+"; ")
+        f.write("pop avg fitn; "+str(self.returnAvgFitness())+"; ")
         f.write("fittest at;   "+str(self.returnFittest())+";  its fitness; "+str(self.returnFittestFitness())+";\n ")
         if self.currentIteration >= self.maxIterations:
             f.write(("the end:\n\n\n\n\n"))
