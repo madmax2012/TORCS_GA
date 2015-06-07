@@ -295,6 +295,15 @@ def drive_example(c):
 
     # Automatic Transmission
     R['gear']=1
+    if S['rpm']>5000 and S['speedX']>50:
+        R['gear']=2
+    if S['rpm']>5000 and S['speedX']>80:
+        R['gear']=3
+    if S['rpm']>5000 and S['speedX']>110:
+        R['gear']=4
+
+    ''' nice example
+    R['gear']=1
     if S['speedX']>50:
         R['gear']=2
     if S['speedX']>80:
@@ -305,6 +314,7 @@ def drive_example(c):
         R['gear']=5
     if S['speedX']>170:
         R['gear']=6
+    '''
     return
 
 # ================ MAIN ================

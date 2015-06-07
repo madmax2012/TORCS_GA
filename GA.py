@@ -12,7 +12,6 @@ import pprocess
 #import matplotlib.pyplot as plt
 import  math
 import individual
-import pprocess
 
 class RunGA():
     def __init__(self, rep_length, popsize, sp, mut, fitfun, maxgen, cross, nr_processes, run_id , path, onlyThebest, runval):
@@ -27,7 +26,7 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(0,310), 0, random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
+                self.cars.append(individual.individual(random.uniform(150,310), 0, random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
 
         if self.onlyTheBest == 1:
             print "runing the best three agents"
