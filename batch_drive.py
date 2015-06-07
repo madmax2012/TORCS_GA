@@ -16,7 +16,7 @@ def evaluation(parameters, ind):
 
     fullpath = os.path.abspath(".")
     port = 3000 + ind + 1
-    server = subprocess.Popen(["torcs", "-r", fullpath + "/configs/" + str(port) + ".xml"])
+    server = subprocess.Popen(["torcs", "-nodamage", fullpath + "/configs/" + str(port) + ".xml"])
     call_agent = ["python", "snakeoil.py"]
     port = ["-p", str(port)]
     parameters = map(str, parameters)
@@ -52,7 +52,7 @@ def main():
     mut = 1./rep_length
     cross = 0.95
     maxgen = 5000
-    onlyThebest = 0
+    onlyThebest = 1
     run_id = "1"
     #debug =0
 

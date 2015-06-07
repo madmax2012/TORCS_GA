@@ -294,13 +294,43 @@ def drive_example(c):
     R['accel']= clip(R['accel'],0,1)
 
     # Automatic Transmission
-    R['gear']=1
-    if S['rpm']>5000 and S['speedX']>50:
+    if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6, 7]):
+        print "it is not in range"
+        R['gear']=1
+        print 'set gear to '+str(R['gear'])
+    ##up
+    if (S['rpm']>7000 and S['gear']==1):
         R['gear']=2
-    if S['rpm']>5000 and S['speedX']>80:
+        print 'set gear to '+str(R['gear'])
+    if S['rpm']>7000 and S['gear']==2:
         R['gear']=3
-    if S['rpm']>5000 and S['speedX']>110:
+        print 'set gear to '+str(R['gear'])
+    if S['rpm']>7000 and S['gear']==3:
         R['gear']=4
+        print 'set gear to '+str(R['gear'])
+    if S['rpm']>7000 and S['gear']==4:
+        R['gear']=5
+        print 'set gear to '+str(R['gear'])
+    if S['rpm']>7000 and S['gear']==5:
+        R['gear']=6
+        print 'set gear to '+str(R['gear'])
+    ##down
+    if S['speedX']<40 and S['gear']==2:
+        R['gear']=1
+        print 'set gear to '+str(R['gear'])
+    if S['speedX']<70 and S['gear']==3:
+        R['gear']=2
+        print 'set gear to '+str(R['gear'])
+    if S['speedX']<90 and S['gear']==4:
+        R['gear']=3
+        print 'set gear to '+str(R['gear'])
+    if S['speedX']<120 and S['gear']==5:
+        R['gear']=4
+        print 'set gear to '+str(R['gear'])
+    if S['speedX']<150 and S['gear']==6:
+        R['gear']=5
+        print 'set gear to '+str(R['gear'])
+
 
     ''' nice example
     R['gear']=1
