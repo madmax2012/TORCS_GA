@@ -83,7 +83,7 @@ class Client():
         self.trackname= 'unknown'
         self.stage= 3
         self.debug= False
-        self.maxSteps= 1000000  # 50steps/second
+        self.maxSteps= 10000  # 50steps/second
         self.param = self.parse_the_command_line()
         self.S= ServerState()
         self.R= DriverAction()

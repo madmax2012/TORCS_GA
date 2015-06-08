@@ -24,10 +24,8 @@ def evaluation(parameters, ind):
     port = 3000 + ind + 1
     guiless=1
     if (guiless==1):
-        print "guiless"
         server = subprocess.Popen(["torcs", "-r", fullpath + "/configs/" + str(port) + ".xml"])
     else:
-        print "gui"
         server = subprocess.Popen(["torcs", "-nodamage", fullpath + "/configs/" + str(port) + ".xml"])
     call_agent = ["python", "snakeoil.py"]
     port = ["-p", str(port)]
