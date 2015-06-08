@@ -66,9 +66,6 @@
       <attnum name="idx" val="0"/>
       <attstr name="module" val="scr_server"/>
     </section>
-    <section name="2">
-      <attstr name="module" val="inferno"/>
-    </section>
   </section>
 
   <section name="Configuration">
