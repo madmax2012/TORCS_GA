@@ -22,7 +22,7 @@ def evaluation(parameters, ind):
 
     fullpath = os.path.abspath(".")
     port = 3000 + ind + 1
-    guiless=0
+    guiless=1
     if (guiless==1):
         print "guiless"
         server = subprocess.Popen(["torcs", "-r", fullpath + "/configs/" + str(port) + ".xml"])
@@ -64,7 +64,7 @@ def main():
     mut = 1./rep_length
     cross = 0.95
     maxgen = 20
-    onlyThebest = 1
+    onlyThebest = 0
     run_id = "1"
     #debug =0
 
