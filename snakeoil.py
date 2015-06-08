@@ -286,6 +286,13 @@ def drive_example(c):
         R['accel']-= c.param[5] #.01
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
+    #print "Trackpos: "+str(S['trackPos'])
+    #print "TrackSensorsA: "+str(S['opponents'])
+    #print "TrackSensors0: "+str(S['opponents'][0])
+    #print "TrackSensors1: "+str(S['track'][1])
+
+    #print "Steer:  "+str(R['steer'])
+    #+" accel  "+str(R['accel'])+""
 
     # Traction Control System
     if ((S['wheelSpinVel'][2]+S['wheelSpinVel'][3]) -
@@ -297,6 +304,7 @@ def drive_example(c):
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6, 7]):
      #   print "it is not in range"
         R['gear']=1
+        print str(S['trackname'])
        # print 'set gear to '+str(R['gear'])
     ##up
     if (S['rpm']>7000 and S['gear']==1):

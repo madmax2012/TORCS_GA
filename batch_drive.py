@@ -7,7 +7,13 @@ import xml.etree.ElementTree as ET
 import GA
 import signal
 import time
-
+import csv
+import random
+import logging
+import operator
+import shutil
+import glob
+import pprocess
 EPSILON = 0.000001
 
 def evaluation(parameters, ind):
@@ -16,7 +22,13 @@ def evaluation(parameters, ind):
 
     fullpath = os.path.abspath(".")
     port = 3000 + ind + 1
-    server = subprocess.Popen(["torcs", "-r", fullpath + "/configs/" + str(port) + ".xml"])
+    guiless=0
+    if (guiless==1):
+        print "guiless"
+        server = subprocess.Popen(["torcs", "-r", fullpath + "/configs/" + str(port) + ".xml"])
+    else:
+        print "gui"
+        server = subprocess.Popen(["torcs", "-nodamage", fullpath + "/configs/" + str(port) + ".xml"])
     call_agent = ["python", "snakeoil.py"]
     port = ["-p", str(port)]
     parameters = map(str, parameters)
@@ -52,7 +64,7 @@ def main():
     mut = 1./rep_length
     cross = 0.95
     maxgen = 20
-    onlyThebest = 0
+    onlyThebest = 1
     run_id = "1"
     #debug =0
 
