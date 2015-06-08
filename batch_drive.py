@@ -57,7 +57,7 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize = 20
+    popsize = 10
     sp = 3
     mut = 1./rep_length
     cross = 0.95
