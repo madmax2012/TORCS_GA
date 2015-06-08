@@ -120,7 +120,7 @@ class gax(RunGA):
         print"\n\n"
 
 
-        f = open("bigrun.csv","a") #opens file with name of "test.txt"
+        f = open("more_roads.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("run "+str(self.runval)+" starts here\n"))
         f.write("generation;   "+str(self.currentIteration)+"; ")
