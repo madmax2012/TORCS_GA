@@ -55,9 +55,12 @@ def evaluation(parameters, ind):
         for place in range(1):
             if root[races[race]][1][0][1][place][0].attrib.get("val") == "scr_server 1":
                placing[race] = place
-
+    print "now time1"
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
+    print time1
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
+    print "now time2"
+    print time2
 
 
     # Check whether the lap was actually finished and verify lap time
