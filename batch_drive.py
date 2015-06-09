@@ -22,7 +22,7 @@ def evaluation(parameters, ind):
 
     fullpath = os.path.abspath(".")
     port = 3000 + ind + 1
-    guiless=0
+    guiless=1
     if (guiless==1):
         server = subprocess.Popen(["torcs", "-t 10000", "-r", fullpath + "/configs/" + str(port) + ".xml"])
     else:
@@ -54,8 +54,8 @@ def evaluation(parameters, ind):
         for place in range(self.enemies+1):
             if root[races[race]][1][0][1][place][0].attrib.get("val") == "scr_server 1":
                 #placing[race] = place
-                time1 = root[2][1][0][1][placing[0]][place].attrib.get("val")
-                time2 = root[4][1][0][1][placing[1]][place].attrib.get("val")
+                time1 = root[2][1][0][1][place][4].attrib.get("val")
+                time2 = root[4][1][0][1][place][4].attrib.get("val")
 
 #    time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
 #    time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
@@ -76,7 +76,7 @@ def main():
     mut = 1./rep_length
     cross = 0.95
     maxgen = 20
-    onlyThebest = 1
+    onlyThebest = 0
     run_id = "1"
     #debug =0
 
