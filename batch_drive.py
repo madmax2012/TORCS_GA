@@ -53,10 +53,12 @@ def evaluation(parameters, ind):
     for race in range(2):
         for place in range(self.enemies+1):
             if root[races[race]][1][0][1][place][0].attrib.get("val") == "scr_server 1":
-                placing[race] = place
+                #placing[race] = place
+                time1 = root[2][1][0][1][placing[0]][place].attrib.get("val")
+                time2 = root[4][1][0][1][placing[1]][place].attrib.get("val")
 
-    time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
-    time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
+#    time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
+#    time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
 
 
     # Check whether the lap was actually finished and verify lap time
