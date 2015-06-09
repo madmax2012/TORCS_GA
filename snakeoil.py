@@ -301,7 +301,7 @@ def drive_example(c):
     R['accel']= clip(R['accel'],0,1)
 
     # Automatic Transmission
-    if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6, 7]):
+    if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
      #   print "it is not in range"
         R['gear']=1
         print str(S['trackname'])
@@ -323,19 +323,19 @@ def drive_example(c):
         R['gear']=6
       #  print 'set gear to '+str(R['gear'])
     ##down
-    if S['speedX']<40 and S['gear']==2:
+    if S['speedX']<20 and S['gear']==2:
         R['gear']=1
       #  print 'set gear to '+str(R['gear'])
-    if S['speedX']<70 and S['gear']==3:
+    if S['speedX']<30 and S['gear']==3:
         R['gear']=2
       #  print 'set gear to '+str(R['gear'])
-    if S['speedX']<90 and S['gear']==4:
+    if S['speedX']<50 and S['gear']==4:
         R['gear']=3
       #  print 'set gear to '+str(R['gear'])
-    if S['speedX']<120 and S['gear']==5:
+    if S['speedX']<70 and S['gear']==5:
         R['gear']=4
       #  print 'set gear to '+str(R['gear'])
-    if S['speedX']<150 and S['gear']==6:
+    if S['speedX']<100 and S['gear']==6:
         R['gear']=5
       #  print 'set gear to '+str(R['gear'])
 
