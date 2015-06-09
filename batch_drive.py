@@ -51,7 +51,7 @@ def evaluation(parameters, ind):
     races = [2,4,5]
     placing = [-1,-1,-1]
     for race in range(2):
-        for place in range(2+2-2):
+        for place in range(2):
             if root[races[race]][1][0][1][place][0].attrib.get("val") == "scr_server 1":
                 placing[race] = place
 

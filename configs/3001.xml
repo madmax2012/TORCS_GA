@@ -56,7 +56,7 @@
       <attstr name="module" val="scr_server"/>
     </section>
     <section name="2">
-      <attstr name="module" val="inferno"/>
+      <attstr name="module" val="sparkle"/>
     </section>
   </section>
 
