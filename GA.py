@@ -26,7 +26,6 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                print "making car "+str(i)
                 self.cars.append(individual.individual(random.uniform(150,310), 0, random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1)))
 
         if self.onlyTheBest == 1:
@@ -232,8 +231,8 @@ class gax(RunGA):
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
-            print "totaltile: "+str(times[ind])
+            print "infoooooor])"
             return times
-
+        print "exteeeeernal"
         return times
 
