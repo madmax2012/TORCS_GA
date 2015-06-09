@@ -52,21 +52,20 @@ def evaluation(parameters, ind):
     races = [2,4,5]
     placing = [-1,-1,-1,-1,-1]
     for race in range(2):
-        for place in range(1):
+        for place in range(2):
             if root[races[race]][1][0][1][place][0].attrib.get("val") == "scr_server 1":
                placing[race] = place
-    print "now time1"
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
-    print time1
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
-    print "now time2"
-    print time2
+    print "now time1"+str(time1)
+    print "now time2"+str(time2)
 
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
     if laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
        time = float(time1)+float(time2)
+       print "now timeX"+str(time)
     else:
         time = -1
     return time
