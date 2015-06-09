@@ -53,6 +53,7 @@ def evaluation(parameters, ind):
     placing = [-1,-1,-1,-1,-1]
     for race in range(2):
         for place in range(2):
+            print str(root[races[race]][1][0][1][place][0].attrib.get("val"))
             if root[races[race]][1][0][1][place][0].attrib.get("val") == "scr_server 1":
                placing[race] = place
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
