@@ -32,7 +32,8 @@ def evaluation(parameters, ind):
     parameters = map(str, parameters)
     call_agent.extend(port)
     call_agent.extend(parameters)
-    subprocess.call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
     server.kill()
 
     # Gather data and parse
