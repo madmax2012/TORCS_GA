@@ -89,6 +89,9 @@ def main():
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
+        print "sleeping"
+        time.sleep(3)
+        print "waking up"
 
 if __name__ == "__main__":
     main()
