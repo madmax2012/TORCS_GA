@@ -232,7 +232,7 @@ class gax(RunGA):
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
-            print times[ind]
+            print "totaltile: "+str(times[ind])
             return times
 
         return times
