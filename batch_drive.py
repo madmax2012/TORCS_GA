@@ -57,15 +57,17 @@ def evaluation(parameters, ind):
                placing[race] = place
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
-    print "now time1"+str(time1)
-    print "now time2"+str(time2)
+    print "now time1: "+str(time1)
+    print "now time2: "+str(time2)
 
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
-    if laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
+    if time1==0 or time2==0:
+        time = -1
+    elif laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
        time = float(time1)+float(time2)
-       print "now timeX"+str(time)
+       print "now timeX: "+str(time)
     else:
         time = -1
     return time

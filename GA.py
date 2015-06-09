@@ -226,7 +226,7 @@ class gax(RunGA):
             [parallel_function(self.cars[ind].phenotype, (ind-nproc*batch)) for ind in indivs];
             times.extend(results[0:nproc])
             print "sleeping"
-            time.sleep(3)
+            time.sleep(2)
             print "waking up"
 
         for ind in range(len(self.cars)):
