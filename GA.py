@@ -111,9 +111,10 @@ class gax(RunGA):
                     self.cars[i].values[gene] = self.cars[i].values[gene] + muval
                     self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
                     pass
-
-        print "generation:   "+str(self.currentIteration)
-        print "fittest at:   "+str(self.returnFittest())+"  its fitness: "+str(self.returnFittestFitness())
+        if self.currentIteration == 0:
+           print "----------------------------------------------"
+           print "run "+str(self.runval)+" starts here"
+        print "run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())
         print "it's values:  "+str(self.returnFittestValues())
         print "pop avg fitn: "+str(self.returnAvgFitness())
         print "fitnessarray: "+str(self.fitArray)
