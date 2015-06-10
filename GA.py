@@ -230,14 +230,11 @@ class gax(RunGA):
             parallel_function = results.manage(pprocess.MakeReusable(self.fitfun))
             [parallel_function(self.cars[ind].phenotype, (ind-nproc*batch)) for ind in indivs];
             times.extend(results[0:nproc])
-            print "sleeping"
             time.sleep(2)
-            print "waking up"
+
 
         for ind in range(len(self.cars)):
             times[ind] = float(times[ind])
-            print "infoooooor])"
             return times
-        print "exteeeeernal"
         return times
 
