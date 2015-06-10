@@ -24,7 +24,7 @@ def evaluation(parameters, ind):
     port = 3000 + ind + 1
     guiless=1
     if (guiless==1):
-        server = subprocess.Popen(["torcs", "-t 10000000", "-r", fullpath + "/configs/" + str(port) + ".xml"])
+        server = subprocess.Popen(["torcs", "-t 1000000000", "-r", fullpath + "/configs/" + str(port) + ".xml"])
     else:
         server = subprocess.Popen(["torcs", "-nodamage", fullpath + "/configs/" + str(port) + ".xml"])
     call_agent = ["python", "snakeoil.py"]
