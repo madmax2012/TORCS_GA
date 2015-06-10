@@ -122,7 +122,7 @@ class gax(RunGA):
         print"\n\n"
 
         f = open("debugline.csv","a")
-        f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness()))
+        f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
         f = open("june10_1.csv","a") #opens file with name of "test.txt"
