@@ -307,19 +307,19 @@ def drive_example(c):
         print str(S['trackname'])
        # print 'set gear to '+str(R['gear'])
     ##up
-    if (S['rpm']>7000 and S['gear']==1):
+    if (S['rpm']>c.param[9] and S['gear']==1):
         R['gear']=2
       #  print 'set gear to '+str(R['gear'])
-    if S['rpm']>7000 and S['gear']==2:
+    if S['rpm']>c.param[9] and S['gear']==2:
         R['gear']=3
       #  print 'set gear to '+str(R['gear'])
-    if S['rpm']>7000 and S['gear']==3:
+    if S['rpm']>c.param[9] and S['gear']==3:
         R['gear']=4
       #  print 'set gear to '+str(R['gear'])
-    if S['rpm']>7000 and S['gear']==4:
+    if S['rpm']>c.param[9] and S['gear']==4:
         R['gear']=5
       #  print 'set gear to '+str(R['gear'])
-    if S['rpm']>7000 and S['gear']==5:
+    if S['rpm']>c.param[9] and S['gear']==5:
         R['gear']=6
       #  print 'set gear to '+str(R['gear'])
     ##down
