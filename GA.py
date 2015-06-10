@@ -123,6 +123,7 @@ class gax(RunGA):
 
         f = open("more_roads_2.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
+            f.write(("----------------------------------------------\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
         f.write("generation;   "+str(self.currentIteration)+"; ")
         f.write("it's values;  "+str(self.returnFittestValues())+"; number of invalids;"+str(self.invalid)+" ; ")
