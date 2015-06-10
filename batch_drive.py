@@ -56,11 +56,11 @@ def evaluation(parameters, ind):
             #print str(root[races[race]][1][0][1][place][0].attrib.get("val"))
             if root[races[race]][1][0][1][place][0].attrib.get("val") in ("scr_server 1", "scr_server 2", "scr_server 3", "scr_server 4", "scr_server 5", "scr_server 6", "scr_server 7", "scr_server 8", "scr_server 9", "scr_server 10", "scr_server 11"):
                placing[race] = place
-               print "inif: "+str(root[races[race]][1][0][1][place][0].attrib.get("val"))+" place: "+str(place)
+               #print "inif: "+str(root[races[race]][1][0][1][place][0].attrib.get("val"))+" place: "+str(place)
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
-    print "now time1: "+str(float(time1))+" Port: "+str(port)
-    print "now time2: "+str(float(time2))+" Port: "+str(port)
+    #print "now time1: "+str(float(time1))+" Port: "+str(port)
+    #print "now time2: "+str(float(time2))+" Port: "+str(port)
 
 
     # Check whether the lap was actually finished and verify lap time
@@ -69,7 +69,7 @@ def evaluation(parameters, ind):
         time = -1
     elif laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
        time = float(time1)+float(time2)
-       print "now timeX: "+str(time)
+       #print "now timeX: "+str(time)
     else:
         time = -1
     return time
