@@ -65,13 +65,18 @@ def evaluation(parameters, ind):
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
-    if float(time1)==0.0 or float(time2)==0.0:
-        time = -1
-    elif laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
-       time = float(time1)+float(time2)
-       #print "now timeX: "+str(time)
+    if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<10000.0):
+        if float(time1)==0.0 or float(time2)==0.0:
+            time = -1
+        elif laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
+           time = float(time1)+float(time2)
+           #print "now timeX: "+str(time)
+        else:
+            time = -1
     else:
-        time = -1
+        time=-1
+        print "to much damage. track 1: "+str(float(root[2][1][0][1][placing[0]][8].attrib.get("val")))
+        print "to much damage. track 1: "+str(float(root[4][1][0][1][placing[0]][8].attrib.get("val")))
     return time
 
 def main():
