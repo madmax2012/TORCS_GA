@@ -121,6 +121,9 @@ class gax(RunGA):
         print "number of invalids: "+str(self.invalid)
         print"\n\n"
 
+        f = open("debugline.csv","a")
+        f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness()))
+        f.close
 
         f = open("more_roads_2.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
