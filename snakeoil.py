@@ -273,6 +273,7 @@ def drive_example(c):
     target_speed-= S['damage'] * c.param[1] #.05
     if target_speed < 70: target_speed= 70
 
+
     # Steer To Corner
     R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
