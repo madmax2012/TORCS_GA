@@ -76,7 +76,7 @@ def evaluation(parameters, ind):
     else:
         time=-1
         print "to much damage. track 1: "+str(float(root[2][1][0][1][placing[0]][8].attrib.get("val")))
-        print "to much damage. track 1: "+str(float(root[4][1][0][1][placing[0]][8].attrib.get("val")))
+        print "to much damage. track 2: "+str(float(root[4][1][0][1][placing[0]][8].attrib.get("val")))
     return time
 
 def main():
