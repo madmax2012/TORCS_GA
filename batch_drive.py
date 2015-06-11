@@ -68,7 +68,7 @@ def evaluation(parameters, ind):
     if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<10000.0):
         if float(time1)==0.0 or float(time2)==0.0:
             time = -1
-        elif laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
+        elif (laps > 0 and abs(float(time) - float(penalty_time) > EPSILON)) and ((float(time1)+float(time2))>20.0):
            time = float(time1)+float(time2)
            #print "now timeX: "+str(time)
         else:
@@ -85,15 +85,15 @@ def main():
     sp = 3
     mut = 1./rep_length
     cross = 0.95
-    maxgen = 25
+    maxgen = 50
     onlyThebest = 0
     run_id = "1"
     #debug =1
-
+    #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
     nr_processes = 10
     fullpath = os.path.abspath(".")
-    for runval in range(1000):
+    for runval in range(8, 1000):
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
