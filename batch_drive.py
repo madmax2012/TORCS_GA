@@ -81,11 +81,11 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize = 40
+    popsize = 20
     sp = 3
     mut = 1./rep_length
     cross = 0.95
-    maxgen = 20
+    maxgen = 25
     onlyThebest = 0
     run_id = "1"
     #debug =1
