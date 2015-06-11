@@ -290,7 +290,7 @@ def drive_example(c):
     print "Trackpos Full: "+str(S['track'])
     print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
     print "Trackpos Full: "+str(S['focus'])
-    print " l1 : "+str(S['focus'][-20])+" l2 : "+str(S['focus'][-10])+" mid: "+str(S['focus'][0])+" r2 : "+str(S['focus'][10])+" r1 : "+str(S['focus'][20])
+    print " l1 : "+str(S['focus'][0])+" l2 : "+str(S['focus'][1])+" mid: "+str(S['focus'][2])+" r2 : "+str(S['focus'][3])+" r1 : "+str(S['focus'][4])
 
     #print "TrackSensorsA: "+str(S['opponents'])
     #print "TrackSensors0: "+str(S['opponents'][0])
