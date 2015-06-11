@@ -59,6 +59,10 @@ def evaluation(parameters, ind):
                #print "inif: "+str(root[races[race]][1][0][1][place][0].attrib.get("val"))+" place: "+str(place)
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
+    penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
+    penalty_time1 = root[2][1][0][1][placing[1]][5].attrib.get("val")
+
+
     #print "now time1: "+str(float(time1))+" Port: "+str(port)
     #print "now time2: "+str(float(time2))+" Port: "+str(port)
 
@@ -68,7 +72,7 @@ def evaluation(parameters, ind):
     if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<10000.0):
         if float(time1)==0.0 or float(time2)==0.0:
             time = -1
-        elif (laps > 0 and abs(float(time) - float(penalty_time) > EPSILON)) and ((float(time1)+float(time2))>20.0):
+        elif (laps > 0 and abs(float(time1) - float(penalty_time1) > EPSILON)) and abs(float(time2) - float(penalty_time2) > EPSILON) and ((float(time1)+float(time2))>20.0):
            time = float(time1)+float(time2)
            #print "now timeX: "+str(time)
         else:
