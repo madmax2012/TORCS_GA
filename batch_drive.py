@@ -65,7 +65,7 @@ def evaluation(parameters, ind):
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
-    if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<7000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<7000.0):
+    if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<10000.0):
         if float(time1)==0.0 or float(time2)==0.0:
             time = -1
         elif laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
@@ -81,7 +81,7 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize = 20
+    popsize = 40
     sp = 3
     mut = 1./rep_length
     cross = 0.95
