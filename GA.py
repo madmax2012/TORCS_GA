@@ -120,6 +120,9 @@ class gax(RunGA):
         print "fitnessarray: "+str(self.fitArray)
         print "number of invalids: "+str(self.invalid)
         print"\n\n"
+        bashCommand = "killall torcs-bin"
+        os.system(bashCommand)
+        print "killed old torcs processes"
 
         f = open("debugline.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
