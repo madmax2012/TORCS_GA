@@ -125,9 +125,9 @@ class gax(RunGA):
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
-        f = open("june10_1.csv","a") #opens file with name of "test.txt"
+        f = open("june11_noisy.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
-            f.write(("----------------------------------------------\n"))
+            f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
         f.write("generation;   "+str(self.currentIteration)+"; ")
         f.write("it's values;  "+str(self.returnFittestValues())+"; number of invalids;"+str(self.invalid)+" ; ")
