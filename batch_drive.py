@@ -91,7 +91,7 @@ def main():
     #debug =1
 
     # set max threads for evaluation
-    nr_processes = 10
+    nr_processes = 1
     fullpath = os.path.abspath(".")
     for runval in range(1000):
         print "run "+str(runval)
