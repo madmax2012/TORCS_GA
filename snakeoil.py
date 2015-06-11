@@ -288,7 +288,7 @@ def drive_example(c):
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
     print "Trackpos Full: "+str(S['trackPos'])
-    print " l1 : "+str(S['trackPos'][7])+" l2 : "+str(S['trackPos'][8])+" mid: "+str(S['trackPos'][9])+" r2 : "+str(S['trackPos'][10])+" r1 : "+str(S['trackPos'][11])
+    print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
     #print "TrackSensorsA: "+str(S['opponents'])
     #print "TrackSensors0: "+str(S['opponents'][0])
     #print "TrackSensors1: "+str(S['track'][1])
