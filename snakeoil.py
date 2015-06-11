@@ -287,7 +287,8 @@ def drive_example(c):
         R['accel']-= c.param[5] #.01
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
-    #print "Trackpos: "+str(S['trackPos'])
+    print "Trackpos Full: "+str(S['trackPos'])
+    print " l1 : "+str(S['trackPos'])+" l2 : "+str(S['trackPos'])+" mid: "+str(S['trackPos'])+" r2 : "+str(S['trackPos'])+" r1 : "+str(S['trackPos'])
     #print "TrackSensorsA: "+str(S['opponents'])
     #print "TrackSensors0: "+str(S['opponents'][0])
     #print "TrackSensors1: "+str(S['track'][1])
@@ -339,21 +340,6 @@ def drive_example(c):
     if S['speedX']<100 and S['gear']==6:
         R['gear']=5
       #  print 'set gear to '+str(R['gear'])
-
-
-    ''' nice example
-    R['gear']=1
-    if S['speedX']>50:
-        R['gear']=2
-    if S['speedX']>80:
-        R['gear']=3
-    if S['speedX']>110:
-        R['gear']=4
-    if S['speedX']>140:
-        R['gear']=5
-    if S['speedX']>170:
-        R['gear']=6
-    '''
     return
 
 # ================ MAIN ================
