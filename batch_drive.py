@@ -22,11 +22,11 @@ def evaluation(parameters, ind):
 
     fullpath = os.path.abspath(".")
     port = 3000 + ind + 1
-    guiless=0
+    guiless=1
     if (guiless==1):
         server = subprocess.Popen(["torcs", "-noisy", "-t 1000000000", "-r", fullpath + "/configs/" + str(port) + ".xml"])
     else:
-        server = subprocess.Popen(["torcs", "-noisy",  fullpath + "/configs/" + str(port) + ".xml"])
+        server = subprocess.Popen(["torcs",  fullpath + "/configs/" + str(port) + ".xml"])
     call_agent = ["python", "snakeoil.py"]
     port = ["-p", str(port)]
     parameters = map(str, parameters)
@@ -90,7 +90,7 @@ def main():
     mut = 1./rep_length
     cross = 0.95
     maxgen = 50
-    onlyThebest = 1
+    onlyThebest = 0
     run_id = "1"
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
