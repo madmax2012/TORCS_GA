@@ -317,8 +317,9 @@ def drive_example(c):
    # 	    R['steer']=-c.param[2]
     #R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
-    R['steer']-= S['trackPos']*c.param[3] #.10
-    R['steer']= clip(R['steer'],-1,1)
+    if mid <0:
+        R['steer']-= S['trackPos']*c.param[3] #.10
+        R['steer']= clip(R['steer'],-1,1)
 
     # Throttle Control
     if S['speedX'] < target_speed - (R['steer']*c.param[6]): #50
