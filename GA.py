@@ -102,7 +102,7 @@ class gax(RunGA):
             self.cars[i] = self.tempArray[i]
 
         for i in range(self.numberOfElites, len(self.cars)):
-            for gene in range(9):
+            for gene in range(12):
                 if (random.uniform(0, 1) <= self.mutationChance):
                     muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)
 
