@@ -361,6 +361,7 @@ def drive_example(c):
     ##up
     if (S['rpm']>c.param[9] and S['gear']==1):
         R['gear']=2
+
       #  print 'set gear to '+str(R['gear'])
     if S['rpm']>c.param[9] and S['gear']==2:
         R['gear']=3
