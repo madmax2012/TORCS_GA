@@ -26,7 +26,7 @@
 # dictionary which holds various option values (see `default_options`
 # variable for all the details) but you probably only need a few
 # things from it. Mainly the `trackname` and `stage` are important
-# when developing a strategic bot. 
+# when developing a strategic bot.
 #
 # This dictionary also contains a ServerState object
 # (key=S) and a DriverAction object (key=R for response). This allows
@@ -40,8 +40,8 @@
 # The syntax specifically would be something like:
 #    X= o[S.d['tracPos']]
 # And you can set the following:
-#    accel, brake, clutch, gear, steer, focus, meta 
-# The syntax is:  
+#    accel, brake, clutch, gear, steer, focus, meta
+# The syntax is:
 #     o[R.d['steer']]= X
 # Note that it is 'steer' and not 'steering' as described in the manual!
 # All values should be sensible for their type, including lists being lists.
@@ -52,7 +52,7 @@
 # sufficient for getting around most tracks.
 # Try `snakeoil.py --help` to get started.
 
-import socket 
+import socket
 import sys
 import getopt
 PI= 3.14159265359
@@ -268,22 +268,33 @@ def drive_example(c):
     S= c.S.d
     R= c.R.d
     target_speed=c.param[0] #100
+
+    # Damage Control
+    target_speed-= S['damage'] * c.param[1] #.05
+    if target_speed < 120: target_speed= 100
+
+
     l1 = float(S['track'][7])
     l2 = float(S['track'][8])
     mid= float(S['track'][9])
     r2 = float(S['track'][10])
     r1 = float(S['track'][11])
-
-
-    # Damage Control
-    target_speed-= S['damage'] * c.param[1] #.05
-    if target_speed < 90: target_speed= 90
-
-
     # Steer To Corner
-    #if l1<mid:
-    #    R['steer']
-    R['steer']= S['angle']*c.param[2] / PI #10
+    if (mid>l2) and (mid > r2):
+        R['steer']=0
+        if mid > 190.0:
+            R['accel']=1.0
+    else:
+    	if l2>mid:
+        	R['steer']+=c.param[2]
+    #	elif l1>mid:
+    #	    R['steer']=c.param[2]
+    	if r2>mid:
+    	    R['steer']-=c.param[2]
+   # 	elif r1>mid:
+   # 	    R['steer']=-c.param[2]
+    # Steer To Corner
+    #R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
     R['steer']-= S['trackPos']*c.param[3] #.10
     R['steer']= clip(R['steer'],-1,1)
@@ -296,8 +307,7 @@ def drive_example(c):
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
     # print "Trackpos Full: "+str(S['track'])
-    #print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
-
+    print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
     #  print "Focus Full: "+str(S['focus'])
     #  print " l1 : "+str(S['focus'][0])+" l2 : "+str(S['focus'][1])+" mid: "+str(S['focus'][2])+" r2 : "+str(S['focus'][3])+" r1 : "+str(S['focus'][4])
 
@@ -313,7 +323,10 @@ def drive_example(c):
        (S['wheelSpinVel'][0]+S['wheelSpinVel'][1]) > c.param[7]): #5
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
-
+    if mid < 70:
+	R['brake'] = 0.05
+    else:
+	R['brake'] = 0
     # Automatic Transmission
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
      #   print "it is not in range"
