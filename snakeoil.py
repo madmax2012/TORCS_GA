@@ -268,13 +268,21 @@ def drive_example(c):
     S= c.S.d
     R= c.R.d
     target_speed=c.param[0] #100
+    l1 = float(S['track'][7])
+    l2 = float(S['track'][8])
+    mid= float(S['track'][9])
+    r2 = float(S['track'][10])
+    r1 = float(S['track'][11])
+
 
     # Damage Control
     target_speed-= S['damage'] * c.param[1] #.05
-    if target_speed < 70: target_speed= 70
+    if target_speed < 90: target_speed= 90
 
 
     # Steer To Corner
+    #if l1<mid:
+    #    R['steer']
     R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
     R['steer']-= S['trackPos']*c.param[3] #.10
@@ -288,7 +296,8 @@ def drive_example(c):
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
     # print "Trackpos Full: "+str(S['track'])
-    #print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
+    print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
+
     #  print "Focus Full: "+str(S['focus'])
     #  print " l1 : "+str(S['focus'][0])+" l2 : "+str(S['focus'][1])+" mid: "+str(S['focus'][2])+" r2 : "+str(S['focus'][3])+" r1 : "+str(S['focus'][4])
 

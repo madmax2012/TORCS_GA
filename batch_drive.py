@@ -22,7 +22,7 @@ def evaluation(parameters, ind):
 
     fullpath = os.path.abspath(".")
     port = 3000 + ind + 1
-    guiless=1
+    guiless=0
     if (guiless==1):
         server = subprocess.Popen(["torcs", "-noisy", "-t 1000000000", "-r", fullpath + "/configs/" + str(port) + ".xml"])
     else:
@@ -90,7 +90,7 @@ def main():
     mut = 1./rep_length
     cross = 0.95
     maxgen = 50
-    onlyThebest = 0
+    onlyThebest = 1
     run_id = "1"
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
