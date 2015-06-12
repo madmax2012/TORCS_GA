@@ -268,11 +268,32 @@ def drive_example(c):
     S= c.S.d
     R= c.R.d
     target_speed=c.param[0] #100
-    l1 = float(S['track'][7])
+    l3 = float(S['track'][7])
     l2 = float(S['track'][8])
+    l1 = float(S['track'][8])
     mid= float(S['track'][9])
-    r2 = float(S['track'][10])
-    r1 = float(S['track'][11])
+    r1 = float(S['track'][10])
+    r2 = float(S['track'][11])
+    R3 = float(S['track'][12])
+    X=9
+    Y=0
+
+    if l1<mid and r1<mid:
+        X=9
+        R['steer'] =0
+    if l1>mid:
+        if l3<l2+c.param5:
+            R['steer'] = (20*PI)/180
+            X=7
+        else:
+            R['steer'] = (30*PI)/180
+    if r1>mid:
+        if r3<r2+c.param5:
+            R['steer'] = (-20*PI)/180
+            X=7
+        else:
+            R['steer'] = (-30*PI)/180
+
 
 
     # Damage Control
