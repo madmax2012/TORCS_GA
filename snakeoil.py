@@ -347,7 +347,7 @@ def drive_example(c):
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
 
-    if mid < 70:
+    if mid < 70 and mid > 0:
         R['brake'] = c.param[10]
 
     # Automatic Transmission
