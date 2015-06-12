@@ -298,7 +298,7 @@ def drive_example(c):
 
     # Damage Control
     target_speed-= S['damage'] * c.param[1] #.05
-    if target_speed < 90: target_speed= 90
+    if target_speed < 70: target_speed= 70
 
 
     # Steer To Corner
@@ -347,7 +347,7 @@ def drive_example(c):
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
 
-    if mid < 70 and mid > 0:
+    if mid < 70 and mid > 0 and speedX >30:
         R['brake'] = c.param[10] # brake value between 0 and 1
     else:
         R['brake'] =    0
@@ -361,7 +361,6 @@ def drive_example(c):
     ##up
     if (S['rpm']>c.param[9] and S['gear']==1):
         R['gear']=2
-
       #  print 'set gear to '+str(R['gear'])
     if S['rpm']>c.param[9] and S['gear']==2:
         R['gear']=3
