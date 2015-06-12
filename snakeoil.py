@@ -325,6 +325,9 @@ def drive_example(c):
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
 
+    if mid < 70:
+        R['brake'] = 0.05
+
     # Automatic Transmission
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
      #   print "it is not in range"
