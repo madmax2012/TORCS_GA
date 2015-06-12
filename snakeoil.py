@@ -290,7 +290,7 @@ def drive_example(c):
     #	elif l1>mid:
     #	    R['steer']=c.param[2]
     #	if r2>mid:
-            R['steer']-=c.param[2]
+     #       R['steer']-=c.param[2]
    # 	elif r1>mid:
    # 	    R['steer']=-c.param[2]
     # Steer To Corner
