@@ -274,7 +274,7 @@ def drive_example(c):
     mid= float(S['track'][9])
     r1 = float(S['track'][10])
     r2 = float(S['track'][11])
-    R3 = float(S['track'][12])
+    r3 = float(S['track'][12])
     X=9
     Y=0
 
