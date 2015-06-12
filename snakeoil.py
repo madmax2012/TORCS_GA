@@ -294,7 +294,7 @@ def drive_example(c):
             R['steer']-=c.param[2]
    # 	elif r1>mid:
    # 	    R['steer']=-c.param[2]
-    R['steer']= S['angle']*c.param[2] / PI #10
+    #R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
     R['steer']-= S['trackPos']*c.param[3] #.10
     R['steer']= clip(R['steer'],-1,1)
