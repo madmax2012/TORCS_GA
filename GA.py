@@ -26,7 +26,7 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(0150,250), random.uniform(0,0.5), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,50), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1)))
+                self.cars.append(individual.individual(random.uniform(0150,250), random.uniform(0,0.5), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,50), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
 
         if self.onlyTheBest == 1:
             print "runing the best three agents"
@@ -96,7 +96,7 @@ class gax(RunGA):
                             pass
                         else:
                             self.parent2=self.randomPos
-                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10] )
+                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11] )
                 #self.tempArray[replacer]=individual.individual(((self.cars[self.parent1].values[0]+self.cars[self.parent2].values[0])/2),((self.cars[self.parent1].values[1]+self.cars[self.parent2].values[1])/2), ((self.cars[self.parent1].values[2]+self.cars[self.parent2].values[2])/2), ((self.cars[self.parent1].values[3]+self.cars[self.parent2].values[3])/2), ((self.cars[self.parent1].values[4]+self.cars[self.parent2].values[4])/2), ((self.cars[self.parent1].values[5]+self.cars[self.parent2].values[5])/2), ((self.cars[self.parent1].values[6]+self.cars[self.parent2].values[6])/2), ((self.cars[self.parent1].values[7]+self.cars[self.parent2].values[7])/2), ((self.cars[self.parent1].values[8]+self.cars[self.parent2].values[8])/2) )
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
