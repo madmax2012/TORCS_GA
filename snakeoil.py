@@ -285,12 +285,12 @@ def drive_example(c):
         if mid > 190.0:
             R['accel']=1.0
     else:
-    	if l2>mid:
-        	R['steer']+=c.param[2]
+        if l2>mid:
+            R['steer']+=c.param[2]
     #	elif l1>mid:
     #	    R['steer']=c.param[2]
     	if r2>mid:
-    	    R['steer']-=c.param[2]
+            R['steer']-=c.param[2]
    # 	elif r1>mid:
    # 	    R['steer']=-c.param[2]
     # Steer To Corner
@@ -323,10 +323,10 @@ def drive_example(c):
        (S['wheelSpinVel'][0]+S['wheelSpinVel'][1]) > c.param[7]): #5
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
-    if mid < 70:
-	R['brake'] = 0.05
-    else:
-	R['brake'] = 0
+    #if mid < 70:
+    #    R['brake'] = 0.05
+    #else:
+    #    R['brake'] = 0
     # Automatic Transmission
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
      #   print "it is not in range"
