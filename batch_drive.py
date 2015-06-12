@@ -47,7 +47,12 @@ def evaluation(parameters, ind):
     time = root[2][1][0][1][0][4].attrib.get("val")
     penalty_time = root[2][1][0][1][0][5].attrib.get("val")
     best_lap_time = root[2][1][0][1][0][6].attrib.get("val")
+    if (laps > 0 and abs(float(time) - float(penalty_time) > EPSILON)):
+        time = float(time)
+    else:
+       time = -1
 
+    return time
 
     #races = [2,4,5]
     #placing = [-1,-1,-1,-1,-1]
@@ -82,12 +87,7 @@ def evaluation(parameters, ind):
    #     print "to much damage. track 1: "+str(float(root[2][1][0][1][placing[0]][8].attrib.get("val")))
    #     print "to much damage. track 2: "+str(float(root[4][1][0][1][placing[0]][8].attrib.get("val")))
 
-   if (laps > 0 and abs(float(time) - float(penalty_time) > EPSILON)):
-        time = float(time)
-   else:
-       time = -1
 
-   return time
 
 def main():
     rep_length = 9
