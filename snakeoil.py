@@ -280,21 +280,21 @@ def drive_example(c):
     r2 = float(S['track'][10])
     r1 = float(S['track'][11])
     # Steer To Corner
-    if (mid>l2) and (mid > r2):
-        R['steer']=0
-        if mid > 190.0:
-            R['accel']=1.0
-    else:
-        if l2>mid:
-            R['steer']+=c.param[2]
+    #if (mid>l2) and (mid > r2):
+      #  R['steer']=0
+     #   if mid > 190.0:
+     #       R['accel']=1.0
+    #else:
+    #    if l2>mid:
+     #       R['steer']+=c.param[2]
     #	elif l1>mid:
     #	    R['steer']=c.param[2]
-    	if r2>mid:
+    #	if r2>mid:
             R['steer']-=c.param[2]
    # 	elif r1>mid:
    # 	    R['steer']=-c.param[2]
     # Steer To Corner
-    #R['steer']= S['angle']*c.param[2] / PI #10
+    R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
     R['steer']-= S['trackPos']*c.param[3] #.10
     R['steer']= clip(R['steer'],-1,1)
