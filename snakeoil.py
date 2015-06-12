@@ -281,17 +281,17 @@ def drive_example(c):
 
 
     # Steer To Corner
-    if (mid>l2) and (mid > r2):
-        R['steer']=0
-        if mid > 190.0:
-            R['accel']=1.0
-    else:
-        if l2>mid:
-            R['steer']+=c.param[2]
+    #if (mid>l2) and (mid > r2):
+    #    R['steer']=0
+    #    if mid > 190.0:
+    #        R['accel']=1.0
+    #else:
+    if l2>mid:
+        R['steer']+=c.param[2]
     #	elif l1>mid:
     #	    R['steer']=c.param[2]
-    	if r2>mid:
-            R['steer']-=c.param[2]
+    if r2>mid:
+        R['steer']-=c.param[2]
    # 	elif r1>mid:
    # 	    R['steer']=-c.param[2]
     #R['steer']= S['angle']*c.param[2] / PI #10
