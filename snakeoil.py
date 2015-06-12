@@ -348,7 +348,9 @@ def drive_example(c):
     R['accel']= clip(R['accel'],0,1)
 
     if mid < 70 and mid > 0:
-        R['brake'] = c.param[10]
+        R['brake'] = c.param[10] # brake value between 0 and 1
+    else:
+        R['brake'] = 0
 
     # Automatic Transmission
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
