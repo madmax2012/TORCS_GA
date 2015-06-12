@@ -26,7 +26,7 @@
 # dictionary which holds various option values (see `default_options`
 # variable for all the details) but you probably only need a few
 # things from it. Mainly the `trackname` and `stage` are important
-# when developing a strategic bot.
+# when developing a strategic bot. 
 #
 # This dictionary also contains a ServerState object
 # (key=S) and a DriverAction object (key=R for response). This allows
@@ -40,8 +40,8 @@
 # The syntax specifically would be something like:
 #    X= o[S.d['tracPos']]
 # And you can set the following:
-#    accel, brake, clutch, gear, steer, focus, meta
-# The syntax is:
+#    accel, brake, clutch, gear, steer, focus, meta 
+# The syntax is:  
 #     o[R.d['steer']]= X
 # Note that it is 'steer' and not 'steering' as described in the manual!
 # All values should be sensible for their type, including lists being lists.
@@ -52,7 +52,7 @@
 # sufficient for getting around most tracks.
 # Try `snakeoil.py --help` to get started.
 
-import socket
+import socket 
 import sys
 import getopt
 PI= 3.14159265359
@@ -281,17 +281,9 @@ def drive_example(c):
 
 
     # Steer To Corner
-    #if l2>mid:
-    #    R['steer']=0.5
-    #elif l1>mid:
-    #    R['steer']=1.0
-    #if r2<mid:
-    #    R['steer']=-0.5
-    #elif r1<mid:
-    #    R['steer']=-1.0
-
-
-    #R['steer']= S['angle']*c.param[2] / PI #10
+    #if l1<mid:
+    #    R['steer']
+    R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
     R['steer']-= S['trackPos']*c.param[3] #.10
     R['steer']= clip(R['steer'],-1,1)
@@ -304,7 +296,7 @@ def drive_example(c):
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
     # print "Trackpos Full: "+str(S['track'])
-    #print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
+    print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
 
     #  print "Focus Full: "+str(S['focus'])
     #  print " l1 : "+str(S['focus'][0])+" l2 : "+str(S['focus'][1])+" mid: "+str(S['focus'][2])+" r2 : "+str(S['focus'][3])+" r1 : "+str(S['focus'][4])

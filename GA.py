@@ -240,4 +240,3 @@ class gax(RunGA):
             times[ind] = float(times[ind])
             return times
         return times
-
