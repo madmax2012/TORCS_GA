@@ -307,12 +307,12 @@ def drive_example(c):
     #    if mid > 190.0:
     #        R['accel']=1.0
     #else:
-    if l2>mid:
-        R['steer']+=c.param[2]
+    #if l2>mid:
+    #    R['steer']+=c.param[2]
     #	elif l1>mid:
     #	    R['steer']=c.param[2]
-    if r2>mid:
-        R['steer']-=c.param[2]
+   # if r2>mid:
+   #     R['steer']-=c.param[2]
    # 	elif r1>mid:
    # 	    R['steer']=-c.param[2]
     #R['steer']= S['angle']*c.param[2] / PI #10
