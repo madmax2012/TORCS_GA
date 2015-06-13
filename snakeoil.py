@@ -300,7 +300,7 @@ def drive_example(c):
 
     # Damage Control
     target_speed-= S['damage'] * c.param[1] #.05
-    if target_speed < 70: target_speed= 70
+    if target_speed < 80: target_speed= 80
 
 
     # Steer To Corner
