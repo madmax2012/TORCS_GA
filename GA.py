@@ -31,7 +31,8 @@ class RunGA():
         if self.onlyTheBest == 1:
             print "runing the best three agents"
             #fitness 123
-            #self.cars.append(individual.individual('271.666625844', '0.204192624837', '18.4235771337', '0.680782953372', '53.3010185737', '-0.0637820025866', '0.628801496226', '15.7907437371', '0.366476146494', '5676'))
+            self.cars.append(individual.individual('212.834292539', '0.355924941477', '10.0691491129', '0.0188983120297', '80.279647277', '0.288456625649', '0.202999945478', '45.0813733899', '0.199023243943', '5950', '0.666743923325', '79.4007011517'))
+           # self.cars.append(individual.individual('271.666625844', '0.204192624837', '18.4235771337', '0.680782953372', '53.3010185737', '-0.0637820025866', '0.628801496226', '15.7907437371', '0.366476146494', '5676'))
             #        self.cars.append(individual.individual('207.847515411', '0.0', '15.6251786512', '0.00449124915706', '39.0039459517', '0.674204459854', '0.592745557501', '13.3021387026', '0.734399954582'))
            #goood self.cars.append(individual.individual('182.013620623', '0.0689187178712', '23.4453697172', '0.302216184698', '42.9518949117', '0.339221849058', '0.852102375975', '19.535787977', '0.149008993859'))
             #self.cars.append(individual.individual('162.013620623', '0.0689187178712', '23.4453697172', '0.302216184698', '42.9518949117', '0.339221849058', '0.852102375975', '19.535787977', '0.149008993859'))
@@ -67,7 +68,7 @@ class gax(RunGA):
         self.tempArray = [i for i in range(len(self.cars))]
         self.getFitnessValues()
         for replacer in range (len(self.cars)):
-            self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+1
+            self.numberOfElites = (int((1-self.crossoverChance)*self.popsize))+2
             if  replacer < self.numberOfElites: ##keep the elites
                 self.tempArray[replacer] = self.cars[self.returnFittest()]
                 pass
@@ -97,12 +98,13 @@ class gax(RunGA):
                         else:
                             self.parent2=self.randomPos
                 self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11] )
-                #self.tempArray[replacer]=individual.individual(((self.cars[self.parent1].values[0]+self.cars[self.parent2].values[0])/2),((self.cars[self.parent1].values[1]+self.cars[self.parent2].values[1])/2), ((self.cars[self.parent1].values[2]+self.cars[self.parent2].values[2])/2), ((self.cars[self.parent1].values[3]+self.cars[self.parent2].values[3])/2), ((self.cars[self.parent1].values[4]+self.cars[self.parent2].values[4])/2), ((self.cars[self.parent1].values[5]+self.cars[self.parent2].values[5])/2), ((self.cars[self.parent1].values[6]+self.cars[self.parent2].values[6])/2), ((self.cars[self.parent1].values[7]+self.cars[self.parent2].values[7])/2), ((self.cars[self.parent1].values[8]+self.cars[self.parent2].values[8])/2) )
+
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
 
         for i in range(self.numberOfElites, len(self.cars)):
             for gene in range(12):
+                print "mutating "+str(i)
                 if (random.uniform(0, 1) <= self.mutationChance):
                     muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)
 
@@ -145,20 +147,6 @@ class gax(RunGA):
         if self.currentIteration >= self.maxIterations:
             self.stop_reached = True
 
-    def selection_crossover(self):
-        pass
-
-    def mutation01(self):
-        for i in range(self.numberOfElites, len(self.cars)):
-            for gene in range(12):
-                if (random.uniform(0, 1) <= self.mutationChance):
-                    muval = self.cars[i].values[gene] * random.uniform(-0.1,0.1)
-                    self.cars[i].values[gene] = self.cars[i].values[gene] + muval
-                    self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
-
-    def copyToNewGeneration(self):
-        for i in range(len(self.cars)):
-            self.cars[i] = self.tempArray[i]
 
     def stop(self):
         return self.stop_reached
