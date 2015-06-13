@@ -347,7 +347,7 @@ def drive_example(c):
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
 
-    if mid < c.param[11] and mid > 0 and  S['speedX'] > c.param[11]:
+    if mid < 70 and mid > 0 and  S['speedX'] > c.param[11]:
         R['brake'] = c.param[10] # brake value between 0 and 1
     else:
         R['brake'] =    0
