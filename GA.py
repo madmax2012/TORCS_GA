@@ -31,7 +31,7 @@ class RunGA():
         if self.onlyTheBest == 1:
             print "runing the best three agents"
             #fitness 123
-            self.cars.append(individual.individual('212.834292539', '0.355924941477', '10.0691491129', '0.0188983120297', '80.279647277', '0.288456625649', '0.202999945478', '45.0813733899', '0.199023243943', '5950', '0.666743923325', '79.4007011517'))
+            self.cars.append(individual.individual('233.201153929', '-0.0937411420639', '0.379818787247', '-0.021153257182', '25.7592542818', '0.442765810551', '0.602867295277', '11.0035569307', '0.558417869716', '7481.2', '0.315208794339', '120.6071405164'))
            # self.cars.append(individual.individual('271.666625844', '0.204192624837', '18.4235771337', '0.680782953372', '53.3010185737', '-0.0637820025866', '0.628801496226', '15.7907437371', '0.366476146494', '5676'))
             #        self.cars.append(individual.individual('207.847515411', '0.0', '15.6251786512', '0.00449124915706', '39.0039459517', '0.674204459854', '0.592745557501', '13.3021387026', '0.734399954582'))
            #goood self.cars.append(individual.individual('182.013620623', '0.0689187178712', '23.4453697172', '0.302216184698', '42.9518949117', '0.339221849058', '0.852102375975', '19.535787977', '0.149008993859'))
@@ -113,6 +113,7 @@ class gax(RunGA):
                     self.cars[i].values[gene] = self.cars[i].values[gene] + muval
                     self.cars[i].parameters[gene] = str(float(self.cars[i].parameters[gene]) + muval)
                     pass
+        self.cars[0]=self.cars[self.returnFittest()]
         if self.currentIteration == 0:
            print "----------------------------------------------"
            print "run "+str(self.runval)+" starts here"
