@@ -94,9 +94,9 @@ def main():
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
-    nr_processes = 6
+    nr_processes = 10
     fullpath = os.path.abspath(".")
-    for runval in range(13, 1000):
+    for runval in range(15, 1000):
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
@@ -104,10 +104,5 @@ def main():
         os.system(bashCommand)
         print "killed old torcs processes"
 
-'''
-└─[$] <git:(master*)> cat ../../.ssh/id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZzoz9gOBg1cFaLMIZfyzRL039ErcSXwHGpBSIhoCkJuPueMmje6ktI12aWk6XZRBNGoRO38ohkXGTD6KBEKkzfPn13mdKYTtC3E8rD5BzSPpCFi/3aJPX6PsSXbg9FBuYhQLa88v+YMyEg1jcHMhvd9OQ+s8T5u1mC4rsc/Rkhx7VXApd/mnE3tJovBzTVK2m2Ai4zoBiAS/02MN/xW9VpV9X0d3qxDRxAAa3Oo+WWa2DIHPWgJFZcfazggFJuY1i6qExqVtaRWu0+U4TajgAX9qKtGEN0lvuGqTO9V482+2KsLkSgTqhOr351bf8+wk+hs5+w35wTdw+0T7reEjIJ5WwhU8By2AxACMSLJI09JCjCiZ9K4am8o82WjCYSZKR45jJLjnpOe3LDX1wh9LXEgxEavm1nUmxIwSnNzzdZ3krrr/KkWriLPDhAWucRZ8B/0FcFT32XudT7uninB4JkXXG4dkjl59cwYbm5712+/XhquJt3RBMGpvnOKGZSatzwrZm7QvhJhvbaP62grwlgdtv1hYs3l/hbhzSS9TC9eQOLtWzkKLQnEv1TIiiybSgnBnD+VQSDL467wYN3SzYgToyQdZfDXxFNseZCzi3MEz2CRqntqN66mbWtMj7t3fqvl6L8jzZ2EKVKaIVDXOYQaa90KxVRRhdPtaDvMdYLw== max@max-GA-970A-DS3
-
-'''
 if __name__ == "__main__":
     main()
