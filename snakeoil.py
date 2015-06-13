@@ -278,25 +278,22 @@ def drive_example(c):
     X=9
     Y=0
 
-    if mid>0:
-        if l1<mid and r1<mid:
-            X=9
-            R['steer'] =0
-        if l1>mid:
-            if l3<l2+c.param[2]:
-                R['steer'] = (20*PI)/180
-                X=7
-            else:
-                R['steer'] = (30*PI)/180
-        if r1>mid:
-            if r3<r2+c.param[2]:
-                R['steer'] = (-20*PI)/180
-                X=7
-            else:
-                R['steer'] = (-30*PI)/180
-    else:
-        R['gear']=-1
-        R['steer'] = (30*PI)/180
+    if l1<mid and r1<mid:
+        X=9
+        R['steer'] =0
+    if l1>mid:
+        if l3<l2+c.param[2]:
+            R['steer'] = (20*PI)/180
+            X=7
+        else:
+            R['steer'] = (30*PI)/180
+    if r1>mid:
+        if r3<r2+c.param[2]:
+            R['steer'] = (-20*PI)/180
+            X=7
+        else:
+            R['steer'] = (-30*PI)/180
+
 
 
 
@@ -307,19 +304,7 @@ def drive_example(c):
 
 
     # Steer To Corner
-    #if (mid>l2) and (mid > r2):
-    #    R['steer']=0
-    #    if mid > 190.0:
-    #        R['accel']=1.0
-    #else:
-    #if l2>mid:
-    #    R['steer']+=c.param[2]
-    #	elif l1>mid:
-    #	    R['steer']=c.param[2]
-   # if r2>mid:
-   #     R['steer']-=c.param[2]
-   # 	elif r1>mid:
-   # 	    R['steer']=-c.param[2]
+
     #R['steer']= S['angle']*c.param[2] / PI #10
     # Steer To Center
     if mid <0:
@@ -361,8 +346,6 @@ def drive_example(c):
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
      #   print "it is not in range"
         R['gear']=1
-        print str(S['trackname'])
-       # print 'set gear to '+str(R['gear'])
     ##up
     if (S['rpm']>c.param[9] and S['gear']==1):
         R['gear']=2
