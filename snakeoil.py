@@ -278,21 +278,26 @@ def drive_example(c):
     X=9
     Y=0
 
-    if l1<mid and r1<mid:
-        X=9
-        R['steer'] =0
-    if l1>mid:
-        if l3<l2+c.param[2]:
-            R['steer'] = (20*PI)/180
-            X=7
-        else:
-            R['steer'] = (30*PI)/180
-    if r1>mid:
-        if r3<r2+c.param[2]:
-            R['steer'] = (-20*PI)/180
-            X=7
-        else:
-            R['steer'] = (-30*PI)/180
+    if mid>0:
+        if l1<mid and r1<mid:
+            X=9
+            R['steer'] =0
+        if l1>mid:
+            if l3<l2+c.param[2]:
+                R['steer'] = (20*PI)/180
+                X=7
+            else:
+                R['steer'] = (30*PI)/180
+        if r1>mid:
+            if r3<r2+c.param[2]:
+                R['steer'] = (-20*PI)/180
+                X=7
+            else:
+                R['steer'] = (-30*PI)/180
+    else:
+        R['gear']=-1
+        R['steer'] = (30*PI)/180
+
 
 
 
