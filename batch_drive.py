@@ -94,9 +94,9 @@ def main():
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
-    nr_processes = 6
+    nr_processes = 10
     fullpath = os.path.abspath(".")
-    for runval in range(13, 1000):
+    for runval in range(15, 1000):
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
