@@ -87,7 +87,6 @@ def main():
     rep_length = 9
     popsize =42
 
-
     sp = 3
     mut = 1./rep_length
     cross = 0.95
