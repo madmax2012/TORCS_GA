@@ -79,7 +79,7 @@ def evaluation(parameters, ind):
         if float(time1)==0.0 or float(time2)==0.0or float(time3)==0.0:
             time = -1
         elif (laps > 0 and abs(float(time1) - float(penalty_time1) > EPSILON)) and abs(float(time2) - float(penalty_time2) > EPSILON) and abs(float(time3) - float(penalty_time3) > EPSILON )and abs(float(time4) - float(penalty_time4) > EPSILON) and ((float(time1)+float(time2)+float(time3)+float(time4))>40.0):
-           time = float(time1)+float(time2)
+           time = float(time1)+float(time2)+float(time3)+float(time4)
            #print "now timeX: "+str(time)
         else:
             time = -1

@@ -25,10 +25,17 @@ class RunGA():
         self.fitArray = []
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
-            for i in range(self.popsize/2):
-              #  self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
-                self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702))
-                self.cars.append(individual.individual(189.541480768, 0, 0.337569077045, 0.816044271632, 87.1289416607, 0.236418316455, 0.271561863595, 28.4852580778, 0.299740819726, 7295.542, 0.829675710924, 71.9746111702))
+            for i in range(self.popsize):
+                if i == 1:
+                    self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702))
+                if i == 2:
+                    self.cars.append(individual.individual(189.541480768, 0, 0.337569077045, 0.816044271632, 87.1289416607, 0.236418316455, 0.271561863595, 28.4852580778, 0.299740819726, 7295.542, 0.829675710924, 71.9746111702))
+                if i == 3:
+                    self.cars.append(individual.individual(93.2147551628, 0.0730155045644, 0.804909443113, 0.861710597644, 34.7258457776, 0.334000626715, 0.79868522679, 40.1047474243, 0.920462448721, 6155, 0.539036942361, 55.7219914995))
+                if i == 4:
+                    self.cars.append(individual.individual(147.092761887, -0.051142597421, 18.2754817628, 0.534090918153, 73.4152535755, 0.437499148863, 0.933588969038, 4.59451892646, 0.806517818639, 6532, 0.669055374551, 63.7136152398))
+                else:
+                    self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
         if self.onlyTheBest == 1:
             print "runing the best three agents"
             #AALBORG!self.cars.append(individual.individual('153.969220173', '-0.0576061041302', '0.651319848204', '0.834388153164', '87.1289416607', '0.387674878176', '0.427117692025', '25.8047800707', '0.193517740795', '6029.2', '0.512128686714', '71.9746111702'))
@@ -135,11 +142,11 @@ class gax(RunGA):
         os.system(bashCommand)
         print "killed old torcs processes"
 
-        f = open("debugline_aal_etrack1.csv","a")
+        f = open("debugline_aal_forza_alpine_street.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
-        f = open("june14_aal_etrack1.csv","a") #opens file with name of "test.txt"
+        f = open("june14_aal_forza_alpine_street.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
