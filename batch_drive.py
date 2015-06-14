@@ -95,7 +95,7 @@ def main():
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
-    nr_processes = 6
+    nr_processes = 10
     fullpath = os.path.abspath(".")
     for runval in range(28, 1000):
         print "run "+str(runval)
