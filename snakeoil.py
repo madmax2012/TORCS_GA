@@ -294,9 +294,9 @@ def drive_example(c):
                 X=7
             else:
                 R['steer'] = ((-30*PI)/180)+0.1
-   # elif mid <0:
-   #     R['steer']-= S['trackPos']*c.param[3] #.10
-   #     R['steer']= clip(R['steer'],-1,1)
+    elif mid <0:
+        R['steer']-= S['trackPos']*c.param[3] #.10
+        R['steer']= clip(R['steer'],-1,1)
 
 
 
