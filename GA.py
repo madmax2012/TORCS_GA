@@ -26,12 +26,12 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(160,250), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,50), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,0.8),random.uniform(70,110)))
+                self.cars.append(individual.individual(random.uniform(140,250), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,0.8),random.uniform(70,110)))
 
         if self.onlyTheBest == 1:
             print "runing the best three agents"
             #fitness 123
-            self.cars.append(individual.individual('204.662101328', '-0.0784646815032', '10.7077196957', '0.234852659841', '42.5377925111', '0.484588589147', '0.125946577047', '35.8022050318', '0.579451986465', '7413', '0.9', '86.1454312695'))
+            self.cars.append(individual.individual('188.250791367', '0.203178804399', '0.201697695058', '-0.133966377345', '29.8120257079', '0.379095750017', '-0.0824001900852', '35.3595847493', '0.701470069956', '7281.394', '0.90354898696', '90.6025843724'))
             #kandidat2self.cars.append(individual.individual('184.709123204', '0.110288535475', '4.57730481151', '0.26081797924', '25.3324247442', '0.578153650718', '0.474096761967', '44.7884012447', '0.660050929399', '6265', '0.521770258008', '100.9218245233'))
             # kandidat1self.cars.append(individual.individual('223.201153929', '-0.0937411420639', '0.379818787247', '-0.021153257182', '25.7592542818', '0.442765810551', '0.602867295277', '11.0035569307', '0.558417869716', '7481.2', '0.315208794339', '120.6071405164'))
            # self.cars.append(individual.individual('271.666625844', '0.204192624837', '18.4235771337', '0.680782953372', '53.3010185737', '-0.0637820025866', '0.628801496226', '15.7907437371', '0.366476146494', '5676'))

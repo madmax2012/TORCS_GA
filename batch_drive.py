@@ -84,11 +84,11 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize =30 
+    popsize =40
     sp = 3
     mut = 1./rep_length
     cross = 0.95
-    maxgen = 50
+    maxgen = 200
     onlyThebest = 0
     run_id = "1"
     #debug =1
@@ -96,7 +96,7 @@ def main():
     # set max threads for evaluation
     nr_processes = 10
     fullpath = os.path.abspath(".")
-    for runval in range(27, 1000):
+    for runval in range(28, 1000):
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
