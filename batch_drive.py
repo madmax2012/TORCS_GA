@@ -60,6 +60,7 @@ def evaluation(parameters, ind):
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
     penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
     penalty_time2 = root[4][1][0][1][placing[1]][5].attrib.get("val")
+    print "time1: "+str(time1)+" P_time1: "+str(penalty_time1)+" time2: "+str(time2)+" p_time2: "+str(penalty_time2)
 
 
     #print "now time1: "+str(float(time1))+" Port: "+str(port)
