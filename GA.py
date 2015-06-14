@@ -26,7 +26,7 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(200,250), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,50), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,0.8),random.uniform(80,110)))
+                self.cars.append(individual.individual(random.uniform(160,250), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,50), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,0.8),random.uniform(70,110)))
 
         if self.onlyTheBest == 1:
             print "runing the best three agents"
@@ -106,7 +106,7 @@ class gax(RunGA):
 
         for i in range(self.numberOfElites, len(self.cars)):
             for gene in range(12):
-                print "mutating "+str(i)
+        #        print "mutating "+str(i)
                 if (random.uniform(0, 1) <= self.mutationChance):
                     muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)
 

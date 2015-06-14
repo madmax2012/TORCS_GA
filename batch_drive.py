@@ -59,7 +59,7 @@ def evaluation(parameters, ind):
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
     penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
-    penalty_time2 = root[2][1][0][1][placing[1]][5].attrib.get("val")
+    penalty_time2 = root[4][1][0][1][placing[1]][5].attrib.get("val")
 
 
     #print "now time1: "+str(float(time1))+" Port: "+str(port)
@@ -84,7 +84,7 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize = 18
+    popsize =30 
     sp = 3
     mut = 1./rep_length
     cross = 0.95
@@ -96,7 +96,7 @@ def main():
     # set max threads for evaluation
     nr_processes = 10
     fullpath = os.path.abspath(".")
-    for runval in range(18, 1000):
+    for runval in range(27, 1000):
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
