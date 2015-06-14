@@ -26,12 +26,18 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(140,250), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,0.8),random.uniform(70,110)))
+#                self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
+                self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702))
 
         if self.onlyTheBest == 1:
             print "runing the best three agents"
-            #fitness 123
-            self.cars.append(individual.individual('188.250791367', '0.203178804399', '0.201697695058', '-0.133966377345', '29.8120257079', '0.379095750017', '-0.0824001900852', '35.3595847493', '0.701470069956', '7281.394', '0.90354898696', '90.6025843724'))
+            #AALBORG!self.cars.append(individual.individual('153.969220173', '-0.0576061041302', '0.651319848204', '0.834388153164', '87.1289416607', '0.387674878176', '0.427117692025', '25.8047800707', '0.193517740795', '6029.2', '0.512128686714', '71.9746111702'))
+            #run: 28 generation: 32 fittest at: 17 its fitness: 229.96
+            self.cars.append(individual.individual('229.55519173', '-0.1', '0.47132598475', '0.650949337848', '78.3160474946', '0.248907390358', '0.398718049954', '28.4852580778', '0.286743411528', '7295.542', '1.01264328202', '71.9746111702'))
+            #run: 28 generation: 17 fittest at: 14 its fitness: 230.578
+            self.cars.append(individual.individual('210.712756409', '0', '0.634806649722', '1.21960966533', '86.2476522441', '0.662295736567', '0.271561863594', '22.883059043', '0.299740819726', '5968.898', '0.646708139832', '64.0203785526'))
+            #better than 250. forza/street1self.cars.append(individual.individual('215.660021346', '0', '1.05697326378', '0.82664655709', '66.7693387571', '0.250134392302', '0.570105115953', '2.55696562962', '0.126400385558', '8045.6936', '0.917106689539', '95.4289885556'))
+            #fitness 261self.cars.append(individual.individual('188.250791367', '0.203178804399', '0.201697695058', '-0.133966377345', '29.8120257079', '0.379095750017', '-0.0824001900852', '35.3595847493', '0.701470069956', '7281.394', '0.90354898696', '90.6025843724'))
             #kandidat2self.cars.append(individual.individual('184.709123204', '0.110288535475', '4.57730481151', '0.26081797924', '25.3324247442', '0.578153650718', '0.474096761967', '44.7884012447', '0.660050929399', '6265', '0.521770258008', '100.9218245233'))
             # kandidat1self.cars.append(individual.individual('223.201153929', '-0.0937411420639', '0.379818787247', '-0.021153257182', '25.7592542818', '0.442765810551', '0.602867295277', '11.0035569307', '0.558417869716', '7481.2', '0.315208794339', '120.6071405164'))
            # self.cars.append(individual.individual('271.666625844', '0.204192624837', '18.4235771337', '0.680782953372', '53.3010185737', '-0.0637820025866', '0.628801496226', '15.7907437371', '0.366476146494', '5676'))
@@ -129,11 +135,11 @@ class gax(RunGA):
         os.system(bashCommand)
         print "killed old torcs processes"
 
-        f = open("debugline.csv","a")
+        f = open("debugline_aal.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
-        f = open("june11_noisy.csv","a") #opens file with name of "test.txt"
+        f = open("june14_aal.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
