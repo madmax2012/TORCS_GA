@@ -35,6 +35,10 @@ def evaluation(parameters, ind):
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
     server.kill()
 
     # Gather data and parse

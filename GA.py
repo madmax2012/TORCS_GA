@@ -43,6 +43,8 @@ class RunGA():
         print len(self.cars)
         if self.onlyTheBest == 1:
             print "runing the best three agents"
+            #run: 31 generation: 38 fittest at: 0 its fitness: 753.984 debugline_aal_forza_eroad_street_alpine1.csv
+            #useforbackwards debugging  self.cars.append(individual.individual('208.595628845', '0', '0.337569077045', '0.834388153164', '86.2476522441', '0.387674878176', '0.538589854949', '20.7118718573', '0.169766737753', '6632.22', '0.829675710924', '71.9746111702'))
             #AALBORG!self.cars.append(individual.individual('153.969220173', '-0.0576061041302', '0.651319848204', '0.834388153164', '87.1289416607', '0.387674878176', '0.427117692025', '25.8047800707', '0.193517740795', '6029.2', '0.512128686714', '71.9746111702'))
             # run: 30 generation: 65 fittest at: 0 its fitness: 608.35
             self.cars.append(individual.individual('208.595628845', '0.21', '0.0618706764536', '1.19741356867', '56.8213986236', '0.00149883632855', '0.384730869455', '38.2448785016', '0.286743411529', '8025.1962', '1.01264328202', '71.9746111702'))
@@ -149,11 +151,11 @@ class gax(RunGA):
         os.system(bashCommand)
         print "killed old torcs processes"
 
-        f = open("debugline_aal_forza_eroad_street_alpine1.csv","a")
+        f = open("debugline_wheel2_aal_forza_eroad_street_alpine1.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
-        f = open("june14_aal_forza_eroad_street_alpine1.csv","a") #opens file with name of "test.txt"
+        f = open("june14_aal_wheel2_aal_forza_eroad_street_alpine1.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
