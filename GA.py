@@ -34,7 +34,7 @@ class RunGA():
                     self.cars.append(individual.individual(93.2147551628, 0.0730155045644, 0.804909443113, 0.861710597644, 34.7258457776, 0.334000626715, 0.79868522679, 40.1047474243, 0.920462448721, 6155, 0.539036942361, 55.7219914995))
                 if i == 4:
                     self.cars.append(individual.individual(147.092761887, -0.051142597421, 18.2754817628, 0.534090918153, 73.4152535755, 0.437499148863, 0.933588969038, 4.59451892646, 0.806517818639, 6532, 0.669055374551, 63.7136152398))
-                if i == 4:
+                if i == 5:
                     self.cars.append(individual.individual(208.595628845, 0.21, 0.0618706764536, 1.19741356867, 56.8213986236, 0.00149883632855, 0.384730869455, 38.2448785016, 0.286743411529, 8025.1962, 1.01264328202, 71.9746111702))
                 else:
                     self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
