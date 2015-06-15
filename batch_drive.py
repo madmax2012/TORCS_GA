@@ -35,6 +35,9 @@ def evaluation(parameters, ind):
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
     server.kill()
 
     # Gather data and parse
@@ -48,11 +51,9 @@ def evaluation(parameters, ind):
     time = root[2][1][0][1][0][4].attrib.get("val")
     penalty_time = root[2][1][0][1][0][5].attrib.get("val")
     best_lap_time = root[2][1][0][1][0][6].attrib.get("val")
-    print "herea"
     races = [2,4,5,6]
     placing = [-1,-1,-1,-1,-1,-1]
     for race in range(4):
-        print "hereb"
         for place in range(2):
             #print str(root[races[race]][1][0][1][place][0].attrib.get("val"))
             if root[races[race]][1][0][1][place][0].attrib.get("val") in ("scr_server 1", "scr_server 2", "scr_server 3", "scr_server 4", "scr_server 5", "scr_server 6", "scr_server 7", "scr_server 8", "scr_server 9", "scr_server 10", "scr_server 11"):
@@ -92,18 +93,18 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize =42
+    popsize =30
 
     sp = 3
     mut = 1./rep_length
     cross = 0.95
-    maxgen = 200
+    maxgen = 70
     onlyThebest = 0
     run_id = "1"
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
-    nr_processes = 6
+    nr_processes = 10
     fullpath = os.path.abspath(".")
     for runval in range(30, 1000):
         print "run "+str(runval)

@@ -34,15 +34,19 @@ class RunGA():
                     self.cars.append(individual.individual(93.2147551628, 0.0730155045644, 0.804909443113, 0.861710597644, 34.7258457776, 0.334000626715, 0.79868522679, 40.1047474243, 0.920462448721, 6155, 0.539036942361, 55.7219914995))
                 if i == 4:
                     self.cars.append(individual.individual(147.092761887, -0.051142597421, 18.2754817628, 0.534090918153, 73.4152535755, 0.437499148863, 0.933588969038, 4.59451892646, 0.806517818639, 6532, 0.669055374551, 63.7136152398))
+                if i == 4:
+                    self.cars.append(individual.individual(208.595628845, 0.21, 0.0618706764536, 1.19741356867, 56.8213986236, 0.00149883632855, 0.384730869455, 38.2448785016, 0.286743411529, 8025.1962, 1.01264328202, 71.9746111702))
                 else:
                     self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
         if self.onlyTheBest == 1:
             print "runing the best three agents"
             #AALBORG!self.cars.append(individual.individual('153.969220173', '-0.0576061041302', '0.651319848204', '0.834388153164', '87.1289416607', '0.387674878176', '0.427117692025', '25.8047800707', '0.193517740795', '6029.2', '0.512128686714', '71.9746111702'))
+           # run: 30 generation: 65 fittest at: 0 its fitness: 608.35
+            self.cars.append(individual.individual('208.595628845', '0.21', '0.0618706764536', '1.19741356867', '56.8213986236', '0.00149883632855', '0.384730869455', '38.2448785016', '0.286743411529', '8025.1962', '1.01264328202', '71.9746111702'))
             #run: 28 generation: 32 fittest at: 17 its fitness: 229.96
-            self.cars.append(individual.individual('189.541480768', '0', '0.337569077045', '0.816044271632', '87.1289416607', '0.236418316455', '0.271561863595', '28.4852580778', '0.299740819726', '7295.542', '0.829675710924', '71.9746111702'))
+            #self.cars.append(individual.individual('189.541480768', '0', '0.337569077045', '0.816044271632', '87.1289416607', '0.236418316455', '0.271561863595', '28.4852580778', '0.299740819726', '7295.542', '0.829675710924', '71.9746111702'))
             #run: 28 generation: 17 fittest at: 14 its fitness: 230.578
-            self.cars.append(individual.individual('210.712756409', '0', '0.634806649722', '1.21960966533', '86.2476522441', '0.662295736567', '0.271561863594', '22.883059043', '0.299740819726', '5968.898', '0.646708139832', '64.0203785526'))
+            #self.cars.append(individual.individual('210.712756409', '0', '0.634806649722', '1.21960966533', '86.2476522441', '0.662295736567', '0.271561863594', '22.883059043', '0.299740819726', '5968.898', '0.646708139832', '64.0203785526'))
             #better than 250. forza/street1self.cars.append(individual.individual('215.660021346', '0', '1.05697326378', '0.82664655709', '66.7693387571', '0.250134392302', '0.570105115953', '2.55696562962', '0.126400385558', '8045.6936', '0.917106689539', '95.4289885556'))
             #fitness 261self.cars.append(individual.individual('188.250791367', '0.203178804399', '0.201697695058', '-0.133966377345', '29.8120257079', '0.379095750017', '-0.0824001900852', '35.3595847493', '0.701470069956', '7281.394', '0.90354898696', '90.6025843724'))
             #kandidat2self.cars.append(individual.individual('184.709123204', '0.110288535475', '4.57730481151', '0.26081797924', '25.3324247442', '0.578153650718', '0.474096761967', '44.7884012447', '0.660050929399', '6265', '0.521770258008', '100.9218245233'))
@@ -142,11 +146,11 @@ class gax(RunGA):
         os.system(bashCommand)
         print "killed old torcs processes"
 
-        f = open("debugline_aal_forza_alpine_street.csv","a")
+        f = open("debugline_aal_forza_etrack1_street.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
-        f = open("june14_aal_forza_alpine_street.csv","a") #opens file with name of "test.txt"
+        f = open("june14_aal_forza_etrack1_street.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
