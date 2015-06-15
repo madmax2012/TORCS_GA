@@ -263,8 +263,6 @@ def clip(v,lo,hi):
     else: return v
 
 def drive_example(c):
-    '''This is only an example. It will get around the track but the
-    correct thing to do is write your own `drive()` function.'''
     S= c.S.d
     R= c.R.d
     target_speed=c.param[0] #100
@@ -298,22 +296,14 @@ def drive_example(c):
     elif mid <0:
         R['steer']-= S['trackPos']*c.param[3] #.10
         R['steer']= clip(R['steer'],-1,1)
-      #  R['steer']= S['angle']*c.param[2] / PI #10
-
-
-
+        if  S['speedX'] < 15:
+            R['steer'] = S['angle']*c.param[2] / PI #10#
+    print mid
 
 
     # Damage Control
     target_speed-= S['damage'] * c.param[1] #.05
     if target_speed < 80: target_speed= 80
-
-
-    # Steer To Corner
-
-    #R['steer']= S['angle']*c.param[2] / PI #10
-    # Steer To Center
-
 
     # Throttle Control
     if S['speedX'] < target_speed - (R['steer']*c.param[6]): #50
@@ -322,18 +312,6 @@ def drive_example(c):
         R['accel']-= c.param[5] #.01
     if S['speedX']<10:
        R['accel']+= 1/(S['speedX']+.1)
-    # print "Trackpos Full: "+str(S['track'])
-    #print " l1 : "+str(S['track'][7])+" l2 : "+str(S['track'][8])+" mid: "+str(S['track'][9])+" r2 : "+str(S['track'][10])+" r1 : "+str(S['track'][11])
-
-    #  print "Focus Full: "+str(S['focus'])
-    #  print " l1 : "+str(S['focus'][0])+" l2 : "+str(S['focus'][1])+" mid: "+str(S['focus'][2])+" r2 : "+str(S['focus'][3])+" r1 : "+str(S['focus'][4])
-
-    #print "TrackSensorsA: "+str(S['opponents'])
-    #print "TrackSensors0: "+str(S['opponents'][0])
-    #print "TrackSensors1: "+str(S['track'][1])
-
-    #print "Steer:  "+str(R['steer'])
-    #+" accel  "+str(R['accel'])+""
 
     # Traction Control System
     if ((S['wheelSpinVel'][2]+S['wheelSpinVel'][3]) -
@@ -346,7 +324,7 @@ def drive_example(c):
     else:
         R['brake'] =    0
 
-    # Automatic Transmission
+
     if (S['gear'] not in [0, 1, 2, 3, 4, 5, 6]):
      #   print "it is not in range"
         R['gear']=1
@@ -382,6 +360,7 @@ def drive_example(c):
     if S['speedX']<100 and S['gear']==6:
         R['gear']=5
       #  print 'set gear to '+str(R['gear'])
+
     return
 
 # ================ MAIN ================
