@@ -26,10 +26,10 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                r=i%1
+                r=i%2
                 if r == 0:
                     self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702))
-                if r == 1:
+                elif r == 1:
                     self.cars.append(individual.individual(189.541480768, 0, 0.337569077045, 0.816044271632, 87.1289416607, 0.236418316455, 0.271561863595, 28.4852580778, 0.299740819726, 7295.542, 0.829675710924, 71.9746111702))
                 else:
                     print"nope"
