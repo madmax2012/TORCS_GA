@@ -36,7 +36,9 @@ def evaluation(parameters, ind):
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
     server.kill()
-
+    server.kill()
+    server.kill()
+    server.kill()
     # Gather data and parse
     result_file = "/home/max/.torcs/results/"+ str(port[1]) +"/*.xml"
     newest = max(glob.iglob(result_file), key = os.path.getctime)
@@ -65,7 +67,7 @@ def evaluation(parameters, ind):
     penalty_time3 = root[5][1][0][1][placing[2]][5].attrib.get("val")
     penalty_time4 = root[6][1][0][1][placing[2]][5].attrib.get("val")
 
-    print "time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)
+    print "time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" parameters: "+str(parameters)
 
 
     #print "now time1: "+str(float(time1))+" Port: "+str(port)
@@ -90,7 +92,7 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize =20
+    popsize =12
     sp = 3
     mut = 1./rep_length
     cross = 0.95
@@ -100,7 +102,7 @@ def main():
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
-    nr_processes =10
+    nr_processes =6
     fullpath = os.path.abspath(".")
     for runval in range(30, 1000):
         print "run "+str(runval)
