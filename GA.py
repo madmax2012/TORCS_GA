@@ -25,20 +25,22 @@ class RunGA():
         self.fitArray = []
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
-            for i in range(self.popsize):
+            for i in range(self.popsize/4):
                # r=i%4
-                if i == 0:
+               # print i
+                #if i == 0:
                     self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702))
-                elif i == 1:
+                #elif i == 1:
                     self.cars.append(individual.individual(189.541480768, 0, 0.337569077045, 0.816044271632, 87.1289416607, 0.236418316455, 0.271561863595, 28.4852580778, 0.299740819726, 7295.542, 0.829675710924, 71.9746111702))
-                elif i == 2:
+               # elif i == 2:
                     self.cars.append(individual.individual(208.595628845, 0.21, 0.0618706764536, 1.19741356867, 56.8213986236, 0.00149883632855, 0.384730869455, 38.2448785016, 0.286743411529, 8025.1962, 1.01264328202, 71.9746111702))
-                elif i == 3:
+              #  elif i == 3:
                     self.cars.append(individual.individual(210.712756409, 0, 0.634806649722, 1.21960966533, 86.2476522441, 0.662295736567, 0.271561863594, 22.883059043, 0.299740819726, 5968.898, 0.646708139832, 64.0203785526))
 
-                else:
-                    print"nope"
-                    self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
+             #   else:
+              #      print"nope"
+              #     self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
+        print len(self.cars)
         if self.onlyTheBest == 1:
             print "runing the best three agents"
             #AALBORG!self.cars.append(individual.individual('153.969220173', '-0.0576061041302', '0.651319848204', '0.834388153164', '87.1289416607', '0.387674878176', '0.427117692025', '25.8047800707', '0.193517740795', '6029.2', '0.512128686714', '71.9746111702'))
