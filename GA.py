@@ -146,11 +146,11 @@ class gax(RunGA):
         os.system(bashCommand)
         print "killed old torcs processes"
 
-        f = open("debugline_aal_forza_etrack1_street.csv","a")
+        f = open("debugline_aal_forza_brondehach_street.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
         f.close
 
-        f = open("june14_aal_forza_etrack1_street.csv","a") #opens file with name of "test.txt"
+        f = open("june14_aal_forza_brondehach_street.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
