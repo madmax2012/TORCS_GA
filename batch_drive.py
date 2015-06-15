@@ -90,7 +90,7 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize =40
+    popsize =18
     sp = 3
     mut = 1./rep_length
     cross = 0.95
@@ -100,7 +100,7 @@ def main():
     #debug =1
     #dafuq /usr/local/bin/torcs: line 53:  3899 Segmentation fault      $LIBDIR/torcs-bin -l $LOCAL_CONF -L $LIBDIR -D $DATADIR $*
     # set max threads for evaluation
-    nr_processes =4 
+    nr_processes =6
     fullpath = os.path.abspath(".")
     for runval in range(30, 1000):
         print "run "+str(runval)
