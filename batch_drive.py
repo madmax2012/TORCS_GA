@@ -50,9 +50,9 @@ def evaluation(parameters, ind):
     time = root[2][1][0][1][0][4].attrib.get("val")
     penalty_time = root[2][1][0][1][0][5].attrib.get("val")
     best_lap_time = root[2][1][0][1][0][6].attrib.get("val")
-    races = [2,4,5,6]
+    races = [2,4,5,6,7]
     placing = [-1,-1,-1,-1,-1,-1]
-    for race in range(4):
+    for race in range(5):
         for place in range(2):
             #print str(root[races[race]][1][0][1][place][0].attrib.get("val"))
             if root[races[race]][1][0][1][place][0].attrib.get("val") in ("scr_server 1", "scr_server 2", "scr_server 3", "scr_server 4", "scr_server 5", "scr_server 6", "scr_server 7", "scr_server 8", "scr_server 9", "scr_server 10", "scr_server 11"):
@@ -60,14 +60,16 @@ def evaluation(parameters, ind):
                #print "inif: "+str(root[races[race]][1][0][1][place][0].attrib.get("val"))+" place: "+str(place)
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
-    time3 = root[5][1][0][1][placing[1]][4].attrib.get("val")
-    time4 = root[6][1][0][1][placing[1]][4].attrib.get("val")
+    time3 = root[5][1][0][1][placing[2]][4].attrib.get("val")
+    time4 = root[6][1][0][1][placing[3]][4].attrib.get("val")
+    time5 = root[7][1][0][1][placing[4]][4].attrib.get("val")
     penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
     penalty_time2 = root[4][1][0][1][placing[1]][5].attrib.get("val")
     penalty_time3 = root[5][1][0][1][placing[2]][5].attrib.get("val")
-    penalty_time4 = root[6][1][0][1][placing[2]][5].attrib.get("val")
+    penalty_time4 = root[6][1][0][1][placing[3]][5].attrib.get("val")
+    penalty_time5 = root[7][1][0][1][placing[4]][5].attrib.get("val")
 
-    print "time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" parameters: "+str(parameters)
+    print "time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" parameters: "+str(parameters)
 
 
     #print "now time1: "+str(float(time1))+" Port: "+str(port)
@@ -76,11 +78,11 @@ def evaluation(parameters, ind):
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
-    if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[5][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[6][1][0][1][placing[0]][8].attrib.get("val"))<10000.0):
+    if (float(root[2][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[4][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[5][1][0][1][placing[0]][8].attrib.get("val"))<10000.0) and  (float(root[6][1][0][1][placing[0]][8].attrib.get("val"))<10000.0)and  (float(root[7][1][0][1][placing[0]][8].attrib.get("val"))<10000.0):
         if float(time1)==0.0 or float(time2)==0.0or float(time3)==0.0:
             time = -1
-        elif (laps > 0 and abs(float(time1) - float(penalty_time1) > EPSILON)) and abs(float(time2) - float(penalty_time2) > EPSILON) and abs(float(time3) - float(penalty_time3) > EPSILON )and abs(float(time4) - float(penalty_time4) > EPSILON) and ((float(time1)+float(time2)+float(time3)+float(time4))>40.0):
-           time = float(time1)+float(time2)+float(time3)+float(time4)
+        elif (laps > 0 and abs(float(time1) - float(penalty_time1) > EPSILON)) and abs(float(time2) - float(penalty_time2) > EPSILON) and abs(float(time3) - float(penalty_time3) > EPSILON )and abs(float(time4) - float(penalty_time4) > EPSILON) and abs(float(time5) - float(penalty_time5) > EPSILON) and ((float(time1)+float(time2)+float(time3)+float(time4)+float(time5))>60.0):
+           time = float(time1)+float(time2)+float(time3)+float(time4)+float(time5)
            #print "now timeX: "+str(time)
         else:
             time = -1
