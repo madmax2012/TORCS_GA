@@ -26,11 +26,11 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize/5):
-                    self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702))
-                    self.cars.append(individual.individual(189.541480768, 0, 0.337569077045, 0.816044271632, 87.1289416607, 0.236418316455, 0.271561863595, 28.4852580778, 0.299740819726, 7295.542, 0.829675710924, 71.9746111702))
-                    self.cars.append(individual.individual(208.595628845, 0.21, 0.0618706764536, 1.19741356867, 56.8213986236, 0.00149883632855, 0.384730869455, 38.2448785016, 0.286743411529, 8025.1962, 1.01264328202, 71.9746111702))
-                    self.cars.append(individual.individual(210.712756409, 0, 0.634806649722, 1.21960966533, 86.2476522441, 0.662295736567, 0.271561863594, 22.883059043, 0.299740819726, 5968.898, 0.646708139832, 64.0203785526))
-                    self.cars.append(individual.individual(208.595628845, 0, 0.337569077045, 0.834388153164, 86.2476522441, 0.387674878176, 0.538589854949, 20.7118718573, 0.169766737753, 6632.22, 0.829675710924, 71.9746111702))
+                    self.cars.append(individual.individual(173.969220173, 0, 0.651319848204, 0.834388153164, 87.1289416607, 0.387674878176, 0.427117692025, 25.8047800707, 0.193517740795, 6029.2, 0.512128686714, 71.9746111702, random.uniform(50,100)))
+                    self.cars.append(individual.individual(189.541480768, 0, 0.337569077045, 0.816044271632, 87.1289416607, 0.236418316455, 0.271561863595, 28.4852580778, 0.299740819726, 7295.542, 0.829675710924, 71.9746111702, random.uniform(50,100)))
+                    self.cars.append(individual.individual(208.595628845, 0.21, 0.0618706764536, 1.19741356867, 56.8213986236, 0.00149883632855, 0.384730869455, 38.2448785016, 0.286743411529, 8025.1962, 1.01264328202, 71.9746111702, random.uniform(50,100)))
+                    self.cars.append(individual.individual(210.712756409, 0, 0.634806649722, 1.21960966533, 86.2476522441, 0.662295736567, 0.271561863594, 22.883059043, 0.299740819726, 5968.898, 0.646708139832, 64.0203785526, random.uniform(50,100)))
+                    self.cars.append(individual.individual(208.595628845, 0, 0.337569077045, 0.834388153164, 86.2476522441, 0.387674878176, 0.538589854949, 20.7118718573, 0.169766737753, 6632.22, 0.829675710924, 71.9746111702, random.uniform(50,100)))
              #   else:
               #      print"nope"
               #     self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
@@ -115,13 +115,13 @@ class gax(RunGA):
                             pass
                         else:
                             self.parent2=self.randomPos
-                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11] )
+                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11],self.cars[self.parent1].values[12] )
 
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
 
         for i in range(self.numberOfElites, len(self.cars)):
-            for gene in range(12):
+            for gene in range(13):
         #        print "mutating "+str(i)
                 if (random.uniform(0, 1) <= self.mutationChance):
                     muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)

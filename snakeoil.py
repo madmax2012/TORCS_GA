@@ -298,6 +298,7 @@ def drive_example(c):
     elif mid <0:
         R['steer']-= S['trackPos']*c.param[3] #.10
         R['steer']= clip(R['steer'],-1,1)
+      #  R['steer']= S['angle']*c.param[2] / PI #10
 
 
 
@@ -339,8 +340,8 @@ def drive_example(c):
        (S['wheelSpinVel'][0]+S['wheelSpinVel'][1]) > c.param[7]): #5
        R['accel']-= c.param[8] #.2
     R['accel']= clip(R['accel'],0,1)
-
-    if mid < 70 and mid > 0 and  S['speedX'] > c.param[11]:
+    #c.param[12]=distance brom braking, 70 seemed OK
+    if mid < c.param[12] and mid > 0 and  S['speedX'] > c.param[11]:
         R['brake'] = c.param[10] # brake value between 0 and 1
     else:
         R['brake'] =    0
