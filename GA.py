@@ -41,9 +41,10 @@ class RunGA():
             #run: 31 generation: 38 fittest at: 0 its fitness: 753.984 debugline_aal_forza_eroad_street_alpine1.csv
             #useforbackwards debugging  self.cars.append(individual.individual('208.595628845', '0', '0.337569077045', '0.834388153164', '86.2476522441', '0.387674878176', '0.538589854949', '20.7118718573', '0.169766737753', '6632.22', '0.829675710924', '71.9746111702'))
             #AALBORG!self.cars.append(individual.individual('153.969220173', '-0.0576061041302', '0.651319848204', '0.834388153164', '87.1289416607', '0.387674878176', '0.427117692025', '25.8047800707', '0.193517740795', '6029.2', '0.512128686714', '71.9746111702'))
-            #run: 32 generation: 26 fittest at: 1 its fitness: 900.578 aal_forza_eroad_street_alpine1_wheel2
-            self.cars.append(individual.individual('140.72506834', '0', '0.337569077045', '0.650949337848', '86.2476522441', '0.511177942334', '0.284405922822', '27.8985014421', '0.158069070376', '6632.22', '0.663341555385', '71.9746111702', '50.7467746014'))
-
+            #run: 32 generation: 26 fittest at: 1 its fitness: 900.578 aal_forza_eroad_street_alpine1_wheel2   survives spring!!
+            #self.cars.append(individual.individual('140.72506834', '0', '0.337569077045', '0.650949337848', '86.2476522441', '0.511177942334', '0.284405922822', '27.8985014421', '0.158069070376', '6632.22', '0.663341555385', '71.9746111702', '50.7467746014'))
+            #run: 32 generation: 32 fittest at: 0 its fitness: 872.688 aal_forza_eroad_street_alpine1_wheel2   survives spring!!
+            self.cars.append(individual.individual('140.72506834', '0', '0.203812169341', '0.650949337848', '77.5228870197', '0.511177942334', '0.412846515105', '27.8985014421', '0.0422621633381', '6632.22', '0.829675710924', '71.9746111702', '45.5720971413'))
             # run: 30 generation: 65 fittest at: 0 its fitness: 608.35
             #self.cars.append(individual.individual('208.595628845', '0.21', '0.0618706764536', '1.19741356867', '56.8213986236', '0.00149883632855', '0.384730869455', '38.2448785016', '0.286743411529', '8025.1962', '1.01264328202', '71.9746111702','70'))
             #run: 28 generation: 32 fittest at: 17 its fitness: 229.96
