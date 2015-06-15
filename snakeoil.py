@@ -298,7 +298,6 @@ def drive_example(c):
         R['steer']= clip(R['steer'],-1,1)
         if  S['speedX'] < 15:
             R['steer'] = S['angle']*c.param[2] / PI #10#
-    print mid
 
 
     # Damage Control
