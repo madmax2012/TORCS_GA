@@ -91,7 +91,7 @@ def evaluation(parameters, ind):
     p6=abs(float(time6) - float(penalty_time6) > EPSILON)
     print "p1: "+str(p1)
 
-    print "time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" parameters: "+str(parameters)
+    print "total:"+str(float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6))+"time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" parameters: "+str(parameters)
 
 
     #print "now time1: "+str(float(time1))+" Port: "+str(port)
@@ -116,14 +116,14 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 9
-    popsize =20
+    popsize =18
     sp = 3
     mut = 1./rep_length
     cross = 0.95
     maxgen = 100
     onlyThebest = 0
     run_id = "1"
-    nr_processes =10
+    nr_processes =5
     fullpath = os.path.abspath(".")
     for runval in range(31, 1000):
         print "run "+str(runval)
