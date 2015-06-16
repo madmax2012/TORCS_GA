@@ -283,16 +283,16 @@ def drive_example(c):
             R['steer'] =0
         if l1>mid:
             if l3<l2+c.param[2]:
-                R['steer'] = ((20*PI)/180)#-0.1
+                R['steer'] = (((2*c.param[13])*PI)/180) #((20*PI)/180)#-0.1
                 X=7
             else:
-                R['steer'] = ((30*PI)/180)#-0.1
+                R['steer'] = (((3*c.param[13])*PI)/180)#((30*PI)/180)#-0.1
         if r1>mid:
             if r3<r2+c.param[2]:
-                R['steer'] = ((-20*PI)/180)#+0.1
+                R['steer'] = (((-2*c.param[13])*PI)/180)#((-20*PI)/180)#+0.1
                 X=7
             else:
-                R['steer'] = ((-30*PI)/180)#+0.1
+                R['steer'] = (((-3*c.param[13])*PI)/180)#((-30*PI)/180)#+0.1
     elif mid <0:
         R['steer']-= S['trackPos']*c.param[3] #.10
         R['steer']= clip(R['steer'],-1,1)
