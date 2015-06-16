@@ -70,6 +70,16 @@ def evaluation(parameters, ind):
             if root[races[race]][1][0][1][place][0].attrib.get("val") in ("scr_server 1", "scr_server 2", "scr_server 3", "scr_server 4", "scr_server 5", "scr_server 6", "scr_server 7", "scr_server 8", "scr_server 9", "scr_server 10", "scr_server 11"):
                placing[race] = place
                #print "inif: "+str(root[races[race]][1][0][1][place][0].attrib.get("val"))+" place: "+str(place)
+    laps1 = root[2][1][0][1][placing[0]][3].attrib.get("val")
+    laps2 = root[4][1][0][1][placing[1]][3].attrib.get("val")
+    laps3 = root[5][1][0][1][placing[2]][3].attrib.get("val")
+    laps4 = root[6][1][0][1][placing[3]][3].attrib.get("val")
+    laps5 = root[7][1][0][1][placing[4]][3].attrib.get("val")
+    laps6 = root[8][1][0][1][placing[5]][3].attrib.get("val")
+    laps7 = root[9][1][0][1][placing[6]][3].attrib.get("val")
+    laps8 = root[10][1][0][1][placing[7]][3].attrib.get("val")
+    laps9 = root[11][1][0][1][placing[8]][3].attrib.get("val")
+    laps10 = root[12][1][0][1][placing[9]][3].attrib.get("val")
     time1 = root[2][1][0][1][placing[0]][4].attrib.get("val")
     time2 = root[4][1][0][1][placing[1]][4].attrib.get("val")
     time3 = root[5][1][0][1][placing[2]][4].attrib.get("val")
@@ -80,6 +90,7 @@ def evaluation(parameters, ind):
     time8 = root[10][1][0][1][placing[7]][4].attrib.get("val")
     time9 = root[11][1][0][1][placing[8]][4].attrib.get("val")
     time10 = root[12][1][0][1][placing[9]][4].attrib.get("val")
+
 
     penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
     penalty_time2 = root[4][1][0][1][placing[1]][5].attrib.get("val")
@@ -120,7 +131,7 @@ def evaluation(parameters, ind):
     if (float(damage1)<10000.0) and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0)and (float(damage9)<10000.0)and (float(damage10)<10000.0):
         if float(time1)==0.0 or float(time2)==0.0or float(time3)==0.0:
             time = -1
-        elif laps > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and (float(time1)> 40.0) and (float(time2)> 40.0) and (float(time3)> 40.0) and (float(time4)> 40.0) and (float(time5)> 40.0) and (float(time6)> 40.0) and (float(time7)> 40.0) and (float(time8)> 40.0) and (float(time9)> 40.0) and (float(time10)> 40.0):
+        elif (laps1 > 0 and laps2 > 0 and laps3 > 0 and laps4 > 0 and laps5 > 0 and laps6 > 0 and laps7 > 0 and laps8 > 0 and laps9 > 0 and laps10 > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and (float(time1)> 40.0) and (float(time2)> 40.0) and (float(time3)> 40.0) and (float(time4)> 40.0) and (float(time5)> 40.0) and (float(time6)> 40.0) and (float(time7)> 40.0) and (float(time8)> 40.0) and (float(time9)> 40.0) and (float(time10)> 40.0)):
            time = float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10)
            #print "now timeX: "+str(time)
         else:

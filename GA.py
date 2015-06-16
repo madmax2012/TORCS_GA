@@ -48,6 +48,7 @@ class RunGA():
                     #1345.182@amd
                     self.cars.append(individual.individual(154.897575174, -0.1981, -0.0538732272792, 0.310657311279, 101.434134767, 0.991264062838, 0.523203956399, 29.5357636983, 0.0215211462875, 6565.8878, 0.829675710924, 71.2448650585, 49.7170137868, 16.1896469453))
 
+
              #   else:
               #      print"nope"
               #     self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110)))
