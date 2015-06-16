@@ -137,6 +137,7 @@ def main():
     cross = 0.95
     maxgen = 100
     onlyThebest = 0
+    run_id = "1"
     nr_processes = 6
     fullpath = os.path.abspath(".")
     for runval in range(39, 1000):
