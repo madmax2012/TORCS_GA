@@ -115,7 +115,7 @@ def evaluation(parameters, ind):
     return time
 
 def main():
-    rep_length = 9
+    rep_length = 13
     popsize =20
     sp = 3
     mut = 1./rep_length
