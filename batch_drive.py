@@ -123,7 +123,7 @@ def main():
     maxgen = 100
     onlyThebest = 0
     run_id = "1"
-    nr_processes =5
+    nr_processes =10
     fullpath = os.path.abspath(".")
     for runval in range(34, 1000):
         print "run "+str(runval)
