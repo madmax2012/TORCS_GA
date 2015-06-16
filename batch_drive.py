@@ -133,14 +133,14 @@ def evaluation(parameters, ind):
 
 def main():
     rep_length = 14
-    popsize =20
+    popsize =18
     sp = 3
     mut = 1./rep_length
     cross = 0.95
     maxgen = 100
     onlyThebest = 0
     run_id = "1"
-    nr_processes = 10
+    nr_processes = 6
     fullpath = os.path.abspath(".")
     for runval in range(39, 1000):
         print "run "+str(runval)
