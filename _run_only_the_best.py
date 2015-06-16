@@ -41,16 +41,17 @@ def evaluation(parameters, ind):
     subprocess.check_call(call_agent)#8
     subprocess.check_call(call_agent)#9
     subprocess.check_call(call_agent)#10
-    server.kill()#1
-    server.kill()#2
-    server.kill()#3
-    server.kill()#4
-    server.kill()#5
-    server.kill()#6
-    server.kill()#7
-    server.kill()#8
-    server.kill()#9
-    server.kill()#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
+    subprocess.check_call(call_agent)#10
     # Gather data and parse
     result_file = "/home/max/.torcs/results/"+ str(port[1]) +"/*.xml"
     newest = max(glob.iglob(result_file), key = os.path.getctime)
