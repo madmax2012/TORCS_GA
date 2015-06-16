@@ -120,7 +120,7 @@ def evaluation(parameters, ind):
     if (float(damage1)<10000.0) and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0)and (float(damage9)<10000.0)and (float(damage10)<10000.0):
         if float(time1)==0.0 or float(time2)==0.0or float(time3)==0.0:
             time = -1
-        elif laps > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and ((float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8))>200.0):
+        elif laps > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and (float(time1)> 40.0) and (float(time2)> 40.0) and (float(time3)> 40.0) and (float(time4)> 40.0) and (float(time5)> 40.0) and (float(time6)> 40.0) and (float(time7)> 40.0) and (float(time8)> 40.0) and (float(time9)> 40.0) and (float(time10)> 40.0):
            time = float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10)
            #print "now timeX: "+str(time)
         else:
