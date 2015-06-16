@@ -31,23 +31,26 @@ def evaluation(parameters, ind):
     parameters = map(str, parameters)
     call_agent.extend(port)
     call_agent.extend(parameters)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-    subprocess.check_call(call_agent)
-
-    server.kill()
-    server.kill()
-    server.kill()
-    server.kill()
-    server.kill()
-    server.kill()
-    server.kill()
-    server.kill()
+    subprocess.check_call(call_agent)#1
+    subprocess.check_call(call_agent)#2
+    subprocess.check_call(call_agent)#3
+    subprocess.check_call(call_agent)#4
+    subprocess.check_call(call_agent)#5
+    subprocess.check_call(call_agent)#6
+    subprocess.check_call(call_agent)#7
+    subprocess.check_call(call_agent)#8
+    subprocess.check_call(call_agent)#9
+    subprocess.check_call(call_agent)#10
+    server.kill()#1
+    server.kill()#2
+    server.kill()#3
+    server.kill()#4
+    server.kill()#5
+    server.kill()#6
+    server.kill()#7
+    server.kill()#8
+    server.kill()#9
+    server.kill()#10
     # Gather data and parse
     result_file = "/home/max/.torcs/results/"+ str(port[1]) +"/*.xml"
     newest = max(glob.iglob(result_file), key = os.path.getctime)
@@ -59,9 +62,9 @@ def evaluation(parameters, ind):
     time = root[2][1][0][1][0][4].attrib.get("val")
     penalty_time = root[2][1][0][1][0][5].attrib.get("val")
     best_lap_time = root[2][1][0][1][0][6].attrib.get("val")
-    races = [2,4,5,6,7,8,9,10]
+    races = [2,4,5,6,7,8,9,10,11,12]
     placing = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
-    for race in range(8):
+    for race in range(10):
         for place in range(2):
             #print str(root[races[race]][1][0][1][place][0].attrib.get("val"))
             if root[races[race]][1][0][1][place][0].attrib.get("val") in ("scr_server 1", "scr_server 2", "scr_server 3", "scr_server 4", "scr_server 5", "scr_server 6", "scr_server 7", "scr_server 8", "scr_server 9", "scr_server 10", "scr_server 11"):
@@ -75,6 +78,8 @@ def evaluation(parameters, ind):
     time6 = root[8][1][0][1][placing[5]][4].attrib.get("val")
     time7 = root[9][1][0][1][placing[6]][4].attrib.get("val")
     time8 = root[10][1][0][1][placing[7]][4].attrib.get("val")
+    time9 = root[11][1][0][1][placing[8]][4].attrib.get("val")
+    time10 = root[12][1][0][1][placing[9]][4].attrib.get("val")
 
     penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
     penalty_time2 = root[4][1][0][1][placing[1]][5].attrib.get("val")
@@ -84,6 +89,8 @@ def evaluation(parameters, ind):
     penalty_time6 = root[8][1][0][1][placing[5]][5].attrib.get("val")
     penalty_time7 = root[9][1][0][1][placing[6]][5].attrib.get("val")
     penalty_time8 = root[10][1][0][1][placing[7]][5].attrib.get("val")
+    penalty_time9 = root[11][1][0][1][placing[8]][5].attrib.get("val")
+    penalty_time10 = root[12][1][0][1][placing[9]][5].attrib.get("val")
 
     damage1=root[2][1][0][1][placing[0]][8].attrib.get("val")
     damage2=root[4][1][0][1][placing[1]][8].attrib.get("val")
@@ -93,6 +100,8 @@ def evaluation(parameters, ind):
     damage6=root[8][1][0][1][placing[5]][8].attrib.get("val")
     damage7=root[9][1][0][1][placing[6]][8].attrib.get("val")
     damage8=root[10][1][0][1][placing[7]][8].attrib.get("val")
+    damage9=root[11][1][0][1][placing[8]][8].attrib.get("val")
+    damage10=root[12][1][0][1][placing[9]][8].attrib.get("val")
 
     p1=abs(float(time1) - float(penalty_time1) > EPSILON)
     p2=abs(float(time2) - float(penalty_time2) > EPSILON)
@@ -102,15 +111,17 @@ def evaluation(parameters, ind):
     p6=abs(float(time6) - float(penalty_time6) > EPSILON)
     p7=abs(float(time7) - float(penalty_time7) > EPSILON)
     p8=abs(float(time8) - float(penalty_time8) > EPSILON)
-    print "total:"+str(float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8))+"time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" time7: "+str(time7)+" time8: "+str(time8)+" parameters: "+str(parameters)
+    p9=abs(float(time9) - float(penalty_time9) > EPSILON)
+    p10=abs(float(time10) - float(penalty_time10) > EPSILON)
+    print "total:"+str(float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10))+"time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" time7: "+str(time7)+" time8: "+str(time8)+" time9: "+str(time9)+" time10: "+str(time10)+" parameters: "+str(parameters)
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
-    if (float(damage1)<10000.0) and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0):
+    if (float(damage1)<10000.0) and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0)and (float(damage9)<10000.0)and (float(damage10)<10000.0):
         if float(time1)==0.0 or float(time2)==0.0or float(time3)==0.0:
             time = -1
-        elif laps > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and ((float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8))>200.0):
-           time = float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)
+        elif laps > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and ((float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8))>200.0):
+           time = float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10)
            #print "now timeX: "+str(time)
         else:
             time = -1
