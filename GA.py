@@ -167,13 +167,13 @@ class gax(RunGA):
                             pass
                         else:
                             self.parent2=self.randomPos
-                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11],self.cars[self.parent1].values[12] )
+                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11],self.cars[self.parent1].values[12], self.cars[self.parent2].values[13] )
 
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
 
         for i in range(self.numberOfElites, len(self.cars)):
-            for gene in range(13):
+            for gene in range(14):
         #        print "mutating "+str(i)
                 if (random.uniform(0, 1) <= self.mutationChance):
                     muval = (self.cars[i].values[gene] * 0.1)+0.1 #random.uniform(-0.1,0.1)
