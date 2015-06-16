@@ -120,7 +120,7 @@ def main():
     sp = 3
     mut = 1./rep_length
     cross = 0.95
-    maxgen = 1
+    maxgen = 0
     onlyThebest = 0
     run_id = "1"
     nr_processes =5
