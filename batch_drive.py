@@ -37,6 +37,11 @@ def evaluation(parameters, ind):
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
     subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+    subprocess.check_call(call_agent)
+
+    server.kill()
+    server.kill()
     server.kill()
     server.kill()
     server.kill()
