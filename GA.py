@@ -2,15 +2,8 @@
 import sys
 import os
 import time
-import csv
 import random
-import logging
-import operator
-import shutil
-import glob
 import pprocess
-#import matplotlib.pyplot as plt
-import  math
 import individual
 
 class RunGA():
@@ -29,8 +22,7 @@ class RunGA():
                 self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110),random.uniform(50,110),random.uniform(5,15)))
         print len(self.cars)
         if self.onlyTheBest == 1:
-            #total:1340.766s time1: 106.93 time2: 202.336 time3: 136.432 time4: 136.6 time5: 122.886 time6: 94.084 time7: 59.344 time8: 149.394 time9: 127.42 time10: 175.34 parameters:
-            self.cars.append(individual.individual('154.897575174', '-0.0199', '-0.139884752072', '0.779904990626', '82.8097466274', '1.19039046912', '0.384730869454', '32.9286263315', '0.0215211462875', '5909.19902', '0.829675710924', '78.4693515643', '49.7170137868', '17.9086116398'))
+            #total:1339.172; aalborg: 100.808 alpine1: 212.258 alpine2: 143.42 brondehach: 135.83 corkscrew: 120.926 eroad: 95.704 gtrack: 61.342 forza: 156.748 wheel1: 128.67 wheel2: 183.466 parameters: ['154.897575174', '-0.0199', '-0.139884752072', '0.779904990626', '82.8097466274', '0.971351422208', '0.246257782509', '32.9286263315', '0.0215211462875', '5909.19902', '0.829675710924', '78.4693515643', '49.7170137868', '17.9086116398']
             self.cars.append(individual.individual('154.897575174', '-0.0199', '-0.139884752072', '0.779904990626', '82.8097466274', '0.971351422208', '0.246257782509', '32.9286263315', '0.0215211462875', '5909.19902', '0.829675710924', '78.4693515643', '49.7170137868', '17.9086116398'))
         self.tournamentSize=sp
         self.crossoverChance = cross
@@ -205,7 +197,6 @@ class gax(RunGA):
     def evaluate(self):
         for ind in range(len(self.cars)):
             self.cars[ind].express()
-
         nproc = self.nr_processes
         times = []
         batches = len(self.cars)/nproc+1

@@ -56,20 +56,12 @@ def evaluation(parameters, ind):
     newest = max(glob.iglob(result_file), key = os.path.getctime)
     tree = ET.parse(newest)
     root = tree.getroot()
-
-    # Read times, laps info from disk
-    laps = root[2][1][0][1][0][3].attrib.get("val")
-    time = root[2][1][0][1][0][4].attrib.get("val")
-    penalty_time = root[2][1][0][1][0][5].attrib.get("val")
-    best_lap_time = root[2][1][0][1][0][6].attrib.get("val")
     races = [2,4,5,6,7,8,9,10,11,12]
     placing = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
     for race in range(10):
         for place in range(2):
-            #print str(root[races[race]][1][0][1][place][0].attrib.get("val"))
             if root[races[race]][1][0][1][place][0].attrib.get("val") in ("scr_server 1", "scr_server 2", "scr_server 3", "scr_server 4", "scr_server 5", "scr_server 6", "scr_server 7", "scr_server 8", "scr_server 9", "scr_server 10", "scr_server 11"):
                placing[race] = place
-               #print "inif: "+str(root[races[race]][1][0][1][place][0].attrib.get("val"))+" place: "+str(place)
     laps1 = root[2][1][0][1][placing[0]][3].attrib.get("val")
     laps2 = root[4][1][0][1][placing[1]][3].attrib.get("val")
     laps3 = root[5][1][0][1][placing[2]][3].attrib.get("val")
@@ -90,8 +82,6 @@ def evaluation(parameters, ind):
     time8 = root[10][1][0][1][placing[7]][4].attrib.get("val")
     time9 = root[11][1][0][1][placing[8]][4].attrib.get("val")
     time10 = root[12][1][0][1][placing[9]][4].attrib.get("val")
-
-
     penalty_time1 = root[2][1][0][1][placing[0]][5].attrib.get("val")
     penalty_time2 = root[4][1][0][1][placing[1]][5].attrib.get("val")
     penalty_time3 = root[5][1][0][1][placing[2]][5].attrib.get("val")
@@ -102,7 +92,6 @@ def evaluation(parameters, ind):
     penalty_time8 = root[10][1][0][1][placing[7]][5].attrib.get("val")
     penalty_time9 = root[11][1][0][1][placing[8]][5].attrib.get("val")
     penalty_time10 = root[12][1][0][1][placing[9]][5].attrib.get("val")
-
     damage1=root[2][1][0][1][placing[0]][8].attrib.get("val")
     damage2=root[4][1][0][1][placing[1]][8].attrib.get("val")
     damage3=root[5][1][0][1][placing[2]][8].attrib.get("val")
@@ -113,7 +102,6 @@ def evaluation(parameters, ind):
     damage8=root[10][1][0][1][placing[7]][8].attrib.get("val")
     damage9=root[11][1][0][1][placing[8]][8].attrib.get("val")
     damage10=root[12][1][0][1][placing[9]][8].attrib.get("val")
-
     p1=abs(float(time1) - float(penalty_time1) > EPSILON)
     p2=abs(float(time2) - float(penalty_time2) > EPSILON)
     p3=abs(float(time3) - float(penalty_time3) > EPSILON)
@@ -125,7 +113,6 @@ def evaluation(parameters, ind):
     p9=abs(float(time9) - float(penalty_time9) > EPSILON)
     p10=abs(float(time10) - float(penalty_time10) > EPSILON)
     print "total:"+str(float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10))+"time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" time7: "+str(time7)+" time8: "+str(time8)+" time9: "+str(time9)+" time10: "+str(time10)+" parameters: "+str(parameters)
-
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
     if (float(damage1)<10000.0) and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0)and (float(damage9)<10000.0)and (float(damage10)<10000.0):
@@ -150,7 +137,6 @@ def main():
     cross = 0.95
     maxgen = 100
     onlyThebest = 0
-    run_id = "1"
     nr_processes = 6
     fullpath = os.path.abspath(".")
     for runval in range(39, 1000):
