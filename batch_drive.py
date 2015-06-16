@@ -89,14 +89,7 @@ def evaluation(parameters, ind):
     p4=abs(float(time4) - float(penalty_time4) > EPSILON)
     p5=abs(float(time5) - float(penalty_time5) > EPSILON)
     p6=abs(float(time6) - float(penalty_time6) > EPSILON)
-    print "p1: "+str(p1)
-
     print "total:"+str(float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6))+"time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" parameters: "+str(parameters)
-
-
-    #print "now time1: "+str(float(time1))+" Port: "+str(port)
-    #print "now time2: "+str(float(time2))+" Port: "+str(port)
-
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
