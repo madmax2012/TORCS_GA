@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	 file        : quickrace.xml
+	 created     : Sun Jan  5 11:52:32 CET 2003
+	 copyright   : (C) 2003-2014 by Eric Espie, Bernhard Wymann                         
+	 email       : Eric.Espie@torcs.org   
+	 version     : $Id: quickrace.xml,v 1.5.2.2 2014/03/19 10:41:00 berniw Exp $                                  
+	 -->
+
+<!--    This program is free software; you can redistribute it and/or modify  -->
+<!--    it under the terms of the GNU General Public License as published by  -->
+<!--    the Free Software Foundation; either version 2 of the License, or     -->
+<!--    (at your option) any later version.                                   -->
 <!DOCTYPE params SYSTEM "params.dtd">
+
+
 <params name="Quick Race">
   <section name="Header">
     <attstr name="name" val="Quick Race"/>
@@ -11,47 +26,12 @@
   </section>
 
   <section name="Tracks">
-    <attnum name="maximum number" val="10"/>
+    <attnum name="maximum number" val="1"/>
     <section name="1">
-      <attstr name="name" val="aalborg"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="2">
-      <attstr name="name" val="alpine-1"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="3">
-      <attstr name="name" val="alpine-2"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="4">
-      <attstr name="name" val="brondehach"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="5">
-      <attstr name="name" val="corkscrew"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="6">
-      <attstr name="name" val="eroad"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="7">
-      <attstr name="name" val="g-track-1"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="8">
       <attstr name="name" val="forza"/>
       <attstr name="category" val="road"/>
     </section>
-    <section name="9">
-      <attstr name="name" val="wheel-1"/>
-      <attstr name="category" val="road"/>
-    </section>
-    <section name="10">
-      <attstr name="name" val="wheel-2"/>
-      <attstr name="category" val="road"/>
-    </section>
+
   </section>
 
   <section name="Races">
@@ -85,9 +65,6 @@
     <section name="1">
       <attnum name="idx" val="4"/>
       <attstr name="module" val="scr_server"/>
-    </section>
-    <section name="2">
-      <attstr name="module" val="sparkle"/>
     </section>
   </section>
 
