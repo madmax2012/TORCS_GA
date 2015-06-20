@@ -115,18 +115,18 @@ def evaluation(parameters, ind):
     print "total:"+str(float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10))+"time1: "+str(time1)+" time2: "+str(time2)+" time3: "+str(time3)+" time4: "+str(time4)+" time5: "+str(time5)+" time6: "+str(time6)+" time7: "+str(time7)+" time8: "+str(time8)+" time9: "+str(time9)+" time10: "+str(time10)+" parameters: "+str(parameters)
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
-    if (float(damage1)<10000.0) and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0)and (float(damage9)<10000.0)and (float(damage10)<10000.0):
-        if float(time1)==0.0 or float(time2)==0.0or float(time3)==0.0:
+    if (float(damage1)<10000.0): #and  (float(damage2)<10000.0) and  (float(damage3)<10000.0) and (float(damage4) < 10000.0) and (float(damage5) < 10000.0) and (float(damage6)<10000.0) and (float(damage7)<10000.0) and (float(damage8)<10000.0)and (float(damage9)<10000.0)and (float(damage10)<10000.0):
+        if float(time1)==0.0: #or float(time2)==0.0or float(time3)==0.0:
             time = -1
-        elif (laps1 > 0 and laps2 > 0 and laps3 > 0 and laps4 > 0 and laps5 > 0 and laps6 > 0 and laps7 > 0 and laps8 > 0 and laps9 > 0 and laps10 > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and (float(time1)> 40.0) and (float(time2)> 40.0) and (float(time3)> 40.0) and (float(time4)> 40.0) and (float(time5)> 40.0) and (float(time6)> 40.0) and (float(time7)> 40.0) and (float(time8)> 40.0) and (float(time9)> 40.0) and (float(time10)> 40.0)):
-           time = float(time1)+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10)
+        elif (laps1 > 0 ):#and laps2 > 0 and laps3 > 0 and laps4 > 0 and laps5 > 0 and laps6 > 0 and laps7 > 0 and laps8 > 0 and laps9 > 0 and laps10 > 0 and p1 and p2 and p3 and p4 and p5 and p6 and p7 and p8 and p9 and p10 and (float(time1)> 40.0) and (float(time2)> 40.0) and (float(time3)> 40.0) and (float(time4)> 40.0) and (float(time5)> 40.0) and (float(time6)> 40.0) and (float(time7)> 40.0) and (float(time8)> 40.0) and (float(time9)> 40.0) and (float(time10)> 40.0)):
+           time = float(time1)#+float(time2)+float(time3)+float(time4)+float(time5)+float(time6)+float(time7)+float(time8)+float(time9)+float(time10)
            #print "now timeX: "+str(time)
         else:
             time = -1
     else:
         time=-1
         print "to much damage. track 1: "+str(float(root[2][1][0][1][placing[0]][8].attrib.get("val")))
-        print "to much damage. track 2: "+str(float(root[4][1][0][1][placing[0]][8].attrib.get("val")))
+      #  print "to much damage. track 2: "+str(float(root[4][1][0][1][placing[0]][8].attrib.get("val")))
     return time
 
 def main():
@@ -138,7 +138,7 @@ def main():
     maxgen = 100
     onlyThebest = 0
     run_id = "1"
-    nr_processes = 6
+    nr_processes = 4
     fullpath = os.path.abspath(".")
     for runval in range(39, 1000):
         print "run "+str(runval)
