@@ -30,7 +30,7 @@ class RunGA():
             #self.cars.append(individual.individual('154.897575174', '-0.0199', '-0.0538732272792', '0.779904990626', '82.8097466274', '0.774216279987', '0.246257782509', '32.9286263315', '0.0215211462875', '5909.19902', '0.829675710924', '78.4693515643', '44.6453124081', '17.9086116398'))
         self.tournamentSize=sp
         self.crossoverChance = cross
-        self.debug=0
+        self.debug=1
         self.mutationChance = mut
         self.runval=runval
 
@@ -89,7 +89,9 @@ class gax(RunGA):
                             pass
                         else:
                             self.parent2=self.randomPos
-                self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11],self.cars[self.parent1].values[12], self.cars[self.parent2].values[13] )
+                self.parents = [self.parent1, self.parent2]
+ #               self.tempArray[replacer]=individual.individual(self.cars[self.parent1].values[0],self.cars[self.parent2].values[1], self.cars[self.parent1].values[2], self.cars[self.parent2].values[3], self.cars[self.parent1].values[4], self.cars[self.parent2].values[5], self.cars[self.parent1].values[6], self.cars[self.parent2].values[7],self.cars[self.parent1].values[8],self.cars[self.parent2].values[9],self.cars[self.parent1].values[10],self.cars[self.parent2].values[11],self.cars[self.parent1].values[12], self.cars[self.parent2].values[13] )
+                self.tempArray[replacer]=individual.individual(self.cars[self.parents[random.randint(0,1)]].values[0],self.cars[self.parents[random.randint(0,1)]].values[1], self.cars[self.parents[random.randint(0,1)]].values[2], self.cars[self.parents[random.randint(0,1)]].values[3], self.cars[self.parents[random.randint(0,1)]].values[4], self.cars[self.parents[random.randint(0,1)]].values[5], self.cars[self.parents[random.randint(0,1)]].values[6], self.cars[self.parents[random.randint(0,1)]].values[7],self.cars[self.parents[random.randint(0,1)]].values[8],self.cars[self.parents[random.randint(0,1)]].values[9],self.cars[self.parents[random.randint(0,1)]].values[10],self.cars[self.parents[random.randint(0,1)]].values[11],self.cars[self.parents[random.randint(0,1)]].values[12], self.cars[self.parents[random.randint(0,1)]].values[13] )
 
         for i in range(len(self.cars)):
             self.cars[i] = self.tempArray[i]
