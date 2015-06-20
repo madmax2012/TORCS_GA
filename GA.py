@@ -30,7 +30,7 @@ class RunGA():
             #self.cars.append(individual.individual('154.897575174', '-0.0199', '-0.0538732272792', '0.779904990626', '82.8097466274', '0.774216279987', '0.246257782509', '32.9286263315', '0.0215211462875', '5909.19902', '0.829675710924', '78.4693515643', '44.6453124081', '17.9086116398'))
         self.tournamentSize=sp
         self.crossoverChance = cross
-        self.debug=1
+        self.debug=0
         self.mutationChance = mut
         self.runval=runval
 
