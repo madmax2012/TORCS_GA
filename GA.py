@@ -122,7 +122,7 @@ class gax(RunGA):
         print "killed old torcs processes"
 
         f = open("debugline_forza_modSA_final.csv","a")
-        f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"\n")
+        f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"; number of invalids;"+str(self.invalid)+"\n")
         f.close
 
         f = open("forza_modSA_final.csv","a") #opens file with name of "test.txt"

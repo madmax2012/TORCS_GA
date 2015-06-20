@@ -57,12 +57,12 @@ def main():
     sp = 3
     mut = 1./rep_length
     cross = 0.95
-    maxgen = 100
+    maxgen = 50
     onlyThebest = 0
     run_id = "1"
     nr_processes = 4
     fullpath = os.path.abspath(".")
-    for runval in range(39, 1000):
+    for runval in range(1, 10):
         print "run "+str(runval)
         optimizer = GA.gax(rep_length = rep_length, popsize = popsize, sp = sp, mut = mut, fitfun = evaluation, maxgen = maxgen, cross = cross, nr_processes = nr_processes, run_id = run_id, path = fullpath,onlyThebest=onlyThebest, runval=runval)
         optimizer.run()
