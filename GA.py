@@ -19,7 +19,7 @@ class RunGA():
         self.onlyTheBest = onlyThebest
         if self.onlyTheBest == 0:
             for i in range(self.popsize):
-                self.cars.append(individual.individual(random.uniform(50,150), random.uniform(0,0.1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,70), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110),random.uniform(50,110),random.uniform(5,15)))
+		self.cars.append(individual.individual(random.uniform(0,200), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.uniform(0,100), random.uniform(0,1), random.uniform(0,1), random.uniform(0,20), random.uniform(0,1), random.randint(5000,8000),random.uniform(0,1),random.uniform(50,110),random.uniform(50,110),random.uniform(5,15)))
         print len(self.cars)
         if self.onlyTheBest == 1:
             #total:1339.172; aalborg: 100.808 alpine1: 212.258 alpine2: 143.42 brondehach: 135.83 corkscrew: 120.926 eroad: 95.704 gtrack: 61.342 forza: 156.748 wheel1: 128.67 wheel2: 183.466 parameters: ['154.897575174', '-0.0199', '-0.139884752072', '0.779904990626', '82.8097466274', '0.971351422208', '0.246257782509', '32.9286263315', '0.0215211462875', '5909.19902', '0.829675710924', '78.4693515643', '49.7170137868', '17.9086116398']
@@ -121,11 +121,11 @@ class gax(RunGA):
         os.system(bashCommand)
         print "killed old torcs processes"
 
-        f = open("debugline_forza_modSA_final.csv","a")
+        f = open("debugline_street1_modSA_final.csv","a")
         f.write("run: "+str(self.runval)+" generation: "+str(self.currentIteration)+" fittest at: "+str(self.returnFittest())+" its fitness: "+str(self.returnFittestFitness())+"; number of invalids;"+str(self.invalid)+"\n")
         f.close
 
-        f = open("forza_modSA_final.csv","a") #opens file with name of "test.txt"
+        f = open("street1_modSA_final.csv","a") #opens file with name of "test.txt"
         if self.currentIteration == 0:
             f.write(("\n\n\n\n"))
             f.write(("run "+str(self.runval)+" starts here\n"))
