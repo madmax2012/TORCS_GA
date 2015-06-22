@@ -42,25 +42,27 @@ def evaluation(parameters, ind):
     time = root[2][1][0][1][0][4].attrib.get("val")
     penalty_time = root[2][1][0][1][0][5].attrib.get("val")
     best_lap_time = root[2][1][0][1][0][6].attrib.get("val")
+    damage = root[2][1][0][1][0][8].attrib.get("val")
 
     # Check whether the lap was actually finished and verify lap time
     #if laps > 0 and (float(time) - float(best_lap_time) < EPSILON):
     if laps > 0 and abs(float(time) - float(penalty_time) > EPSILON):
        time = float(time)
+       print "Time: "+str(time)+"damage: "+str(damage)
     else:
         time = -1
     return time
 
 def main():
     rep_length = 14
-    popsize =16
+    popsize =20
     sp = 3
     mut = 1./rep_length
     cross = 0.95
     maxgen = 50
     onlyThebest = 0
     run_id = "1"
-    nr_processes = 4
+    nr_processes = 10
     fullpath = os.path.abspath(".")
     for runval in range(4, 10):
         print "run "+str(runval)
